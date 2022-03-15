@@ -5,13 +5,13 @@ import SocialIcons from "../src/components/socialIcons";
 export default function Contact() {
   return (
     <Layout>
-      <section className="text-gray-600 body-font relative">
+      <section className="text-indigo-200 body-font relative md:top-0 top-24">
         <div className="container px-5 py-24 mx-auto">
           <div className="flex flex-col text-center w-full mb-12">
-            <h1 className="sm:text-3xl text-2xl font-medium title-font mb-4 text-gray-900">
+            <h1 className="sm:text-3xl text-2xl font-medium title-font mb-4 text-gray-900 text-indigo-200">
               Contact Us
             </h1>
-            <p className="lg:w-2/3 mx-auto leading-relaxed text-base">
+            <p className="lg:w-2/3 mx-auto leading-relaxed text-base text-indigo-200">
               Whatever cardigan tote bag tumblr hexagon brooklyn asymmetrical
               gentrify.
             </p>
@@ -22,7 +22,7 @@ export default function Contact() {
                 <div className="relative">
                   <label
                     htmlFor="name"
-                    className="leading-7 text-sm text-gray-600"
+                    className="leading-7 text-sm text-indigo-200"
                   >
                     Name
                   </label>
@@ -38,7 +38,7 @@ export default function Contact() {
                 <div className="relative">
                   <label
                     htmlFor="email"
-                    className="leading-7 text-sm text-gray-600"
+                    className="leading-7 text-sm text-indigo-200"
                   >
                     Email
                   </label>
@@ -54,7 +54,7 @@ export default function Contact() {
                 <div className="relative">
                   <label
                     htmlFor="message"
-                    className="leading-7 text-sm text-gray-600"
+                    className="leading-7 text-sm text-indigo-200"
                   >
                     Message
                   </label>
@@ -67,7 +67,7 @@ export default function Contact() {
               </div>
               <div className="p-2 w-full">
                 <button className="flex mx-auto text-white bg-indigo-500 border-0 py-2 px-8 focus:outline-none hover:bg-indigo-600 rounded text-lg">
-                  Button
+                  Send
                 </button>
               </div>
               <div className="p-2 w-full pt-8 mt-8 border-t border-gray-200 text-center">

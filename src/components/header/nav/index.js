@@ -3,14 +3,14 @@ import { useRouter } from "next/router";
 
 export default function Nav() {
   const router = useRouter();
-  console.log(router.pathname);
-  
+  const classActive = `font-display text-lg font-bold`;
+
   return (
     <nav className="md:ml-auto flex flex-wrap items-center text-base justify-center">
       <Link href="/">
         <a
           className={`mr-5 hover:text-gray-900 ${
-            router.pathname === `/` && `font-bold`
+            router.pathname === `/` && classActive
           }`}
         >
           Home
@@ -19,7 +19,9 @@ export default function Nav() {
       <Link href="/blog">
         <a
           className={`mr-5 hover:text-gray-900 ${
-            router.pathname === `/blog` && `font-bold`
+            (router.pathname === `/blog` ||
+              router.pathname === `/blog/[slug]`) &&
+            classActive
           }`}
         >
           Blog
@@ -28,7 +30,7 @@ export default function Nav() {
       <Link href="/about">
         <a
           className={`mr-5 hover:text-gray-900 ${
-            router.pathname === `/about` && `font-bold`
+            router.pathname === `/about` && classActive
           }`}
         >
           About
@@ -37,7 +39,7 @@ export default function Nav() {
       <Link href="/contact">
         <a
           className={`mr-5 hover:text-gray-900 ${
-            router.pathname === `/contact` && `font-bold`
+            router.pathname === `/contact` && classActive
           }`}
         >
           Contact

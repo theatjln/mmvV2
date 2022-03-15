@@ -8,6 +8,11 @@
 module.exports = {
   purge: ["./src/components/**/*.js", "./pages/**/*.js"],
   theme: {
+    fontFamily: {
+      sans: ["Graphik", "sans-serif"],
+      serif: ["Merriweather", "serif"],
+      display: ["Dancing Script", "cursive"], 
+    },
     extend: {
       width: {
         "30%": "30%",

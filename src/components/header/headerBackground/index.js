@@ -5,7 +5,7 @@ const introVidSrc =
 
 const getHeight = (path) => {
   if (path === "/") return "md:h-4/5";
-  else if (path === "/contact") return "md:h-full";
+  else if (path === "/contact") return "";
   else return "md:h-3/5";
 };
 
