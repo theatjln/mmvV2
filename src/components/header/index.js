@@ -2,8 +2,7 @@ import React from "react";
 import Brand from "./brand";
 import Hero from "./banner";
 import Nav from "./nav";
-import SubscribeButton from "./SubscribeButton";
-import HeaderBackground from "./headerBackground";
+import SubscribeButton from "./subscribeButton"; 
 
 export default function Header() {
   return (
