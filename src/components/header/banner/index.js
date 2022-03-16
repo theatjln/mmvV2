@@ -1,9 +1,27 @@
-import React from "react";
+import SwiperCarousel from "../../carousel/swiper";
+// for photo carousel
+const dummyImages = [
+  {
+    imgSrc: `https://images.pexels.com/photos/15286/pexels-photo.jpg?auto=compress&cs=tinysrgb&dpr=1&w=500`,
+  },
+  {
+    imgSrc: `https://images.pexels.com/photos/3244513/pexels-photo-3244513.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500`,
+  },
+];
+
+const dummyVideos = [
+  {
+    vidSrc: `https://player.vimeo.com/external/384761655.sd.mp4?s=383ab4dbc773cd0d5ece3af208d8f963368f67e4&profile_id=165&oauth2_token_id=57447761`,
+  },
+  {
+    vidSrc: `https://player.vimeo.com/external/434045526.sd.mp4?s=c27eecc69a27dbc4ff2b87d38afc35f1a9e7c02d&profile_id=165&oauth2_token_id=57447761`,
+  },
+];
 
 const BannerCarousel = ({ div1className, div2className }) => (
-  <div className={`p-4 md:w-1/3 ${div1className}`}>
+  <div className={`p-4 ${div1className}`}>
     <div
-      className={`lg:h-48 md:h-36 w-full border-2 border-gray-200 border-opacity-60 rounded-lg overflow-hidden relative ${div2className}`}
+      className={`lg:h-48 md:h-36 w-full rounded-lg overflow-hidden relative ${div2className}`}
     >
       <img
         className={`w-full h-full object-cover object-center`}
@@ -14,11 +32,34 @@ const BannerCarousel = ({ div1className, div2className }) => (
   </div>
 );
 
+const BannerCarouselImg = ({ div1className, div2className }) => (
+  <div className={`p-4 ${div1className} h-full w-full`}>
+    <div
+      className={`lg:h-48 md:h-36 w-full rounded-lg overflow-hidden relative ${div2className} flex`}
+    >
+      <SwiperCarousel
+        items={dummyImages}
+        imgClassName={`w-full h-full object-cover object-center`}
+      />
+    </div>
+  </div>
+);
+
+const BannerCarouselVid = ({ div1className, div2className }) => (
+  <div className={`p-4 ${div1className} h-full w-full`}>
+    <div
+      className={`lg:h-48 md:h-36 w-full rounded-lg overflow-hidden relative ${div2className} flex`}
+    >
+      <SwiperCarousel
+        items={dummyVideos}
+        vidClassName="w-full h-full max-w-none md:w-30rem"
+      />
+    </div>
+  </div>
+);
+
 const BannerCaption = () => (
   <div className="flex flex-col text-center w-full mb-20 md:mt-0 mt-40">
-    {/* <h2 className="text-xs text-indigo-500 tracking-widest font-medium title-font mb-1">
-      ROOF PARTY POLAROID
-    </h2> */}
     <h1 className="text-5xl font-medium title-font mb-4 mt-4 text-indigo-200">
       A Different Travel Experience
     </h1>
@@ -34,9 +75,19 @@ export default function Banner() {
       <div className="container px-5 py-24 mx-auto">
         <BannerCaption />
         <div className="flex flex-wrap md:-m-4">
-          <BannerCarousel div1className="md:w-30%" div2className="md:top-6" />
-          <BannerCarousel div1className="md:w-2/5" div2className="md:-top-12 lg:h-60 md:h-48" />
-          <BannerCarousel div1className="md:w-30%" div2className="md:top-6" />
+          <BannerCarouselImg
+            div1className="md:w-30%"
+            div2className="md:top-6"
+          />
+
+          <BannerCarouselVid
+            div1className="md:w-2/5"
+            div2className="md:-top-12 lg:h-60 md:h-48"
+          />
+          <BannerCarouselVid
+            div1className="md:w-30%"
+            div2className="md:top-6"
+          />
         </div>
       </div>
     </section>

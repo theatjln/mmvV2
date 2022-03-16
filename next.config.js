@@ -7,6 +7,9 @@
 
 const path = require("path");
 module.exports = {
+  images: {
+    domains: ["dummyimage.com", "images.pexels.com"],
+  },
   future: { webpack5: true },
   reactStrictMode: true, //equivalent to 'use strict'
   trailingSlash: true, //whenever a user goes to any particular url, its gonna automatically add a trailing slash if it doesn exist, good for SEO

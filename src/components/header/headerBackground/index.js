@@ -15,7 +15,7 @@ export default function HeaderBackground() {
   return (
     <div className="w-full h-screen absolute">
       <div
-        className={`container-fluid ${mdHeight} h-full bg-black overflow-hidden relative`}
+        className={`container-fluid ${mdHeight} bg-indigo-300 h-full overflow-hidden relative`}
       >
         <div className="relative h-full w-full">
           <video

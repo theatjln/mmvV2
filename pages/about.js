@@ -1,5 +1,6 @@
 import Layout from "../src/components/layout";
 import Link from "next/link";
+import Image from "next/image";
 import SocialIcons from "../src/components/socialIcons";
 
 export default function About() {
@@ -7,12 +8,20 @@ export default function About() {
     <Layout>
       <section className="text-gray-600 body-font md:top-0 top-40 relative md:mb-0 mb-20">
         <div className="container mx-auto flex px-5 py-24 items-center justify-center flex-col">
-          <img
-            className="lg:w-2/6 md:w-3/6 w-5/6 mb-10 object-cover object-center rounded-50%"
-            alt="hero"
-            src="https://dummyimage.com/720x600"
+          {/* image here should have same height and width */}
+          {/* <img
+              className="lg:w-2/6 md:w-3/6 w-3/5 mb-10 object-cover object-center rounded-50% md:mt-0 -mt-16"
+              alt="hero"
+              src="https://dummyimage.com/720"
+            />   */}
+          <Image
+            alt="profile"
+            src={`https://images.pexels.com/photos/1704488/pexels-photo-1704488.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500`}
+            height={320}
+            width={320}
+            className="lg:w-2/6 md:w-3/6 w-3/5 mb-10 object-cover object-center rounded-50% md:mt-0 -mt-16"
           />
-          <div className="text-center lg:w-2/3 w-full">
+          <div className="mt-5 text-center lg:w-2/3 w-full bg-white md:pt-0 pt-10 rounded-lg">
             <h1 className="title-font sm:text-4xl text-3xl mb-4 font-medium text-gray-900">
               Markus Markus Viajero
             </h1>

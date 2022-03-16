@@ -1,21 +1,15 @@
 import Link from "next/link";
+import Image from "next/image";
 
 export default function AboutExcerpt() {
   return (
     <section className="text-gray-600 body-font">
       <div className="container px-5 py-24 mx-auto flex flex-col">
         <div className="lg:w-4/6 mx-auto">
-          <div className="rounded-lg h-64 overflow-hidden">
-            <img
-              alt="content"
-              className="object-cover object-center h-full w-full"
-              src="https://dummyimage.com/1200x500"
-            />
-          </div>
-          <div className="flex flex-col sm:flex-row mt-10">
+          <div className="flex flex-col sm:flex-row">
             <div className="sm:w-1/3 text-center sm:pr-8 sm:py-8">
-              <div className="w-20 h-20 rounded-full inline-flex items-center justify-center bg-gray-200 text-gray-400">
-                <svg
+              <div className="w-40 h-40 rounded-full inline-flex items-center justify-center bg-gray-200 text-gray-400">
+                {/* <svg
                   fill="none"
                   stroke="currentColor"
                   strokeLinecap="round"
@@ -26,10 +20,17 @@ export default function AboutExcerpt() {
                 >
                   <path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2" />
                   <circle cx="12" cy="7" r="4"></circle>
-                </svg>
+                </svg> */}
+                <Image
+                  alt="profile"
+                  src={`https://images.pexels.com/photos/1704488/pexels-photo-1704488.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500`}
+                  height={200}
+                  width={200}
+                  className="w-10 h-10"
+                />
               </div>
               <div className="flex flex-col items-center text-center justify-center">
-                <h2 className="font-medium title-font mt-4 text-gray-900 text-lg">
+                <h2 className="font-medium title-font mt-4 text-gray-900 text-xl">
                   Markus Markus Viajero
                 </h2>
                 <div className="w-12 h-1 bg-indigo-500 rounded mt-2 mb-4"></div>
