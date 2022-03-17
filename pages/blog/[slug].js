@@ -16,8 +16,8 @@ export default function BlogDetailsPage() {
     <Layout>
       <section className="text-gray-600 body-font relative">
         <div className="container px-5 py-24 mx-auto flex flex-col ">
-          <div className="lg:w-4/6 mx-auto mt-28 md:mt-0">
-            <div className="rounded-lg lg:h-372px md:h-410px sm:h-337px h-250px overflow-hidden ">
+          <div className="lg:w-4/6 mx-auto mt-28 md:mt-0 flex flex-col items-center">
+            <div className="rounded-lg lg:h-372px md:h-410px sm:h-337px h-250px overflow-hidden w-full">
               {/* <img
                 alt="content"
                 className="object-cover object-center h-full w-full"
@@ -90,7 +90,7 @@ export default function BlogDetailsPage() {
                 </a> */}
               </div>
             </div>
-            <div className="rounded-lg md:h-96 h-60 md:w-45rem w-28rem overflow-hidden">
+            <div className="rounded-lg w-28rem h-60 overflow-hidden mt-10 md:self-end">
               {/*  <img
                 alt="content"
                 className="object-cover object-center h-full w-full"
