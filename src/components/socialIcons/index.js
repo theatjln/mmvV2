@@ -2,45 +2,46 @@ import Link from "next/link";
 
 /* tiktok, yt, fb, ig */
 
-const TikTokLink = () => (
-  <Link href="/">
+const TikTokLink = ({ href }) => (
+  <Link href={`https:${href}`}>
     <a className="text-gray-500 hover:cursor-pointer mx-3" target="_blank">
       <i className={`fab fa-tiktok`}></i>
     </a>
   </Link>
 );
 
-const YoutubeLink = () => (
-  <Link href="/">
+const YoutubeLink = ({ href }) => (
+  <Link href={`https:${href}`}>
     <a className="text-gray-500 hover:cursor-pointer mx-3" target="_blank">
       <i className={`fab fa-youtube`}></i>
     </a>
   </Link>
 );
 
-const FbLink = () => (
-  <Link href="/">
+const FbLink = ({ href }) => (
+  <Link href={`https:${href}`}>
     <a className="text-gray-500 hover:cursor-pointer mx-3" target="_blank">
       <i className={`fab fa-facebook`}></i>
     </a>
   </Link>
 );
 
-const IgLink = () => (
-  <Link href="/">
+const IgLink = ({ href }) => (
+  <Link href={`https:${href}`}>
     <a className="text-gray-500 hover:cursor-pointer mx-3" target="_blank">
       <i className={`fab fa-instagram`}></i>
     </a>
   </Link>
 );
 
-export default function SocialIcons() {
+export default function SocialIcons(props) { 
+  const { tiktokLink, youtubeChannelLink, facebookLink, instagramLink } = props;
   return (
     <span className="inline-flex">
-      <TikTokLink />
-      <YoutubeLink />
-      <FbLink />
-      <IgLink />
+      <TikTokLink href={tiktokLink} />
+      <YoutubeLink href={youtubeChannelLink} />
+      <FbLink href={facebookLink} />
+      <IgLink href={instagramLink} />
     </span>
   );
 }

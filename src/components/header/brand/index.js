@@ -3,7 +3,7 @@ import Link from "next/link";
 export default function Brand() {
   return (
     <Link href="/">
-      <a className="flex title-font font-medium items-center text-gray-900 mb-4 md:mb-0">
+      <a className="flex title-font font-medium items-center text-gray-900 mb-0">
        {/*  <svg
           xmlns="http://www.w3.org/2000/svg"
           fill="none"
@@ -16,7 +16,7 @@ export default function Brand() {
         >
           <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" />
         </svg> */}
-        <span className="ml-3 text-xl font-display">Markus Markus Viajero</span>
+        <span className="ml-3 text-lg font-display">Markus Markus Viajero</span>
       </a>
     </Link>
   );

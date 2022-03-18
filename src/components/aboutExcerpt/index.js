@@ -1,7 +1,47 @@
+// modules
 import Link from "next/link";
 import Image from "next/image";
+/* code - render contentful rich text  */
+import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
+import { BLOCKS, INLINES } from "@contentful/rich-text-types";
+/* end code - render contentful rich text  */
 
-export default function AboutExcerpt() {
+// helpers
+
+export default function AboutExcerpt(props) {
+  const { name, interests, profilePicture, excerpt } = props;
+
+  /* code - render contentful rich text  */
+  const H4 = ({ children }) => (
+    <>
+      <h4 className="font-bold text-3xl">{children}</h4>
+      <br />
+    </>
+  );
+
+  const P = ({ children }) => (
+    <>
+      <p className="text-base">{children}</p>
+      <br />
+    </>
+  );
+
+  const MYLINK = ({ children }) => (
+    <a className="text-indigo-400 hover:cursor-pointer hover:font-display">
+      {children}
+    </a>
+  );
+
+  const options = {
+    renderNode: {
+      [BLOCKS.HEADING_4]: (node, children) => <H4>{children}</H4>,
+      [BLOCKS.PARAGRAPH]: (node, children) => <P>{children}</P>,
+      [INLINES.HYPERLINK]: (node, children) => <MYLINK>{children}</MYLINK>,
+    },
+  };
+
+  const aboutpageExcerpt = documentToReactComponents(excerpt, options);
+  /* end code - render contentful rich text  */ 
   return (
     <section className="text-gray-600 body-font">
       <div className="container px-5 py-24 mx-auto flex flex-col">
@@ -9,49 +49,30 @@ export default function AboutExcerpt() {
           <div className="flex flex-col sm:flex-row">
             <div className="sm:w-1/3 text-center sm:pr-8 sm:py-8">
               <div className="w-40 h-40 rounded-full inline-flex items-center justify-center bg-gray-200 text-gray-400">
-                {/* <svg
-                  fill="none"
-                  stroke="currentColor"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth="2"
-                  className="w-10 h-10"
-                  viewBox="0 0 24 24"
-                >
-                  <path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2" />
-                  <circle cx="12" cy="7" r="4"></circle>
-                </svg> */}
+                {/* profilePicture.fields.file.url */}
                 <Image
                   alt="profile"
-                  src={`https://images.pexels.com/photos/1704488/pexels-photo-1704488.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500`}
+                  src={`https:${profilePicture.fields.file.url}`}
                   height={200}
                   width={200}
-                  className="w-10 h-10"
+                  className="w-10 h-10 rounded-full"
                 />
               </div>
               <div className="flex flex-col items-center text-center justify-center">
                 <h2 className="font-medium title-font mt-4 text-gray-900 text-xl">
-                  Markus Markus Viajero
+                  {name}
                 </h2>
                 <div className="w-12 h-1 bg-indigo-500 rounded mt-2 mb-4"></div>
-                <p className="text-base">
-                  Raclette knausgaard hella meggs normcore williamsburg enamel
-                  pin sartorial venmo tbh hot chicken gentrify portland.
+                <p className="text-base font-display">
+                  Interests:
+                  <p className="text-sm font-bold">
+                    {interests.map((interest) => interest + ", ")}
+                  </p>
                 </p>
               </div>
             </div>
             <div className="sm:w-2/3 sm:pl-8 sm:py-8 sm:border-l border-gray-200 sm:border-t-0 border-t mt-4 pt-4 sm:mt-0 text-center sm:text-left">
-              <p className="leading-relaxed text-lg mb-4">
-                {`  Meggings portland fingerstache lyft, post-ironic fixie man bun
-                banh mi umami everyday carry hexagon locavore direct trade art
-                party. Locavore small batch listicle gastropub farm-to-table
-                lumbersexual salvia messenger bag. Coloring book flannel
-                truffaut craft beer drinking vinegar sartorial, disrupt fashion
-                axe normcore meh butcher. Portland 90's scenester vexillologist
-                forage post-ironic asymmetrical, chartreuse disrupt butcher
-                paleo intelligentsia pabst before they sold out four loko. 3
-                wolf moon brooklyn.`}
-              </p>
+              <p className="leading-relaxed text-lg mb-4">{aboutpageExcerpt}</p>
               <Link href="/about">
                 <a className="text-indigo-500 inline-flex items-center">
                   Learn More

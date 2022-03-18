@@ -1,43 +1,36 @@
-import Layout from "../../src/components/layout";
-import Link from "next/link";
+// modules
+import Head from "next/head";
+import { createClient } from "contentful";
 
-const BlogCard = () => (
-  <Link href="/blog/dummy">
-    <div className="xl:w-1/4 md:w-1/2 p-4 hover:cursor-pointer">
-      <div className="bg-gray-100 p-6 rounded-lg">
-        {/*  <img
-          className="h-64 sm:h-72 md:h-52 lg:h-64 rounded w-full object-cover object-center mb-6"
-          src="https://dummyimage.com/720x400"
-          alt="content"
-        />  */}
-        <iframe
-          width="560"
-          height="315"
-          src={`https://www.youtube.com/embed/Wm6OrHQchcQ?autoplay=0&loop=1&playlist=Wm6OrHQchcQ&controls=1&showinfo=0&autohide=1&modestbranding=0&mute=1`}
-          frameBorder="0"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-          allowFullScreen
-          title="Embedded youtube"
-          className="h-56 sm:h-72 md:h-40 lg:h-60 rounded w-full object-cover object-center mb-6"
-        />
-        <h2 className="text-lg text-indigo-500 font-semibold title-font mb-4">
-          Chichen Itza
-        </h2>
-        <p className="leading-relaxed text-base">
-          Fingerstache flexitarian street art 8-bit waistcoat. Distillery
-          hexagon disrupt edison bulbche. &nbsp;
-          <span className="text-indigo-600 font-display"> 
-            {`...Read more`}
-          </span>
-        </p>
-      </div>
-    </div>
-  </Link>
-);
+// helpers
+import { getClient, getData } from "../../src/helpers/client";
 
-export default function BlogPage() {
+// components
+import Layout from "../../src/components/layout"; 
+import BlogList from "../../src/components/blogList";
+
+export async function getStaticProps() {
+  const client = createClient(getClient());
+  return {
+    props: {
+      homepageData: await getData(client, "homepage"),
+      blogs: await getData(client, "title"),
+      bloggerDetails: await getData(client, "bloggerDetails"),
+    },
+  }; 
+}
+
+export default function BlogPage({ homepageData, blogs, bloggerDetails }) { 
   return (
-    <Layout>
+    <Layout
+      bgVidSrc={homepageData.backgroundVideo}
+      bloggerDetails={bloggerDetails}
+    >
+      <Head>
+        <title>Blog - Markus Markus Viajero</title>
+        <meta name="description" content="Blog Page: Blog for fun viajeros" />
+        <link rel="icon" href="/favicon.ico" />
+      </Head>
       <section className="text-gray-600 body-font md:top-0 top-40 relative md:mb-0 mb-20">
         <div className="container px-5 py-24 mx-auto">
           <div className="flex flex-wrap w-full mb-10">
@@ -49,10 +42,7 @@ export default function BlogPage() {
             </div>
           </div>
           <div className="flex flex-wrap -m-4">
-            <BlogCard />
-            <BlogCard />
-            <BlogCard />
-            <BlogCard />
+            <BlogList blogs={blogs} />
           </div>
         </div>
       </section>

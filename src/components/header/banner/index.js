@@ -18,20 +18,6 @@ const dummyVideos = [
   },
 ];
 
-const BannerCarousel = ({ div1className, div2className }) => (
-  <div className={`p-4 ${div1className}`}>
-    <div
-      className={`lg:h-48 md:h-36 w-full rounded-lg overflow-hidden relative ${div2className}`}
-    >
-      <img
-        className={`w-full h-full object-cover object-center`}
-        src="https://dummyimage.com/720x400"
-        alt="blog"
-      />
-    </div>
-  </div>
-);
-
 const BannerCarouselImg = ({ div1className, div2className }) => (
   <div className={`p-4 ${div1className} h-full w-full`}>
     <div
@@ -48,7 +34,7 @@ const BannerCarouselImg = ({ div1className, div2className }) => (
 const BannerCarouselVid = ({ div1className, div2className }) => (
   <div className={`p-4 ${div1className} h-full w-full`}>
     <div
-      className={`lg:h-48 md:h-36 w-full rounded-lg overflow-hidden relative ${div2className} flex`}
+      className={` md:h-36 w-full rounded-lg overflow-hidden relative ${div2className} flex`}
     >
       <SwiperCarousel
         items={dummyVideos}
@@ -59,11 +45,11 @@ const BannerCarouselVid = ({ div1className, div2className }) => (
 );
 
 const BannerCaption = () => (
-  <div className="flex flex-col text-center w-full mb-20 md:mt-0 mt-40">
-    <h1 className="text-5xl font-medium title-font mb-4 mt-4 text-indigo-200">
+  <div className="flex flex-col text-center w-full mb-20 md:mt-14 mt-40">
+    <h1 className="text-5xl font-medium title-font mb-4 text-indigo-200">
       A Different Travel Experience
     </h1>
-    <p className="lg:w-2/3 mx-auto leading-relaxed text-base text-indigo-200">
+    <p className="lg:w-2/3 mx-auto leading-relaxed text-base text-indigo-200 mb-4">
       {`“We take photos as a return ticket to a moment otherwise gone” – Katie Thurmes`}
     </p>
   </div>
@@ -82,11 +68,13 @@ export default function Banner() {
 
           <BannerCarouselVid
             div1className="md:w-2/5"
+            /*  div2className="md:-top-12 lg:h-60 md:h-48" */
             div2className="md:-top-12 lg:h-60 md:h-48"
           />
+
           <BannerCarouselVid
             div1className="md:w-30%"
-            div2className="md:top-6"
+            div2className="md:top-6 lg:h-48"
           />
         </div>
       </div>

@@ -8,7 +8,7 @@
 const path = require("path");
 module.exports = {
   images: {
-    domains: ["dummyimage.com", "images.pexels.com"],
+    domains: ["dummyimage.com", "images.pexels.com", "images.ctfassets.net"],
   },
   future: { webpack5: true },
   reactStrictMode: true, //equivalent to 'use strict'

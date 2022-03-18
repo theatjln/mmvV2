@@ -6,7 +6,7 @@ export default function Nav() {
   const classActive = `font-display text-lg font-bold`;
 
   return (
-    <nav className="md:ml-auto flex flex-wrap items-center text-base justify-center">
+    <nav className="md:ml-auto flex flex-wrap items-center text-sm justify-center">
       <Link href="/">
         <a
           className={`mr-5 hover:text-gray-900 ${

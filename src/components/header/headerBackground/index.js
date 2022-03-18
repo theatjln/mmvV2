@@ -1,4 +1,5 @@
 import { useRouter } from "next/router";
+import PolygonComponent from "../../polygonComponent";
 
 const introVidSrc =
   "https://player.vimeo.com/external/384761655.sd.mp4?s=383ab4dbc773cd0d5ece3af208d8f963368f67e4&profile_id=165&oauth2_token_id=57447761";
@@ -9,11 +10,12 @@ const getHeight = (path) => {
   else return "md:h-3/5";
 };
 
-export default function HeaderBackground() {
+export default function HeaderBackground({ bgVidSrc }) {
   const router = useRouter();
   const mdHeight = getHeight(router.pathname);
   return (
     <div className="w-full h-screen absolute">
+      
       <div
         className={`container-fluid ${mdHeight} bg-indigo-300 h-full overflow-hidden relative`}
       >
@@ -22,13 +24,14 @@ export default function HeaderBackground() {
             autoPlay
             loop
             muted
-            className="absolute w-206% md:w-screen max-w-none"
+            className="absolute w-321% md:w-screen max-w-none"
           >
-            <source src={introVidSrc} type="video/mp4" />
+            <source src={bgVidSrc} type="video/mp4" />
             <p>{`Your browser doesn't support HTML5 video.`}</p>
           </video>
           <div className="overlay w-full h-full bg-black opacity-80"></div>
         </div>
+        <PolygonComponent color="shape-fill-white" position="bottom" />
       </div>
     </div>
   );

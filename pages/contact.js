@@ -1,12 +1,31 @@
-import React from "react";
+// modules
+import { createClient } from "contentful";
+
+// helpers
+import { getClient, getData } from "../src/helpers/client";
+
+// components
 import Layout from "../src/components/layout";
 import SocialIcons from "../src/components/socialIcons";
 
-export default function Contact() {
+export async function getStaticProps() {
+  const client = createClient(getClient());
+  return {
+    props: {
+      homepageData: await getData(client, "homepage"),
+      bloggerDetails: await getData(client, "bloggerDetails"),
+    },
+  };
+}
+
+export default function Contact({ homepageData, bloggerDetails }) { 
   return (
-    <Layout>
+    <Layout
+      bgVidSrc={homepageData.backgroundVideo}
+      bloggerDetails={bloggerDetails}
+    >
       <section className="text-indigo-200 body-font relative md:top-0 top-24">
-        <div className="container px-5 py-24 mx-auto">
+        <div className="container px-8 py-24 mx-auto">
           <div className="flex flex-col text-center w-full mb-12">
             <h1 className="sm:text-3xl text-2xl font-medium title-font mb-4 text-gray-900 text-indigo-200">
               Contact Us
@@ -71,14 +90,14 @@ export default function Contact() {
                 </button>
               </div>
               <div className="p-2 w-full pt-8 mt-8 border-t border-gray-200 text-center">
-                <a className="text-indigo-500">example@email.com</a>
-                <p className="leading-normal my-5">
+                <a className="text-indigo-500 mr-4">{bloggerDetails.email}</a>
+                {/* <p className="leading-normal my-5">
                   49 Smith St.
                   <br />
                   Saint Cloud, MN 56301
-                </p>
+                </p> */}
                 <span className="inline-flex">
-                  <a className="text-gray-500">
+                  {/* <a className="text-gray-500">
                     <svg
                       fill="currentColor"
                       strokeLinecap="round"
@@ -134,7 +153,8 @@ export default function Contact() {
                     >
                       <path d="M21 11.5a8.38 8.38 0 01-.9 3.8 8.5 8.5 0 01-7.6 4.7 8.38 8.38 0 01-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 01-.9-3.8 8.5 8.5 0 014.7-7.6 8.38 8.38 0 013.8-.9h.5a8.48 8.48 0 018 8v.5z" />
                     </svg>
-                  </a>
+                  </a> */}
+                  <SocialIcons {...bloggerDetails} />
                 </span>
               </div>
             </div>
