@@ -24,7 +24,7 @@ export default function SwiperCarousel({ items, imgClassName, vidClassName }) {
     const imgSrc = router.pathname === `/blog/[slug]` ? `https:${item.fields.file.url}` : item.imgSrc;
 
     return (
-      <SwiperSlide className="flex" key={uniqid()}>
+      <SwiperSlide className="flex justify-center items-center rounded-lg" key={uniqid()}>
         <Image
           src={imgSrc}
           className={imgClassName}
@@ -37,8 +37,11 @@ export default function SwiperCarousel({ items, imgClassName, vidClassName }) {
   });
 
   const swiperSlidesVid = items.map((item) => (
-    <SwiperSlide className="flex" key={uniqid()}>
-      <div className="relative h-full w-full flex">
+    <SwiperSlide
+      className="flex justify-center items-center rounded-lg"
+      key={uniqid()}
+    >
+      <div className="relative h-full w-full flex justify-center items-center rounded-lg">
         <video autoPlay loop muted className={vidClassName}>
           <source src={item.vidSrc} type="video/mp4" />
           <p>{`Your browser doesn't support HTML5 video.`}</p>
@@ -50,6 +53,7 @@ export default function SwiperCarousel({ items, imgClassName, vidClassName }) {
   return (
     <>
       <Swiper
+        className="flex justify-center items-center rounded-lg"
         effect={"fade"}
         modules={[EffectFade, Autoplay]}
         autoplay={{

@@ -21,4 +21,8 @@ export const getData = async (client, contentTypeId) => {
   if (contentTypeId === "title") {
     return response.items;
   }
+
+  if (contentTypeId === "audio") {
+    return response.items[0];
+  }
 };

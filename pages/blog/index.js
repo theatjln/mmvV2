@@ -6,7 +6,7 @@ import { createClient } from "contentful";
 import { getClient, getData } from "../../src/helpers/client";
 
 // components
-import Layout from "../../src/components/layout"; 
+import Layout from "../../src/components/layout";
 import BlogList from "../../src/components/blogList";
 
 export async function getStaticProps() {
@@ -16,15 +16,23 @@ export async function getStaticProps() {
       homepageData: await getData(client, "homepage"),
       blogs: await getData(client, "title"),
       bloggerDetails: await getData(client, "bloggerDetails"),
+      audio: await getData(client, "audio"),
     },
-  }; 
+  };
 }
 
-export default function BlogPage({ homepageData, blogs, bloggerDetails }) { 
+export default function BlogPage({
+  homepageData,
+  blogs,
+  bloggerDetails,
+  audio,
+}) {
+  const audioSrc = `https:${audio.fields.src.fields.file.url}`;
   return (
     <Layout
       bgVidSrc={homepageData.backgroundVideo}
       bloggerDetails={bloggerDetails}
+      audioSrc={audioSrc}
     >
       <Head>
         <title>Blog - Markus Markus Viajero</title>

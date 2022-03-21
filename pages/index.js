@@ -18,15 +18,23 @@ export async function getStaticProps() {
       homepageData: await getData(client, "homepage"),
       bloggerDetails: await getData(client, "bloggerDetails"),
       aboutpageData: await getData(client, "aboutpage"),
-    },
+      audio: await getData(client, "audio"),
+    }, 
   };
 }
 
-export default function Home({ homepageData, bloggerDetails, aboutpageData }) {
+export default function Home({
+  homepageData,
+  bloggerDetails,
+  aboutpageData,
+  audio,
+}) { 
+  const audioSrc = `https:${audio.fields.src.fields.file.url}`;
   return (
     <Layout
       bgVidSrc={homepageData.backgroundVideo}
       bloggerDetails={bloggerDetails}
+      audioSrc={audioSrc}
     >
       <Head>
         <title>Home - Markus Markus Viajero</title>

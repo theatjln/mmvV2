@@ -52,12 +52,18 @@ export async function getStaticProps({ params }) {
       blog: blog.items[0],
       homepageData: await getData(client, "homepage"),
       bloggerDetails: await getData(client, "bloggerDetails"),
+      audio: await getData(client, "audio"),
     },
     revalidate: 1,
   };
 }
 
-export default function BlogDetailsPage({ homepageData, bloggerDetails, blog }) {
+export default function BlogDetailsPage({
+  homepageData,
+  bloggerDetails,
+  blog,
+  audio,
+}) {
   const { title, videoEmbedId, location, body, images } = blog.fields;
 
   /* code - render contentful rich text  */
@@ -91,11 +97,12 @@ export default function BlogDetailsPage({ homepageData, bloggerDetails, blog }) 
 
   const blogDetailsBody = documentToReactComponents(body, options);
   /* end code - render contentful rich text  */
-
+  const audioSrc = `https:${audio.fields.src.fields.file.url}`;
   return (
     <Layout
       bgVidSrc={homepageData.backgroundVideo}
       bloggerDetails={bloggerDetails}
+      audioSrc={audioSrc}
     >
       <Head>
         <title>{title} - Markus Markus Viajero</title>

@@ -25,7 +25,7 @@ const BannerCarouselImg = ({ div1className, div2className }) => (
     >
       <SwiperCarousel
         items={dummyImages}
-        imgClassName={`w-full h-full object-cover object-center`}
+        imgClassName={`w-full h-full object-cover object-center max-w-none flex justify-self-center rounded-lg`}
       />
     </div>
   </div>
@@ -34,11 +34,11 @@ const BannerCarouselImg = ({ div1className, div2className }) => (
 const BannerCarouselVid = ({ div1className, div2className }) => (
   <div className={`p-4 ${div1className} h-full w-full`}>
     <div
-      className={` md:h-36 w-full rounded-lg overflow-hidden relative ${div2className} flex`}
+      className={`md:h-36 w-full rounded-lg overflow-hidden relative ${div2className} flex`}
     >
       <SwiperCarousel
         items={dummyVideos}
-        vidClassName="w-full h-full max-w-none md:w-30rem"
+        vidClassName="w-full h-full max-w-none flex justify-self-center rounded-lg"
       />
     </div>
   </div>
@@ -57,10 +57,11 @@ const BannerCaption = () => (
 
 export default function Banner() {
   return (
-    <section className="text-gray-600 body-font relative">
+    <section className="banner text-gray-600 body-font relative">
       <div className="container px-5 py-24 mx-auto">
         <BannerCaption />
-        <div className="flex flex-wrap md:-m-4">
+        <div className="flex flex-wrap w-full justify-center items-center">
+
           <BannerCarouselImg
             div1className="md:w-30%"
             div2className="md:top-6"
@@ -69,13 +70,14 @@ export default function Banner() {
           <BannerCarouselVid
             div1className="md:w-2/5"
             /*  div2className="md:-top-12 lg:h-60 md:h-48" */
-            div2className="md:-top-12 lg:h-60 md:h-48"
+            div2className="md:-top-12 lg:h-52 md:h-36 lg:w-101%"
           />
 
           <BannerCarouselVid
             div1className="md:w-30%"
             div2className="md:top-6 lg:h-48"
           />
+
         </div>
       </div>
     </section>

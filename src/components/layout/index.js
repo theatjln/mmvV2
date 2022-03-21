@@ -4,11 +4,11 @@ import Header from "../header";
 import HeaderBackground from "../header/headerBackground";
 import PolygonComponent from "../polygonComponent";
 
-export default function Layout({ children, bgVidSrc, bloggerDetails }) {
+export default function Layout({ children, bgVidSrc, bloggerDetails, audioSrc }) {
   return (
-    <div className="container-fluid relative">
-      <Header />
-      <HeaderBackground bgVidSrc={bgVidSrc} />
+    <div className="layout container-fluid relative">
+      <Header audioSrc={audioSrc} />
+      <HeaderBackground bgVidSrc={bgVidSrc} /> 
       <main>{children}</main>
       <Footer {...bloggerDetails} />
     </div>

@@ -22,11 +22,17 @@ export async function getStaticProps() {
       homepageData: await getData(client, "homepage"),
       bloggerDetails: await getData(client, "bloggerDetails"),
       aboutpageData: await getData(client, "aboutpage"),
+      audio: await getData(client, "audio"),
     },
   };
 }
 
-export default function About({ homepageData, bloggerDetails, aboutpageData }) {
+export default function About({
+  homepageData,
+  bloggerDetails,
+  aboutpageData,
+  audio,
+}) {
   const { name, interests, profilePicture } = bloggerDetails;
   const { essay } = aboutpageData;
 
@@ -61,11 +67,12 @@ export default function About({ homepageData, bloggerDetails, aboutpageData }) {
 
   const aboutpageEssay = documentToReactComponents(essay, options);
   /* end code - render contentful rich text  */
-
+  const audioSrc = `https:${audio.fields.src.fields.file.url}`;
   return (
     <Layout
       bgVidSrc={homepageData.backgroundVideo}
       bloggerDetails={bloggerDetails}
+      audioSrc={audioSrc}
     >
       <Head>
         <title>About - Markus Markus Viajero</title>
