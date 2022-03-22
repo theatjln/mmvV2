@@ -25,7 +25,7 @@ const BannerCarouselImg = ({ div1className, div2className }) => (
     >
       <SwiperCarousel
         items={dummyImages}
-        imgClassName={`w-full h-full object-cover object-center max-w-none flex justify-self-center rounded-lg`}
+        imgClassName={`w-full h-full object-cover object-center max-w-none flex justify-self-center rounded-lg max-w-none-imp max-h-none-imp`}
       />
     </div>
   </div>
@@ -38,7 +38,7 @@ const BannerCarouselVid = ({ div1className, div2className, ads }) => (
     >
       <SwiperCarousel
         items={dummyVideos}
-        vidClassName={`w-full h-full max-w-none flex justify-self-center rounded-lg ${ads ? `md:w-160% xl:h-106% 2xl:h-126% 3xl:h-200%` : ` lg:h-110% xl:h-130% 2xl:h-160% 3xl:h-200%`}`}
+        vidClassName={`w-full h-full max-w-none flex justify-self-center rounded-lg ${ads ? `md:w-160% xl:h-106% 2xl:h-126% 3xl:h-200%` : ` md:h-126% lg:h-110% xl:h-130% 2xl:h-160% 3xl:h-200%`}`}
       />
     </div>
   </div>

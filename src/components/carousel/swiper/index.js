@@ -69,6 +69,14 @@ export default function SwiperCarousel({ items, imgClassName, vidClassName }) {
             outline: 0 !important;
             outline: none !important;
           }
+          .max-w-none-imp {
+            max-width: none !important;
+            min-width: none !important;
+          }
+           .max-h-none-imp {
+            max-width: none !important;
+            min-height: none !important;
+          }
     `}</style>
     </>
   );
