@@ -19,6 +19,7 @@ export default function HeaderBackground({ bgVidSrc }) {
       <div
         className={`container-fluid ${mdHeight} bg-indigo-300 overflow-hidden relative md:h-2/3 h-150%`}
       >
+        {/* for premium vimeo */}
         <div className="video-wrapper relative h-150% md:h-full lg:h-2/3 xl:h-130% w-full">
           <video
             autoPlay
@@ -31,9 +32,39 @@ export default function HeaderBackground({ bgVidSrc }) {
           </video>
           <div className="overlay w-full h-full bg-black opacity-80 lg:h-150% xl:h-130%"></div>
         </div>
+        {/* end for premium vimeo */}
+
+        {/* from basic vimeo acc */}
+        {/*  <div className="video-wrapper relative h-150% md:h-full lg:h-2/3 xl:h-130% w-full">
+          <div className="iframe-wrapper">
+            <iframe
+              src="https://player.vimeo.com/video/690927410?h=6218d2113b&autoplay=1&loop=1&title=0&byline=0&portrait=0"
+              className="iframe"
+              frameBorder="0"
+              allow="autoplay; fullscreen; picture-in-picture"
+              allowFullScreen
+            ></iframe>
+          </div> 
+          <div className="overlay w-full h-full bg-black opacity-80 lg:h-150% xl:h-130% z-20"></div>
+        </div> */}
+        {/* end from basic vimeo acc */}
+
         <VisitsCounter />
         <PolygonComponent color="shape-fill-white" position="bottom" />
       </div>
+      <style>{`
+        .iframe-wrapper {
+          padding:56.25% 0 0 0;
+          position:relative;
+        }
+        .iframe {
+          position:absolute;
+          top:0;
+          left:0;
+          width:100%;
+          height:100%;
+        }
+      `}</style>
     </div>
   );
 }

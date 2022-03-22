@@ -31,14 +31,14 @@ const BannerCarouselImg = ({ div1className, div2className }) => (
   </div>
 );
 
-const BannerCarouselVid = ({ div1className, div2className }) => (
+const BannerCarouselVid = ({ div1className, div2className, ads }) => (
   <div className={`p-4 ${div1className} h-full w-full`}>
     <div
       className={`md:h-36 w-full rounded-lg overflow-hidden relative ${div2className} flex`}
     >
       <SwiperCarousel
         items={dummyVideos}
-        vidClassName="w-full h-full max-w-none flex justify-self-center rounded-lg"
+        vidClassName={`w-full h-full max-w-none flex justify-self-center rounded-lg ${ads ? `md:w-160% xl:h-106% 2xl:h-126% 3xl:h-200%` : ` lg:h-110% xl:h-130% 2xl:h-160% 3xl:h-200%`}`}
       />
     </div>
   </div>
@@ -71,11 +71,13 @@ export default function Banner() {
             div1className="md:w-2/5"
             /*  div2className="md:-top-12 lg:h-60 md:h-48" */
             div2className="md:-top-12 lg:h-52 md:h-36 lg:w-101%"
+            ads={false}
           />
 
           <BannerCarouselVid
             div1className="md:w-30%"
             div2className="md:top-6 lg:h-48"
+            ads={true}
           />
 
         </div>

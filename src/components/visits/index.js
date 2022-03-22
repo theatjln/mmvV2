@@ -19,7 +19,7 @@ const VisitsCounter = () => {
   //   noHeaderCaption ? "bottom-56" : "bottom-120-px"
   // } flex flex-col text-center text-white text-xs`;
 
-  const wrapperStyle = `z-10 flex flex-col text-center text-white text-xs absolute md:top-14 md:right-4`;
+  const wrapperStyle = `z-10 flex flex-col text-center text-black text-xs absolute md:top-14 md:right-4 bg-white p-2 rounded-lg`;
 
   useEffect(() => {
     countapi.visits("global").then((result) => {
