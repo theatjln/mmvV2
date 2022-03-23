@@ -10,6 +10,7 @@ import Layout from "../src/components/layout";
 import Cta from "../src/components/cta";
 import AboutExcerpt from "../src/components/aboutExcerpt";
 import Banner from "../src/components/header/banner";
+import Reviews from "../src/components/reviews";
 
 export async function getStaticProps() {
   const client = createClient(getClient());
@@ -47,6 +48,7 @@ export default function Home({
       />
       <AboutExcerpt {...bloggerDetails} {...aboutpageData} />
       <Cta />
+      <Reviews/>
     </Layout>
   );
 }
