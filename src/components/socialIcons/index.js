@@ -3,7 +3,7 @@ import Link from "next/link";
 /* tiktok, yt, fb, ig */
 
 const TikTokLink = ({ href }) => (
-  <Link href={`https:${href}`}>
+  <Link href={href}>
     <a className="text-gray-500 hover:cursor-pointer mx-3" target="_blank">
       <i className={`fab fa-tiktok`}></i>
     </a>
@@ -11,7 +11,7 @@ const TikTokLink = ({ href }) => (
 );
 
 const YoutubeLink = ({ href }) => (
-  <Link href={`https:${href}`}>
+  <Link href={href}>
     <a className="text-gray-500 hover:cursor-pointer mx-3" target="_blank">
       <i className={`fab fa-youtube`}></i>
     </a>
@@ -19,7 +19,7 @@ const YoutubeLink = ({ href }) => (
 );
 
 const FbLink = ({ href }) => (
-  <Link href={`https:${href}`}>
+  <Link href={href}>
     <a className="text-gray-500 hover:cursor-pointer mx-3" target="_blank">
       <i className={`fab fa-facebook`}></i>
     </a>
@@ -27,7 +27,7 @@ const FbLink = ({ href }) => (
 );
 
 const IgLink = ({ href }) => (
-  <Link href={`${href}`}>
+  <Link href={href}>
     <a className="text-gray-500 hover:cursor-pointer mx-3" target="_blank">
       <i className={`fab fa-instagram`}></i>
     </a>
