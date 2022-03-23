@@ -27,7 +27,7 @@ const FbLink = ({ href }) => (
 );
 
 const IgLink = ({ href }) => (
-  <Link href={`https:${href}`}>
+  <Link href={`${href}`}>
     <a className="text-gray-500 hover:cursor-pointer mx-3" target="_blank">
       <i className={`fab fa-instagram`}></i>
     </a>

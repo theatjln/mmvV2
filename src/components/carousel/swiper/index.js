@@ -74,7 +74,7 @@ export default function SwiperCarousel({ items, imgClassName, vidClassName }) {
             min-width: none !important;
           }
            .max-h-none-imp {
-            max-width: none !important;
+            max-height: none !important;
             min-height: none !important;
           }
     `}</style>

@@ -17,8 +17,7 @@ import CustomForm from "./customForm";
 */
 
 export default function Cta() {
-  const MAILCHIMP_URL = process.env.NEXT_PUBLIC_MAILCHIMP_URL;
-  console.log(`MAILCHIMP_URL ${MAILCHIMP_URL}`);
+  const MAILCHIMP_URL = process.env.NEXT_PUBLIC_MAILCHIMP_URL; 
   return (
     <section className="text-gray-600 body-font" id="cta">
       <div className="container px-5 py-24 mx-auto">
