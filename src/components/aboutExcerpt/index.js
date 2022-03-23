@@ -59,20 +59,20 @@ export default function AboutExcerpt(props) {
                 />
               </div>
               <div className="flex flex-col items-center text-center justify-center">
-                <h2 className="font-medium title-font mt-4 text-gray-900 text-xl">
+                <h2 className="font-medium title-font mt-4 text-gray-900 leading-relaxed">
                   {name}
                 </h2>
                 <div className="w-12 h-1 bg-indigo-500 rounded mt-2 mb-4"></div>
-                <p className="text-base font-display">
+                <p className="font-display">
                   Interests:
-                  <p className="text-sm font-bold">
+                  <p className="text-sm font-bold leading-relaxed">
                     {interests.map((interest) => interest + ", ")}
                   </p>
                 </p>
               </div>
             </div>
             <div className="sm:w-2/3 sm:pl-8 sm:py-8 sm:border-l border-gray-200 sm:border-t-0 border-t mt-4 pt-4 sm:mt-0 text-center sm:text-left">
-              <p className="leading-relaxed text-lg mb-4">{aboutpageExcerpt}</p>
+              <p className="leading-relaxed mb-4">{aboutpageExcerpt}</p>
               <Link href="/about">
                 <a className="text-indigo-500 inline-flex items-center">
                   Learn More

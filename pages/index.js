@@ -39,11 +39,8 @@ export default function Home({
     >
       <Head>
         <title>Home - Markus Markus Viajero</title>
-        <meta name="description" content="Homepage: Blog for fun viajeros" />
-        <link rel="icon" href="/favicon.ico" />
-
-  
-      </Head>
+        <meta name="description" content="Homepage: Blog for fun viajeros" /> 
+      </Head> 
       <Banner
         heading={homepageData.heading}
         subheading={homepageData.subheading}

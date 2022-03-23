@@ -43,8 +43,7 @@ export async function getStaticProps({ params }) {
 
   const blog = await client.getEntries({
     content_type: "title",
-    "fields.slug": params.slug,
-    "fields.slug": "south-america",
+    "fields.slug": params.slug, 
   });
 
   return {
