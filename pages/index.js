@@ -41,6 +41,8 @@ export default function Home({
         <title>Home - Markus Markus Viajero</title>
         <meta name="description" content="Homepage: Blog for fun viajeros" />
         <link rel="icon" href="/favicon.ico" />
+
+  
       </Head>
       <Banner
         heading={homepageData.heading}
@@ -48,7 +50,7 @@ export default function Home({
       />
       <AboutExcerpt {...bloggerDetails} {...aboutpageData} />
       <Cta />
-      <Reviews/>
+      <Reviews />
     </Layout>
   );
 }
