@@ -7,8 +7,8 @@ export default function BlogCard(props) {
   return (
     <Link href={`/blog/${slug}`} passHref>
       <div className="xl:w-4/5 md:w-4/5 w-full p-4 hover:cursor-pointer">
-        <div className="bg-gray-100 p-6 rounded-lg flex flex-row">
-          <div className="flex w-1/2 mr-10">
+        <div className="bg-gray-100 p-6 rounded-lg flex xs:flex-col md:flex-row">
+          <div className="flex xs:w-full md:w-1/2 mr-10">
             <iframe
               width="560"
               height="315"
@@ -20,7 +20,7 @@ export default function BlogCard(props) {
               className="h-56 sm:h-72 md:h-40 lg:h-60 rounded w-full object-cover object-center mb-6"
             />
           </div>
-          <div className="flex flex-col w-1/2">
+          <div className="flex flex-col xs:w-full md:w-1/2">
             <h2 className="text-lg text-indigo-500 font-semibold title-font mb-4">
               {title}
             </h2>
