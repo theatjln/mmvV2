@@ -44,22 +44,22 @@ const BannerCarouselVid = ({ div1className, div2className, ads }) => (
   </div>
 );
 
-const BannerCaption = () => (
+const BannerCaption = ({heading, subheading}) => (
   <div className="flex flex-col text-center w-full mb-20 md:mt-14 mt-40">
     <h1 className="text-5xl font-medium title-font mb-4 text-indigo-200">
-      A Different Travel Experience
+      {heading ? heading : `A Different Travel Experience`}
     </h1>
     <p className="lg:w-2/3 mx-auto leading-relaxed text-base text-indigo-200 mb-4">
-      {`“We take photos as a return ticket to a moment otherwise gone” – Katie Thurmes`}
+      {subheading ? subheading : `“We take photos as a return ticket to a moment otherwise gone” – Katie Thurmes`}
     </p>
   </div>
 );
 
-export default function Banner() {
+export default function Banner({heading, subheading}) {
   return (
     <section className="banner text-gray-600 body-font relative">
       <div className="container px-5 py-24 mx-auto">
-        <BannerCaption />
+        <BannerCaption heading={heading} subheading={subheading} />
         <div className="flex flex-wrap w-full justify-center items-center">
 
           <BannerCarouselImg

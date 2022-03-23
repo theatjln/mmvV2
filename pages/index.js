@@ -19,7 +19,7 @@ export async function getStaticProps() {
       bloggerDetails: await getData(client, "bloggerDetails"),
       aboutpageData: await getData(client, "aboutpage"),
       audio: await getData(client, "audio"),
-    }, 
+    },
   };
 }
 
@@ -28,7 +28,7 @@ export default function Home({
   bloggerDetails,
   aboutpageData,
   audio,
-}) { 
+}) {
   const audioSrc = `https:${audio.fields.src.fields.file.url}`;
   return (
     <Layout
@@ -41,7 +41,10 @@ export default function Home({
         <meta name="description" content="Homepage: Blog for fun viajeros" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <Banner />
+      <Banner
+        heading={homepageData.heading}
+        subheading={homepageData.subheading}
+      />
       <AboutExcerpt {...bloggerDetails} {...aboutpageData} />
       <Cta />
     </Layout>

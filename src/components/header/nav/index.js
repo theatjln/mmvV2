@@ -24,7 +24,7 @@ export default function Nav() {
             classActive
           }`}
         >
-          Blog
+          VBlog
         </a>
       </Link>
       <Link href="/about">
