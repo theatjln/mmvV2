@@ -8,7 +8,7 @@ const introVidSrc =
 const getHeight = (path) => {
   if (path === "/") return "md:h-4/5";
   else if (path === "/contact") return "";
-  else return "md:h-3/5";
+  else return "md:h-2/3";
 };
 
 export default function HeaderBackground({ bgVidSrc }) {
@@ -17,7 +17,7 @@ export default function HeaderBackground({ bgVidSrc }) {
   return (
     <div className="header-background w-full h-screen absolute">
       <div
-        className={`container-fluid ${mdHeight} bg-indigo-300 overflow-hidden relative md:h-2/3 h-150%`}
+        className={`container-fluid ${mdHeight} bg-indigo-300 overflow-hidden relative lg:h-4/5 h-150%`}
       >
         {/* for premium vimeo */}
         <div className="video-wrapper relative h-150% md:h-full lg:h-2/3 xl:h-130% w-full">

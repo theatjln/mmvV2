@@ -1,7 +1,6 @@
 import Link from "next/link";
 
-export default function BlogCard(props) {
-  console.log(`blog props: ${props.fields.title}`); 
+export default function BlogCard(props) {  
  
   const { title, videoEmbedId, summary, slug } = props.fields;
   return (

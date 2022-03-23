@@ -34,7 +34,7 @@ export default function Contact({ homepageData, bloggerDetails, audio }) {
     type: "",
   });
   const {
-    register,
+    register, 
     handleSubmit,
     formState: { errors },
     reset,
