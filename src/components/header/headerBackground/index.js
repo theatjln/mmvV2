@@ -30,7 +30,7 @@ export default function HeaderBackground({ bgVidSrc }) {
             <source src={bgVidSrc} type="video/mp4" />
             <p>{`Your browser doesn't support HTML5 video.`}</p>
           </video>
-          <div className="overlay w-full h-full bg-black opacity-80 lg:h-150% xl:h-130%"></div>
+          <div className="overlay w-full h-full bg-black opacity-50 lg:h-150% xl:h-130%"></div>
         </div>
         {/* end for premium vimeo */}
 
