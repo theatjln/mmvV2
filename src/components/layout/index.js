@@ -3,8 +3,8 @@ import Head from "next/head";
 
 //components
 import Footer from "../footer";
-import Header from "../header";
-import HeaderBackground from "../header/headerBackground";
+import Header from "../header"; 
+import Nav from "../header/nav";
 
 export default function Layout({
   children,
@@ -13,7 +13,7 @@ export default function Layout({
   audioSrc,
 }) {
   return (
-    <div className="layout container-fluid relative">
+    <div className="layout container-fluid">
       <Head>
         {/* custom favicon */}
         <link
@@ -23,7 +23,7 @@ export default function Layout({
         />
         <link
           rel="icon"
-          type="image/png" 
+          type="image/png"
           sizes="32x32"
           href="/favicon/favicon-32x32.png"
         />
@@ -36,9 +36,9 @@ export default function Layout({
         <link rel="manifest" href="/favicon/site.webmanifest" />
         {/* end custom favicon */}
       </Head>
-      <Header audioSrc={audioSrc} />
-      <HeaderBackground bgVidSrc={bgVidSrc} />
-      <main>{children}</main>
+      <Nav audioSrc={audioSrc} />
+      <Header audioSrc={audioSrc} bgVidSrc={bgVidSrc} />
+      <main className="">{children}</main>
       <Footer {...bloggerDetails} />
     </div>
   );

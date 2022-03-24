@@ -1,7 +1,7 @@
 //modules
 import uniqid from "uniqid";
 import Image from "next/image";
-import {useRouter} from "next/router";
+import { useRouter } from "next/router";
 // Import Swiper React components
 import { Swiper, SwiperSlide } from "swiper/react";
 // End Import Swiper React components
@@ -17,14 +17,19 @@ import { EffectFade, Autoplay } from "swiper";
 // end import required Swiper modules
 
 export default function SwiperCarousel({ items, imgClassName, vidClassName }) {
-  const router = useRouter()
+  const router = useRouter();
 
-  const swiperSlidesImg = items.map((item) => { 
-
-    const imgSrc = router.pathname === `/blog/[slug]` ? `https:${item.fields.file.url}` : item.imgSrc;
+  const swiperSlidesImg = items.map((item) => {
+    const imgSrc =
+      router.pathname === `/blog/[slug]`
+        ? `https:${item.fields.file.url}`
+        : item.imgSrc;
 
     return (
-      <SwiperSlide className="flex justify-center items-center rounded-lg" key={uniqid()}>
+      <SwiperSlide
+        className="flex justify-center items-center rounded-lg"
+        key={uniqid()}
+      >
         <Image
           src={imgSrc}
           className={imgClassName}
@@ -51,9 +56,9 @@ export default function SwiperCarousel({ items, imgClassName, vidClassName }) {
   ));
 
   return (
-    <>
+    <div className="flex">
       <Swiper
-        className="flex justify-center items-center rounded-lg"
+        className="justify-center items-center rounded-lg absolute"
         effect={"fade"}
         modules={[EffectFade, Autoplay]}
         autoplay={{
@@ -64,6 +69,8 @@ export default function SwiperCarousel({ items, imgClassName, vidClassName }) {
         {imgClassName && swiperSlidesImg}
         {vidClassName && swiperSlidesVid}
       </Swiper>
+ 
+
       <style>{`
           *:focus, .swiper-wrapper, .swiper-slide {
             outline: 0 !important;
@@ -78,6 +85,6 @@ export default function SwiperCarousel({ items, imgClassName, vidClassName }) {
             min-height: none !important;
           }
     `}</style>
-    </>
+    </div>
   );
 }

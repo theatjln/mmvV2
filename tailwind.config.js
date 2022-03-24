@@ -2,9 +2,12 @@ module.exports = {
   content: ["./src/components/**/*.js", "./pages/**/*.js"],
   theme: {
     screens: {
-      xs: "270px",
-      // => @media (min-width: 640px) { ... }
+      "fold": "268px",
+      // => @media (min-width: 268px) { ... }
 
+      xs: "320px",
+      // => @media (min-width: 320px) { ... }
+ 
       sm: "640px",
       // => @media (min-width: 640px) { ... }
 

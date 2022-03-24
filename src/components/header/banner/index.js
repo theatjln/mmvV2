@@ -20,72 +20,79 @@ const dummyVideos = [
 
 const BannerCarouselImg = ({ div1className, div2className }) => (
   <div className={`p-4 ${div1className} h-full w-full`}>
-    <div
+    {/*  <div
       className={`lg:h-48 md:h-36 w-full rounded-lg overflow-hidden relative ${div2className} flex`}
-    >
-      <SwiperCarousel
-        items={dummyImages}
-        imgClassName={`w-full h-full object-cover object-center max-w-none flex justify-self-center rounded-lg max-w-none-imp max-h-none-imp`}
-      />
-    </div>
+    > */}
+    <SwiperCarousel
+      items={dummyImages}
+      imgClassName={`w-full h-full object-cover object-center max-w-none flex justify-self-center rounded-lg max-w-none-imp max-h-none-imp`}
+    />
+    {/*    </div> */}
   </div>
 );
 
 const BannerCarouselVid = ({ div1className, div2className, ads }) => (
   <div className={`p-4 ${div1className} h-full w-full`}>
-    <div
+    {/*    <div
       className={`md:h-36 w-full rounded-lg overflow-hidden relative ${div2className} flex`}
-    >
-      <SwiperCarousel
-        items={dummyVideos}
-        vidClassName={`w-full h-full max-w-none flex justify-self-center rounded-lg ${
-          ads
-            ? `md:w-160% xl:h-106% 2xl:h-126% 3xl:h-200%`
-            : ` md:h-126% lg:h-110% xl:h-130% 2xl:h-160% 3xl:h-200%`
-        }`}
-      />
-    </div>
+    > */}
+    <SwiperCarousel
+      items={dummyVideos}
+      vidClassName={`w-full h-full max-w-none flex justify-self-center rounded-lg ${
+        !ads
+          ? `md:w-120% xl:h-106% 2xl:h-126% 3xl:h-200%`
+          : ` md:h-126% lg:h-110% xl:h-130% 2xl:h-160% 3xl:h-200%`
+      }`}
+    />
+    {/* </div> */}
   </div>
 );
 
 const BannerCaption = ({ heading, subheading }) => (
-  <div className="flex flex-col text-center w-full mb-20 md:mt-14 mt-40">
-    <h1 className="text-5xl font-medium title-font mb-4 text-indigo-200 leading-relaxed">
+  <div className="banner-caption flex flex-wrap w-full justify-center items-center relative p-8 md:text-center md:mb-14">
+    {/* heading */}
+    <h1 className="text-5xl font-medium title-font text-indigo-200 leading-relaxed mt-20 lg:mt-10 xl:mt-0 mb-8">
       {heading ? heading : `A Different Travel Experience`}
     </h1>
-    <p className="lg:w-2/3 mx-auto tracking-widest leading-relaxed text-base text-indigo-200 mb-4">
+    {/* end heading */}
+
+    {/* subheading */}
+    <p className="lg:w-2/3 mx-auto tracking-widest leading-relaxed text-base text-indigo-200">
       {subheading
         ? subheading
         : `“We take photos as a return ticket to a moment otherwise gone” – Katie Thurmes`}
     </p>
+    {/* end subheading */}
   </div>
 );
 
 export default function Banner({ heading, subheading }) {
   return (
-    <section className="banner text-gray-600 body-font relative">
-      <div className="container px-5 py-24 mx-auto">
-        <BannerCaption heading={heading} subheading={subheading} />
-        <div className="flex flex-wrap w-full justify-center items-center">
-          <BannerCarouselImg
-            div1className="md:w-30%"
-            div2className="md:top-6"
-          />
+    <section className="banner h-150% md:w-screen md:h-screen justify-center items-center md:p-20 md:mb-14 flex flex-col">
+      <BannerCaption heading={heading} subheading={subheading} />
 
-          <BannerCarouselVid
-            div1className="md:w-2/5"
-            /*  div2className="md:-top-12 lg:h-60 md:h-48" */
-            div2className="md:-top-12 lg:h-52 md:h-36 lg:w-101%"
-            ads={false}
-          />
+      {/* banner carousels */}
+      <div className="banner-carousels flex flex-wrap w-full justify-center items-center">
+        <BannerCarouselImg
+          div1className="pointer-events-none md:w-30%" /* div2className="md:top-6" */
+        />
 
-          <BannerCarouselVid
-            div1className="md:w-30%"
-            div2className="md:top-6 lg:h-48"
-            ads={true}
-          />
-        </div>
+        <BannerCarouselVid
+          div1className="pointer-events-none md:w-2/5 md:-mt-16 mt-0"
+          /*  div2className="md:-top-12 lg:h-52 md:h-36 lg:w-101%" */
+          ads={0}
+        />
+
+        <BannerCarouselVid
+          div1className="pointer-events-none md:w-30%"
+          /*  div2className="md:top-6 lg:h-48"  */
+          ads={1}
+        />
+
+  
       </div>
+      {/* end banner carousels */}
+ 
     </section>
   );
 }

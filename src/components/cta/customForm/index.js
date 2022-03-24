@@ -30,7 +30,8 @@ export default function CustomForm({ status, message, onValidated }) {
           />
         )}
       </div>
-      <div className="flex lg:w-2/3 w-full sm:flex-row flex-col mx-auto px-8 sm:space-x-4 sm:space-y-0 space-y-4 sm:px-0 items-end">
+      <div className="flex lg:w-2/3 w-full sm:flex-row flex-col mx-auto md:px-8 sm:space-x-4 sm:space-y-0 space-y-4 sm:px-0 items-end">
+
         <div className="relative flex-grow w-full">
           <label
             htmlFor="full-name"

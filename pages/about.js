@@ -110,11 +110,11 @@ export default function About({
               width={320}
               className="lg:w-2/6 md:w-3/6 w-3/5 mb-10 object-cover object-center rounded-50% md:mt-0 -mt-16"
             />
-            <div className="mt-5 text-center lg:w-2/3 w-full bg-white md:pt-0 pt-10 rounded-lg">
-              <h1 className="title-font sm:text-3xl text-3xl mt-8 mb-8 font-medium text-gray-900">
+            <div className="about-card mt-5 text-center lg:w-2/3 w-full bg-white md:pt-0 pt-10 rounded-lg md:px-10">
+              <h1 className="title-font sm:text-3xl text-3xl mt-8 mb-8 font-medium text-gray-900 px-10 md:px-0">
                 {name}
               </h1>
-              <p className="text-md font-display leading-relaxed">
+              <p className="text-md font-display leading-relaxed px-10 md:px-0">
                 Interests:
                 <p className="text-lg font-bold mt-3">
                   {interests.map((interest) => interest + ", ")}

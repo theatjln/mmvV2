@@ -1,8 +1,10 @@
-export default function PolygonComponent({ color, position }) {
+export default function PolygonComponent({ color, position, addedStyle }) {
   const polygonC =
     position === "top" ? (
-      <div className="custom-shape-divider-top-1642282616 z-10">
-        <svg 
+      <div
+        className={`polygon-component-top custom-shape-divider-top-1642282616 z-10 ${addedStyle}`}
+      >
+        <svg
           data-name="Layer 1"
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 1200 120"
@@ -15,7 +17,9 @@ export default function PolygonComponent({ color, position }) {
         </svg>
       </div>
     ) : (
-      <div className="custom-shape-divider-bottom-1642282880 mb-3">
+      <div
+        className={`polygon-component-bottom custom-shape-divider-bottom-1642282880 ${addedStyle}`}
+      >
         <svg
           data-name="Layer 1"
           xmlns="http://www.w3.org/2000/svg"

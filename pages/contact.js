@@ -110,7 +110,7 @@ export default function Contact({ homepageData, bloggerDetails, audio }) {
                   onSubmit={handleSubmit(submitHandler)}
                   className="flex flex-wrap"
                 >
-                  <div className="p-2 w-1/2">
+                  <div className="p-2 w-full md:w-1/2">
                     <div className="relative">
                       <label
                         htmlFor="fullName"
@@ -132,7 +132,7 @@ export default function Contact({ homepageData, bloggerDetails, audio }) {
                       />
                     </div>
                   </div>
-                  <div className="p-2 w-1/2">
+                  <div className="p-2 w-full md:w-1/2">
                     <div className="relative">
                       <label
                         htmlFor="email"

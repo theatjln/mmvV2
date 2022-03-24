@@ -43,8 +43,8 @@ export default function AboutExcerpt(props) {
   const aboutpageExcerpt = documentToReactComponents(excerpt, options);
   /* end code - render contentful rich text  */ 
   return (
-    <section className="text-gray-600 body-font">
-      <div className="container px-5 py-24 mx-auto flex flex-col">
+    <section className="text-gray-600 body-font bg-white">
+      <div className="container px-10 py-24 mx-auto flex flex-col">
         <div className="lg:w-4/6 mx-auto">
           <div className="flex flex-col sm:flex-row xl:mt-24">
             <div className="sm:w-1/3 text-center sm:pr-8 sm:py-8">
