@@ -3,9 +3,8 @@
 // modules
 import { createClient } from "contentful";
 import { useForm } from "react-hook-form";
-import axios from "axios";
-import { useRouter } from "next/router";
-import { useState, useEffect } from "react";
+import axios from "axios"; 
+import { useState } from "react";
 
 // helpers
 import { getClient, getData } from "../src/helpers/client";
@@ -14,6 +13,7 @@ import { getClient, getData } from "../src/helpers/client";
 import Layout from "../src/components/layout";
 import SocialIcons from "../src/components/socialIcons";
 import Alert from "../src/components/alert";
+import Spinner from "../src/components/spinner";
 
 export async function getStaticProps() {
   const client = createClient(getClient());
@@ -27,14 +27,13 @@ export async function getStaticProps() {
 }
 
 export default function Contact({ homepageData, bloggerDetails, audio }) {
-  const router = useRouter();
   const [responseAlert, setResponseAlert] = useState({
     message: "",
     isError: false,
     type: "",
   });
   const {
-    register, 
+    register,
     handleSubmit,
     formState: { errors },
     reset,
@@ -73,132 +72,145 @@ export default function Contact({ homepageData, bloggerDetails, audio }) {
   }
 
   const audioSrc = `https:${audio.fields.src.fields.file.url}`;
-  return (
-    <Layout
-      bgVidSrc={homepageData.backgroundVideo}
-      bloggerDetails={bloggerDetails}
-      audioSrc={audioSrc}
-    >
-      <section className="text-indigo-200 body-font relative md:top-0 top-24">
-        <div className="container px-8 py-24 mx-auto">
-          <div className="flex flex-col text-center w-full mb-12">
-            <h1 className="sm:text-3xl text-2xl font-medium title-font mb-4 text-gray-900 text-indigo-200">
-              Contact Us
-            </h1>
-            {/* FORM RESPONSE MESSAGE */}
-            {/* CONTINUE LATER, MAKE THIS FUNCTION */}
-            {responseAlert.message.length > 0 && (
-              <Alert responseAlert={responseAlert} />
-            )}
-            <p className="lg:w-2/3 mx-auto leading-relaxed text-base text-indigo-200">
-              Please fill out this form and we will contact you within 24 hours.
-            </p>
-          </div>
-          <div className="lg:w-1/2 md:w-2/3 mx-auto">
-            <div className="flex flex-wrap -m-2">
-              <form
-                method="POST"
-                onSubmit={handleSubmit(submitHandler)}
-                className="flex flex-wrap"
-              >
-                <div className="p-2 w-1/2">
-                  <div className="relative">
-                    <label
-                      htmlFor="fullName"
-                      className="leading-7 text-sm text-indigo-200"
-                    >
-                      Name
-                    </label>
-                    <input
-                      {...register("fullName", {
-                        required: {
-                          value: true,
-                          message: "You must enter your full name",
-                        },
-                      })}
-                      type="text"
-                      id="name"
-                      name="fullName"
-                      className="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
-                    />
-                  </div>
-                </div>
-                <div className="p-2 w-1/2">
-                  <div className="relative">
-                    <label
-                      htmlFor="email"
-                      className="leading-7 text-sm text-indigo-200"
-                    >
-                      Email
-                    </label>
-                    <input
-                      {...register("email", {
-                        required: {
-                          value: true,
-                          message: "You must enter your email address",
-                        },
-                        minLength: {
-                          value: 8,
-                          message: "This is not long enough to be an email",
-                        },
-                        maxLength: {
-                          value: 120,
-                          message: "This is too long",
-                        },
-                        pattern: {
-                          value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
-                          message: "This needs to be a valid email address",
-                        },
-                      })}
-                      type="email"
-                      id="email"
-                      name="email"
-                      className="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
-                    />
-                  </div>
-                </div>
-                <div className="p-2 w-full">
-                  <div className="relative">
-                    <label
-                      htmlFor="message"
-                      className="leading-7 text-sm text-indigo-200"
-                    >
-                      Message
-                    </label>
-                    <textarea
-                      {...register("message", {
-                        required: {
-                          value: true,
-                          message: "You need to enter your message",
-                        },
-                        maxLength: {
-                          value: 1000,
-                          message:
-                            "Your message can't be more than 1000 characters",
-                        },
-                      })}
-                      id="message"
-                      name="message"
-                      className="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 h-32 text-base outline-none text-gray-700 py-1 px-3 resize-none leading-6 transition-colors duration-200 ease-in-out"
-                    ></textarea>
-                  </div>
-                </div>
-                <div className="p-2 w-full">
-                  <button className="flex mx-auto text-white bg-indigo-500 border-0 py-2 px-8 focus:outline-none hover:bg-indigo-600 rounded text-lg" type="submit">
-                    Send
-                  </button>
-                </div>
-              </form>
 
-              <div className="p-2 w-full pt-8 mt-8 border-t border-gray-200 text-center">
-                <a className="text-indigo-500 mr-4">{bloggerDetails.email}</a>
-                {/* <p className="leading-normal my-5">
+  /* conditional spinner */
+  if (!homepageData || !bloggerDetails || !audio)
+    return (
+      <div className="w-screen h-screen flex justify-center items-center">
+        <Spinner isLoading={true} />
+      </div>
+    );
+  /* end conditional spinner */ else
+    return (
+      <Layout
+        bgVidSrc={homepageData.backgroundVideo}
+        bloggerDetails={bloggerDetails}
+        audioSrc={audioSrc}
+      >
+        <section className="text-indigo-200 body-font relative md:top-0 top-24">
+          <div className="container px-8 py-24 mx-auto">
+            <div className="flex flex-col text-center w-full mb-12">
+              <h1 className="sm:text-3xl text-2xl font-medium title-font mb-4 text-gray-900 text-indigo-200">
+                Contact Us
+              </h1>
+              {/* FORM RESPONSE MESSAGE */}
+              {/* CONTINUE LATER, MAKE THIS FUNCTION */}
+              {responseAlert.message.length > 0 && (
+                <Alert responseAlert={responseAlert} />
+              )}
+              <p className="lg:w-2/3 mx-auto leading-relaxed text-base text-indigo-200">
+                Please fill out this form and we will contact you within 24
+                hours.
+              </p>
+            </div>
+            <div className="lg:w-1/2 md:w-2/3 mx-auto">
+              <div className="flex flex-wrap -m-2">
+                <form
+                  method="POST"
+                  onSubmit={handleSubmit(submitHandler)}
+                  className="flex flex-wrap"
+                >
+                  <div className="p-2 w-1/2">
+                    <div className="relative">
+                      <label
+                        htmlFor="fullName"
+                        className="leading-7 text-sm text-indigo-200"
+                      >
+                        Name
+                      </label>
+                      <input
+                        {...register("fullName", {
+                          required: {
+                            value: true,
+                            message: "You must enter your full name",
+                          },
+                        })}
+                        type="text"
+                        id="name"
+                        name="fullName"
+                        className="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
+                      />
+                    </div>
+                  </div>
+                  <div className="p-2 w-1/2">
+                    <div className="relative">
+                      <label
+                        htmlFor="email"
+                        className="leading-7 text-sm text-indigo-200"
+                      >
+                        Email
+                      </label>
+                      <input
+                        {...register("email", {
+                          required: {
+                            value: true,
+                            message: "You must enter your email address",
+                          },
+                          minLength: {
+                            value: 8,
+                            message: "This is not long enough to be an email",
+                          },
+                          maxLength: {
+                            value: 120,
+                            message: "This is too long",
+                          },
+                          pattern: {
+                            value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
+                            message: "This needs to be a valid email address",
+                          },
+                        })}
+                        type="email"
+                        id="email"
+                        name="email"
+                        className="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
+                      />
+                    </div>
+                  </div>
+                  <div className="p-2 w-full">
+                    <div className="relative">
+                      <label
+                        htmlFor="message"
+                        className="leading-7 text-sm text-indigo-200"
+                      >
+                        Message
+                      </label>
+                      <textarea
+                        {...register("message", {
+                          required: {
+                            value: true,
+                            message: "You need to enter your message",
+                          },
+                          maxLength: {
+                            value: 1000,
+                            message:
+                              "Your message can't be more than 1000 characters",
+                          },
+                        })}
+                        id="message"
+                        name="message"
+                        className="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 h-32 text-base outline-none text-gray-700 py-1 px-3 resize-none leading-6 transition-colors duration-200 ease-in-out"
+                      ></textarea>
+                    </div>
+                  </div>
+                  <div className="p-2 w-full">
+                    <button
+                      className="flex mx-auto text-white bg-indigo-500 border-0 py-2 px-8 focus:outline-none hover:bg-indigo-600 rounded text-lg"
+                      type="submit"
+                    >
+                      Send
+                    </button>
+                  </div>
+                </form>
+
+                <div className="p-2 w-full pt-8 mt-8 border-t border-gray-200 text-center">
+                  <a className="text-indigo-500 mr-4">{bloggerDetails.email}</a>
+                  {/* <p className="leading-normal my-5">
                   49 Smith St.
                   <br />
                   Saint Cloud, MN 56301
                 </p> */}
-                <span className="inline-flex">
-                  {/* <a className="text-gray-500">
+                  <span className="inline-flex">
+                    {/* <a className="text-gray-500">
                     <svg
                       fill="currentColor"
                       strokeLinecap="round"
@@ -255,13 +267,13 @@ export default function Contact({ homepageData, bloggerDetails, audio }) {
                       <path d="M21 11.5a8.38 8.38 0 01-.9 3.8 8.5 8.5 0 01-7.6 4.7 8.38 8.38 0 01-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 01-.9-3.8 8.5 8.5 0 014.7-7.6 8.38 8.38 0 013.8-.9h.5a8.48 8.48 0 018 8v.5z" />
                     </svg>
                   </a> */}
-                  <SocialIcons {...bloggerDetails} />
-                </span>
+                    <SocialIcons {...bloggerDetails} />
+                  </span>
+                </div>
               </div>
             </div>
           </div>
-        </div>
-      </section>
-    </Layout>
-  );
+        </section>
+      </Layout>
+    );
 }

@@ -14,6 +14,7 @@ import { getClient, getData } from "../src/helpers/client";
 // components
 import Layout from "../src/components/layout";
 import SocialIcons from "../src/components/socialIcons";
+import Spinner from "../src/components/spinner";
 
 export async function getStaticProps() {
   const client = createClient(getClient());
@@ -68,53 +69,72 @@ export default function About({
   const aboutpageEssay = documentToReactComponents(essay, options);
   /* end code - render contentful rich text  */
   const audioSrc = `https:${audio.fields.src.fields.file.url}`;
-  return (
-    <Layout
-      bgVidSrc={homepageData.backgroundVideo}
-      bloggerDetails={bloggerDetails}
-      audioSrc={audioSrc}
-    >
-      <Head>
-        <title>About - Markus Markus Viajero</title>
-        <meta name="description" content="About Page: Blog for fun viajeros" />
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
-      <section className="text-gray-600 body-font md:-top-12 top-24 relative md:mb-0 mb-20">
-        <div className="container mx-auto flex px-5 py-24 items-center justify-center flex-col">
-          {/* image here should have same height and width */}
-          <Image
-            alt="profile"
-            /*  src={`https://images.pexels.com/photos/1704488/pexels-photo-1704488.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500`} */
-            src={`https:${profilePicture.fields.file.url}`}
-            height={320}
-            width={320}
-            className="lg:w-2/6 md:w-3/6 w-3/5 mb-10 object-cover object-center rounded-50% md:mt-0 -mt-16"
+
+  /* conditional spinner */
+  if (
+    !homepageData ||
+    !aboutpageData ||
+    !bloggerDetails ||
+    !audio ||
+    !aboutpageEssay
+  )
+    return (
+      <div className="w-screen h-screen flex justify-center items-center">
+        <Spinner isLoading={true} />
+      </div>
+    );
+    else
+  /* end conditional spinner */ 
+    return (
+      <Layout
+        bgVidSrc={homepageData.backgroundVideo}
+        bloggerDetails={bloggerDetails}
+        audioSrc={audioSrc}
+      >
+        <Head>
+          <title>About - Markus Markus Viajero</title>
+          <meta
+            name="description"
+            content="About Page: Blog for fun viajeros"
           />
-          <div className="mt-5 text-center lg:w-2/3 w-full bg-white md:pt-0 pt-10 rounded-lg">
-            <h1 className="title-font sm:text-3xl text-3xl mt-8 mb-8 font-medium text-gray-900">
-              {name}
-            </h1>
-            <p className="text-md font-display leading-relaxed">
-              Interests:
-              <p className="text-lg font-bold mt-3">
-                {interests.map((interest) => interest + ", ")}
+          <link rel="icon" href="/favicon.ico" />
+        </Head>
+        <section className="text-gray-600 body-font md:-top-12 top-24 relative md:mb-0 mb-20">
+          <div className="container mx-auto flex px-5 py-24 items-center justify-center flex-col">
+            {/* image here should have same height and width */}
+            <Image
+              alt="profile"
+              /*  src={`https://images.pexels.com/photos/1704488/pexels-photo-1704488.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500`} */
+              src={`https:${profilePicture.fields.file.url}`}
+              height={320}
+              width={320}
+              className="lg:w-2/6 md:w-3/6 w-3/5 mb-10 object-cover object-center rounded-50% md:mt-0 -mt-16"
+            />
+            <div className="mt-5 text-center lg:w-2/3 w-full bg-white md:pt-0 pt-10 rounded-lg">
+              <h1 className="title-font sm:text-3xl text-3xl mt-8 mb-8 font-medium text-gray-900">
+                {name}
+              </h1>
+              <p className="text-md font-display leading-relaxed">
+                Interests:
+                <p className="text-lg font-bold mt-3">
+                  {interests.map((interest) => interest + ", ")}
+                </p>
               </p>
-            </p>
-            <hr className="my-5" />
-            <p className="mb-8 leading-relaxed">{aboutpageEssay}</p>
-            <div className="flex justify-center relative">
-              <Link href="/contact" passHref>
-                <button className="inline-flex text-white bg-indigo-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded text-lg items-center">
-                  Contact
-                </button>
-              </Link>
-              <div className="inline-flex ml-2 text-white bg-gray-200 border-0 py-3 px-6 focus:outline-none rounded text-lg items-center">
-                <SocialIcons {...bloggerDetails} />
+              <hr className="my-5" />
+              <p className="mb-8 leading-relaxed">{aboutpageEssay}</p>
+              <div className="flex justify-center relative">
+                <Link href="/contact" passHref>
+                  <button className="inline-flex text-white bg-indigo-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded text-lg items-center">
+                    Contact
+                  </button>
+                </Link>
+                <div className="inline-flex ml-2 text-white bg-gray-200 border-0 py-3 px-6 focus:outline-none rounded text-lg items-center">
+                  <SocialIcons {...bloggerDetails} />
+                </div>
               </div>
             </div>
           </div>
-        </div>
-      </section>
-    </Layout>
-  );
+        </section>
+      </Layout>
+    );
 }

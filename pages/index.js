@@ -11,6 +11,7 @@ import Cta from "../src/components/cta";
 import AboutExcerpt from "../src/components/aboutExcerpt";
 import Banner from "../src/components/header/banner";
 import Reviews from "../src/components/reviews";
+import Spinner from "../src/components/spinner";
 
 export async function getStaticProps() {
   const client = createClient(getClient());
@@ -25,29 +26,40 @@ export async function getStaticProps() {
 }
 
 export default function Home({
+  // page props
   homepageData,
   bloggerDetails,
   aboutpageData,
   audio,
 }) {
   const audioSrc = `https:${audio.fields.src.fields.file.url}`;
-  return (
-    <Layout
-      bgVidSrc={homepageData.backgroundVideo}
-      bloggerDetails={bloggerDetails}
-      audioSrc={audioSrc}
-    >
-      <Head>
-        <title>Home - Markus Markus Viajero</title>
-        <meta name="description" content="Homepage: Blog for fun viajeros" /> 
-      </Head> 
-      <Banner
-        heading={homepageData.heading}
-        subheading={homepageData.subheading}
-      />
-      <AboutExcerpt {...bloggerDetails} {...aboutpageData} />
-      <Cta />
-      <Reviews />
-    </Layout>
-  );
+
+  /* conditional spinner */
+  if (!homepageData || !bloggerDetails || !aboutpageData || !audio)
+    return (
+      <div className="w-screen h-screen flex justify-center items-center">
+        <Spinner isLoading={true} />
+      </div>
+    );
+    else
+    /* end conditional spinner */
+    return (
+      <Layout
+        bgVidSrc={homepageData.backgroundVideo}
+        bloggerDetails={bloggerDetails}
+        audioSrc={audioSrc}
+      >
+        <Head>
+          <title>Home - Markus Markus Viajero</title>
+          <meta name="description" content="Homepage: Blog for fun viajeros" />
+        </Head>
+        <Banner
+          heading={homepageData.heading}
+          subheading={homepageData.subheading}
+        />
+        <AboutExcerpt {...bloggerDetails} {...aboutpageData} />
+        <Cta />
+        <Reviews />
+      </Layout>
+    );
 }
