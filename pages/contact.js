@@ -202,8 +202,7 @@ export default function Contact({ homepageData, bloggerDetails, audio }) {
                   </div>
                 </form>
 
-                <div className="p-2 w-full pt-8 mt-8 border-t border-gray-200 text-center">
-                  <a className="text-indigo-500 mr-4">{bloggerDetails.email}</a>
+                <div className="p-2 w-full pt-8 mt-8 border-t border-gray-200 text-center px-4 md:px-0">
                   {/* <p className="leading-normal my-5">
                   49 Smith St.
                   <br />

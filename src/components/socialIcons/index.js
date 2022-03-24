@@ -1,6 +1,17 @@
 import Link from "next/link";
 
-/* tiktok, yt, fb, ig */
+/* email, tiktok, yt, fb, ig */
+
+const ToEmail = ({ href }) => (
+  <a
+    className="text-gray-500 hover:cursor-pointer mx-3"
+    target="_blank"
+    href={`mailto:${href}`}
+    rel="noopener noreferrer"
+  >
+    <i className={`fa fa-envelope`}></i>
+  </a>
+);
 
 const TikTokLink = ({ href }) => (
   <Link href={href}>
@@ -34,14 +45,16 @@ const IgLink = ({ href }) => (
   </Link>
 );
 
-export default function SocialIcons(props) { 
-  const { tiktokLink, youtubeChannelLink, facebookLink, instagramLink } = props;
+export default function SocialIcons(props) {
+  const { tiktokLink, youtubeChannelLink, facebookLink, instagramLink, email } =
+    props;
   return (
     <span className="inline-flex">
       <TikTokLink href={tiktokLink} />
       <YoutubeLink href={youtubeChannelLink} />
       <FbLink href={facebookLink} />
       <IgLink href={instagramLink} />
+      <ToEmail href={email} />
     </span>
   );
 }

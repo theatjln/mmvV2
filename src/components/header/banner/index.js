@@ -38,30 +38,35 @@ const BannerCarouselVid = ({ div1className, div2className, ads }) => (
     >
       <SwiperCarousel
         items={dummyVideos}
-        vidClassName={`w-full h-full max-w-none flex justify-self-center rounded-lg ${ads ? `md:w-160% xl:h-106% 2xl:h-126% 3xl:h-200%` : ` md:h-126% lg:h-110% xl:h-130% 2xl:h-160% 3xl:h-200%`}`}
+        vidClassName={`w-full h-full max-w-none flex justify-self-center rounded-lg ${
+          ads
+            ? `md:w-160% xl:h-106% 2xl:h-126% 3xl:h-200%`
+            : ` md:h-126% lg:h-110% xl:h-130% 2xl:h-160% 3xl:h-200%`
+        }`}
       />
     </div>
   </div>
 );
 
-const BannerCaption = ({heading, subheading}) => (
+const BannerCaption = ({ heading, subheading }) => (
   <div className="flex flex-col text-center w-full mb-20 md:mt-14 mt-40">
     <h1 className="text-5xl font-medium title-font mb-4 text-indigo-200 leading-relaxed">
       {heading ? heading : `A Different Travel Experience`}
     </h1>
     <p className="lg:w-2/3 mx-auto tracking-widest leading-relaxed text-base text-indigo-200 mb-4">
-      {subheading ? subheading : `“We take photos as a return ticket to a moment otherwise gone” – Katie Thurmes`}
+      {subheading
+        ? subheading
+        : `“We take photos as a return ticket to a moment otherwise gone” – Katie Thurmes`}
     </p>
   </div>
 );
 
-export default function Banner({heading, subheading}) {
+export default function Banner({ heading, subheading }) {
   return (
     <section className="banner text-gray-600 body-font relative">
       <div className="container px-5 py-24 mx-auto">
         <BannerCaption heading={heading} subheading={subheading} />
         <div className="flex flex-wrap w-full justify-center items-center">
-
           <BannerCarouselImg
             div1className="md:w-30%"
             div2className="md:top-6"
@@ -79,7 +84,6 @@ export default function Banner({heading, subheading}) {
             div2className="md:top-6 lg:h-48"
             ads={true}
           />
-
         </div>
       </div>
     </section>
