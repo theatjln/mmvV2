@@ -173,42 +173,7 @@ export default function About({
           </div>
           {/* end carousel wrapper */}
         </section>
-        {/* blog details content wrapper */}
-        {/*  <section className="text-gray-600 body-font md:-top-12 top-24 relative md:mb-0 mb-20">
-          <div className="container mx-auto flex px-5 py-24 items-center justify-center flex-col">
-            
-            <Image 
-              alt="profile" 
-              src={`https:${profilePicture.fields.file.url}`}
-              height={320}
-              width={320}
-              className="lg:w-2/6 md:w-3/6 w-3/5 mb-10 object-cover object-center rounded-50% md:mt-0 -mt-16"
-            />
-            <div className="about-card mt-5 text-center lg:w-2/3 w-full bg-white md:pt-0 pt-10 rounded-lg md:px-10">
-              <h1 className="title-font sm:text-3xl text-3xl mt-8 mb-8 font-medium text-gray-900 px-10 md:px-0">
-                {name}
-              </h1>
-              <p className="text-md font-display leading-relaxed px-10 md:px-0">
-                Interests:
-                <p className="text-lg font-bold mt-3">
-                  {interests.map((interest) => interest + ", ")}
-                </p>
-              </p>
-              <hr className="my-5" />
-              <p className="mb-8 leading-relaxed">{aboutpageEssay}</p>
-              <div className="flex justify-center relative">
-                <Link href="/contact" passHref>
-                  <button className="inline-flex text-white bg-indigo-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded text-lg items-center">
-                    Contact
-                  </button>
-                </Link>
-                <div className="inline-flex ml-2 text-white bg-gray-200 border-0 py-3 px-6 focus:outline-none rounded text-lg items-center">
-                  <SocialIcons {...bloggerDetails} />
-                </div>
-              </div>
-            </div>
-          </div>
-        </section> */}
+        
       </Layout>
     );
 }

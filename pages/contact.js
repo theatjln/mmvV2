@@ -87,7 +87,7 @@ export default function Contact({ homepageData, bloggerDetails, audio }) {
         bloggerDetails={bloggerDetails}
         audioSrc={audioSrc}
       >
-        <section className="text-indigo-200 body-font relative md:top-0 top-24">
+        <section className="lg:w-4/6 mx-auto md:mt-0 flex flex-col text-gray-600 body-font relative items-center h-full py-10">
           <div className="text-start w-full absolute left-4 top-0 md:top-40">
             <h1 className="sm:text-3xl text-2xl font-medium title-font mb-2 text-indigo-200">
               Contact
@@ -96,7 +96,7 @@ export default function Contact({ homepageData, bloggerDetails, audio }) {
           </div>
           <div className="container px-8 py-24 mx-auto">
             <div className="flex flex-col text-center w-full mb-12">
-              <h1 className="sm:text-3xl text-2xl font-medium title-font mb-4 text-gray-900 text-indigo-200">
+              <h1 className="sm:text-3xl text-2xl font-medium title-font mb-4 text-indigo-200">
                 Contact Us
               </h1>
               {/* FORM RESPONSE MESSAGE */}
@@ -109,7 +109,7 @@ export default function Contact({ homepageData, bloggerDetails, audio }) {
                 hours.
               </p>
             </div>
-            <div className="lg:w-1/2 md:w-2/3 mx-auto">
+            <div className="md:w-2/3 mx-auto">
               <div className="flex flex-wrap -m-2">
                 <form
                   method="POST"
