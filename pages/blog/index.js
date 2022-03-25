@@ -56,7 +56,7 @@ export default function BlogPage({
          <section className="text-gray-600 body-font md:top-0 top-40 relative md:mb-0 mb-20">
            <div className="text-start w-full absolute left-4 top-0 md:top-40">
              <h1 className="sm:text-3xl text-2xl font-medium title-font mb-2 text-indigo-200">
-               Vlog
+               VBlog
              </h1>
              <div className="h-1 w-20 bg-indigo-500 rounded"></div>
            </div>
