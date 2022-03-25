@@ -1,9 +1,9 @@
 import Link from "next/link";
 
-export default function SubscribeButton() {
+export default function SubscribeButton({onClick}) {
   return (
     <Link href="/#cta">
-      <a className="inline-flex items-center bg-gray-100 border-0 py-1 px-3 focus:outline-none hover:bg-gray-200 rounded mt-0 hover:scale-125 text-indigo-800">
+      <a className="inline-flex items-center bg-gray-100 border-0 py-1 px-3 focus:outline-none hover:bg-gray-200 rounded mt-0 hover:scale-125 text-indigo-800" onClick={onClick}>
         Subscribe
         <svg
           fill="none"

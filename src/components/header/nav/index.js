@@ -11,7 +11,7 @@ import Brand from "../brand";
 
 export default function Nav({ audioSrc }) {
   const router = useRouter();
-  const classActive = `font-display italic`;
+  const classActive = `lg:font-display lg:italic`;
   const [navbarOpen, setNavbarOpen] = useState(false);
 
   let pageNavs = [
@@ -78,7 +78,7 @@ export default function Nav({ audioSrc }) {
         }`}
       >
         {pageNavs}
-        <SubscribeButton />
+        <SubscribeButton onClick={() => setNavbarOpen(false)} />
         <div className="hidden lg:flex">
           <Audio src={audioSrc} />
         </div>
