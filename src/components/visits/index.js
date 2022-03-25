@@ -14,12 +14,9 @@ const VisitsCounter = () => {
   const formattedVisitsCount = String(visitsCount).replace(
     /(.)(?=(\d{3})+$)/g,
     "$1,",
-  );
-  // const wrapperStyle = `absolute z-10 right-1.5r ${
-  //   noHeaderCaption ? "bottom-56" : "bottom-120-px"
-  // } flex flex-col text-center text-white text-xs`;
+  ); 
 
-  const wrapperStyle = `visits-wrapper flex flex-col text-center text-black text-xs absolute bg-white p-2 rounded-lg ml-2 z-10 bottom-0 lg:top-14 right-1 md:right-5 border-solid border-2 border-indigo-400 h-fit`;
+  const wrapperStyle = `visits-wrapper flex flex-col text-center text-black text-xs absolute bg-white p-2 rounded-lg ml-2 z-10 ${router.pathname !== `/contact` ? `bottom-0` : `bottom-72`} lg:top-14 right-1 md:right-5 border-solid border-2 border-indigo-400 h-fit`;
 
   useEffect(() => {
     countapi.visits("global").then((result) => {

@@ -83,8 +83,7 @@ export default function About({
         <Spinner isLoading={true} />
       </div>
     );
-    else
-  /* end conditional spinner */ 
+  /* end conditional spinner */ else
     return (
       <Layout
         bgVidSrc={homepageData.backgroundVideo}
@@ -99,12 +98,84 @@ export default function About({
           />
           <link rel="icon" href="/favicon.ico" />
         </Head>
-        <section className="text-gray-600 body-font md:-top-12 top-24 relative md:mb-0 mb-20">
-          <div className="container mx-auto flex px-5 py-24 items-center justify-center flex-col">
-            {/* image here should have same height and width */}
+        {/* blog details content wrapper */}
+        <section className="lg:w-4/6 mx-auto md:mt-0 flex flex-col text-gray-600 body-font relative items-center h-full p-10">
+          {/* youtube vid wrapper */}
+          <div className="youtube-vid-wrapper rounded-lg overflow-hidden w-full my-10 mt-16 flex justify-center">
             <Image
               alt="profile"
-              /*  src={`https://images.pexels.com/photos/1704488/pexels-photo-1704488.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500`} */
+              src={`https:${profilePicture.fields.file.url}`}
+              height={320}
+              width={320}
+              className="object-cover object-center rounded-50% h-full w-full"
+            />
+            {/* youtube vid */}
+            {/*  <iframe
+              width="560"
+              height="315"
+              src={`https://www.youtube.com/embed/${videoEmbedId}?autoplay=0&loop=1&playlist=${videoEmbedId}&controls=1&showinfo=0&autohide=1&modestbranding=0&mute=1`}
+              frameBorder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowFullScreen
+              title="Embedded youtube"
+              className="object-cover object-center h-full w-full"
+            /> */}
+            {/* end youtube vid */}
+          </div>
+          {/* end youtube vid wrapper */}
+
+          {/* blog text & content wrapper */}
+          <div className="flex flex-col sm:flex-row bg-white  rounded-lg p-8 mb-10">
+            {/* left side of card */}
+            <div className="flex flex-col items-center text-center sm:w-1/3 px-5 mb-5 md:mb-0">
+              {/* location */} {name}
+              <h2 className="font-medium title-font mt-4 text-gray-900 text-lg">
+                {/*   {location} */}{" "}
+                {interests.map((interest) => interest + ", ")}
+              </h2>
+              {/* end location */}
+              {/* aesthetics hr */}
+              <div className="w-12 h-1 bg-indigo-500 rounded mt-2 mb-4"></div>
+              {/* end aesthetics hr */}
+              {/* blog title */}
+              <p className="text-base">
+                {/*   {title} */}{" "}
+                <Link href="/contact" passHref>
+                  <button className="inline-flex text-white bg-indigo-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded text-lg items-center mb-5">
+                    Contact
+                  </button>
+                </Link> 
+                <SocialIcons {...bloggerDetails} />
+              </p>
+              {/* end blog title */}
+            </div>
+            {/* end left side of card */}
+
+            {/* right side of card */}
+            <div className="blog-content-wrapper sm:w-2/3 sm:pl-8   border-gray-200 text-center flex justify-center items-center px-5">
+              <p className="leading-relaxed text-lg mb-4">
+                {/*   {blogDetailsBody} */} {aboutpageEssay}
+              </p>
+            </div>
+            {/* end right side of the card */}
+          </div>
+          {/* end blog text & content wrapper */}
+
+          {/* carousel wrapper */}
+          <div className="rounded-lg w-full h-56 sm:h-64 md:h-full overflow-hidden mb-10 flex items-center justify-center">
+            {/* <SwiperCarousel
+              items={images}
+              imgClassName={`w-full h-full object-cover object-center rounded-lg`}
+            /> */}
+          </div>
+          {/* end carousel wrapper */}
+        </section>
+        {/* blog details content wrapper */}
+        {/*  <section className="text-gray-600 body-font md:-top-12 top-24 relative md:mb-0 mb-20">
+          <div className="container mx-auto flex px-5 py-24 items-center justify-center flex-col">
+            
+            <Image 
+              alt="profile" 
               src={`https:${profilePicture.fields.file.url}`}
               height={320}
               width={320}
@@ -134,7 +205,7 @@ export default function About({
               </div>
             </div>
           </div>
-        </section>
+        </section> */}
       </Layout>
     );
 }
