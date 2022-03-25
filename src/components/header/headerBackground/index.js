@@ -39,7 +39,7 @@ export default function HeaderBackground({ bgVidSrc }) {
           {/* end for premium vimeo */}
 
           {/* video overlay */}
-          <div className="overlay w-full h-full bg-black opacity-50 lg:h-150% xl:h-130%"></div>
+          <div className="overlay w-full h-full bg-black opacity-60 lg:h-150% xl:h-130%"></div>
           {/* video end overlay */}
         </div>
         <PolygonComponent
