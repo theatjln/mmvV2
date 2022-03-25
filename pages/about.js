@@ -98,7 +98,7 @@ export default function About({
           <link rel="icon" href="/favicon.ico" />
         </Head>
         {/* blog details content wrapper */}
-        <section className="lg:w-4/6 mx-auto md:mt-0 flex flex-col text-gray-600 body-font relative items-center h-full p-10">
+        <section className="lg:w-4/6 md:mt-0 flex flex-col text-gray-600 body-font relative items-center h-full w-screen p-10">
           <PageTitle>About</PageTitle>
 
           {/* youtube vid wrapper */}
