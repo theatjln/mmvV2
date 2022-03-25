@@ -31,7 +31,7 @@ export default function HeaderBackground({ bgVidSrc }) {
             autoPlay
             loop
             muted
-            className="absolute w-422% md:w-321% max-w-none"
+            className="absolute fold:w-524% xs:w-422% md:w-321% lg:w-206% xl:w-160% max-w-none"
           >
             <source src={videoSource} type="video/mp4" />
             <p>{`Your browser doesn't support HTML5 video.`}</p>

@@ -7,7 +7,7 @@ module.exports = {
 
       xs: "320px",
       // => @media (min-width: 320px) { ... }
- 
+
       sm: "640px",
       // => @media (min-width: 640px) { ... }
 
@@ -46,6 +46,7 @@ module.exports = {
         "28rem": "28rem",
         "140%": "140%",
         "422%": "422%",
+        "524%": "524%",
       },
       height: {
         "17rem": "17rem",

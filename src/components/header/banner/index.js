@@ -49,7 +49,7 @@ const BannerCarouselVid = ({ div1className, div2className, ads }) => (
 );
 
 const BannerCaption = ({ heading, subheading }) => (
-  <div className="banner-caption flex flex-wrap w-full justify-center items-center relative p-8 md:text-center md:mb-14">
+  <div className="banner-caption flex flex-col w-full justify-center items-center relative p-8 md:text-center md:mb-14 xl:mt-14">
     {/* heading */}
     <h1 className="text-5xl font-medium title-font text-indigo-200 leading-relaxed mt-20 lg:mt-10 xl:mt-0 mb-8">
       {heading ? heading : `A Different Travel Experience`}
@@ -78,7 +78,7 @@ export default function Banner({ heading, subheading }) {
         />
 
         <BannerCarouselVid
-          div1className=" md:w-2/5 md:-mt-16 mt-0"
+          div1className=" md:w-2/5 md:-mt-24 mt-0"
           /*  div2className="md:-top-12 lg:h-52 md:h-36 lg:w-101%" */
           ads={0}
         />
