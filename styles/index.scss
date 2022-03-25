@@ -17,4 +17,11 @@
   p {
     @apply font-sans;
   }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    @apply text-indigo-800;
+  }
 }

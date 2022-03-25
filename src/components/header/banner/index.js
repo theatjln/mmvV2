@@ -51,13 +51,13 @@ const BannerCarouselVid = ({ div1className, div2className, ads }) => (
 const BannerCaption = ({ heading, subheading }) => (
   <div className="banner-caption flex flex-col w-full justify-center items-center relative p-8 md:text-center md:mb-14 xl:mt-14">
     {/* heading */}
-    <h1 className="text-5xl font-medium title-font text-indigo-200 leading-relaxed mt-20 lg:mt-10 xl:mt-0 mb-8">
+    <h1 className="text-5xl font-extrabold title-font  leading-relaxed mt-20 lg:mt-10 xl:mt-0 mb-8 text-white">
       {heading ? heading : `A Different Travel Experience`}
     </h1>
     {/* end heading */}
 
     {/* subheading */}
-    <p className="lg:w-2/3 mx-auto tracking-widest leading-relaxed text-base text-indigo-200">
+    <p className="lg:w-2/3 mx-auto tracking-widest leading-relaxed text-sm text-white">
       {subheading
         ? subheading
         : `“We take photos as a return ticket to a moment otherwise gone” – Katie Thurmes`}

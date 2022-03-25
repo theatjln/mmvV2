@@ -15,6 +15,7 @@ import { getClient, getData } from "../src/helpers/client";
 import Layout from "../src/components/layout";
 import SocialIcons from "../src/components/socialIcons";
 import Spinner from "../src/components/spinner";
+import PageTitle from "../src/components/pageTitle";
 
 export async function getStaticProps() {
   const client = createClient(getClient());
@@ -53,9 +54,7 @@ export default function About({
   );
 
   const MYLINK = ({ children }) => (
-    <a className="text-indigo-400 hover:cursor-pointer hover:font-display">
-      {children}
-    </a>
+    <a className="hover:cursor-pointer hover:font-display">{children}</a>
   );
 
   const options = {
@@ -100,12 +99,7 @@ export default function About({
         </Head>
         {/* blog details content wrapper */}
         <section className="lg:w-4/6 mx-auto md:mt-0 flex flex-col text-gray-600 body-font relative items-center h-full p-10">
-          <div className="text-start w-full absolute left-4 top-0 md:top-40">
-            <h1 className="sm:text-3xl text-2xl font-medium title-font mb-2 text-indigo-200">
-              About
-            </h1>
-            <div className="h-1 w-20 bg-indigo-500 rounded"></div>
-          </div>
+          <PageTitle>About</PageTitle>
 
           {/* youtube vid wrapper */}
           <div className="youtube-vid-wrapper rounded-lg overflow-hidden w-full my-10 mt-16 flex justify-center">
@@ -128,7 +122,7 @@ export default function About({
                 {name}
               </h2>
               {/* aesthetics hr */}
-              <div className="w-12 h-1 bg-indigo-500 rounded my-5"></div>
+              <div className="w-12 h-1 bg-indigo-700 rounded my-5"></div>
               {/* end aesthetics hr */}
               <p className="font-display">
                 Interest:
@@ -138,13 +132,13 @@ export default function About({
               </p>
               {/* end location */}
               {/* aesthetics hr */}
-              <div className="w-12 h-1 bg-indigo-500 rounded my-5"></div>
+              <div className="w-12 h-1 bg-indigo-700 rounded my-5"></div>
               {/* end aesthetics hr */}
               {/* blog title */}
               <p className="text-base">
                 {/*   {title} */}{" "}
                 <Link href="/contact" passHref>
-                  <button className="inline-flex text-white bg-indigo-500 border-0 focus:outline-none hover:bg-indigo-600 rounded text-lg items-center mb-5 px-4 py-2">
+                  <button className="inline-flex text-white bg-indigo-700 border-0 focus:outline-none hover:bg-indigo-700 rounded text-lg items-center mb-5 px-4 py-2">
                     Contact
                   </button>
                 </Link>
@@ -173,7 +167,6 @@ export default function About({
           </div>
           {/* end carousel wrapper */}
         </section>
-        
       </Layout>
     );
 }

@@ -36,7 +36,7 @@ export default function Nav({ audioSrc }) {
   pageNavs = pageNavs.map((item) => (
     <Link href={item.link} key={uniqid()}>
       <a
-        className={`md:mr-8 hover:text-xl ${
+        className={`md:mr-8 hover:scale-125 ${
           (router.pathname === item.link ||
             (router.pathname === `/blog/[slug]` && item.name === `VBlog`)) &&
           classActive
@@ -48,7 +48,7 @@ export default function Nav({ audioSrc }) {
   ));
 
   return (
-    <div className="full-nav-wrapper container-fluid w-full mx-auto flex flex-col lg:flex-row p-5 lg:py-2 lg:px-20 items-center fixed bg-white text-base tracking-wider leading-relaxed z-20">
+    <div className="full-nav-wrapper container-fluid w-full mx-auto flex flex-col lg:flex-row p-5 lg:py-0 items-center fixed bg-indigo-800 text-base tracking-wider leading-relaxed z-20 text-white">
       <div className="brand-and-burger flex justify-between w-full lg:w-max">
         <Brand />
         <div className="hamburger-and-audio flex lg:hidden mr-3">

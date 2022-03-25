@@ -27,7 +27,7 @@ export default function AboutExcerpt(props) {
   );
 
   const MYLINK = ({ children }) => (
-    <a className="text-indigo-400 hover:cursor-pointer hover:font-display">
+    <a className="text-indigo-800 hover:cursor-pointer hover:font-display">
       {children}
     </a>
   );
@@ -41,7 +41,7 @@ export default function AboutExcerpt(props) {
   };
 
   const aboutpageExcerpt = documentToReactComponents(excerpt, options);
-  /* end code - render contentful rich text  */ 
+  /* end code - render contentful rich text  */
   return (
     <section className="text-gray-600 body-font bg-white">
       <div className="container px-10 py-24 mx-auto flex flex-col">
@@ -62,7 +62,7 @@ export default function AboutExcerpt(props) {
                 <h2 className="font-medium title-font mt-4 text-gray-900 leading-relaxed">
                   {name}
                 </h2>
-                <div className="w-12 h-1 bg-indigo-500 rounded mt-2 mb-4"></div>
+                <div className="w-12 h-1 bg-indigo-700 rounded mt-2 mb-4"></div>
                 <p className="font-display">
                   Interests:
                   <h2 className="mt-4 text-gray-900 text-lg">
@@ -74,7 +74,7 @@ export default function AboutExcerpt(props) {
             <div className="sm:w-2/3 sm:pl-8 sm:py-8 sm:border-l border-gray-200 sm:border-t-0 border-t mt-4 pt-4 sm:mt-0 text-center sm:text-left">
               <p className="leading-relaxed mb-4">{aboutpageExcerpt}</p>
               <Link href="/about">
-                <a className="text-indigo-500 inline-flex items-center hover:font-display hover:text-xl leading-relaxed text-lg">
+                <a className="text-indigo-800 inline-flex items-center hover:font-display hover:text-xl leading-relaxed text-lg">
                   Learn More
                   <svg
                     fill="none"

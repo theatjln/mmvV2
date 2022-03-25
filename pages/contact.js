@@ -14,6 +14,7 @@ import Layout from "../src/components/layout";
 import SocialIcons from "../src/components/socialIcons";
 import Alert from "../src/components/alert";
 import Spinner from "../src/components/spinner";
+import PageTitle from "../src/components/pageTitle";
 
 export async function getStaticProps() {
   const client = createClient(getClient());
@@ -88,15 +89,10 @@ export default function Contact({ homepageData, bloggerDetails, audio }) {
         audioSrc={audioSrc}
       >
         <section className="lg:w-4/6 mx-auto md:mt-0 flex flex-col text-gray-600 body-font relative items-center h-full py-10">
-          <div className="text-start w-full absolute left-4 top-0 md:top-40">
-            <h1 className="sm:text-3xl text-2xl font-medium title-font mb-2 text-indigo-200">
-              Contact
-            </h1>
-            <div className="h-1 w-20 bg-indigo-500 rounded"></div>
-          </div>
+          <PageTitle>Contact</PageTitle>
           <div className="container px-8 py-24 mx-auto">
             <div className="flex flex-col text-center w-full mb-12">
-              <h1 className="sm:text-3xl text-2xl font-medium title-font mb-4 text-indigo-200">
+              <h1 className="sm:text-3xl text-2xl font-medium title-font mb-4 text-white">
                 Contact Us
               </h1>
               {/* FORM RESPONSE MESSAGE */}
@@ -104,7 +100,7 @@ export default function Contact({ homepageData, bloggerDetails, audio }) {
               {responseAlert.message.length > 0 && (
                 <Alert responseAlert={responseAlert} />
               )}
-              <p className="lg:w-2/3 mx-auto leading-relaxed text-base text-indigo-200">
+              <p className="lg:w-2/3 mx-auto leading-relaxed text-base text-white">
                 Please fill out this form and we will contact you within 24
                 hours.
               </p>
@@ -120,7 +116,7 @@ export default function Contact({ homepageData, bloggerDetails, audio }) {
                     <div className="relative">
                       <label
                         htmlFor="fullName"
-                        className="leading-7 text-sm text-indigo-200"
+                        className="leading-7 text-sm text-white"
                       >
                         Name
                       </label>
@@ -142,7 +138,7 @@ export default function Contact({ homepageData, bloggerDetails, audio }) {
                     <div className="relative">
                       <label
                         htmlFor="email"
-                        className="leading-7 text-sm text-indigo-200"
+                        className="leading-7 text-sm text-white"
                       >
                         Email
                       </label>
@@ -176,7 +172,7 @@ export default function Contact({ homepageData, bloggerDetails, audio }) {
                     <div className="relative">
                       <label
                         htmlFor="message"
-                        className="leading-7 text-sm text-indigo-200"
+                        className="leading-7 text-sm text-white"
                       >
                         Message
                       </label>
@@ -200,7 +196,7 @@ export default function Contact({ homepageData, bloggerDetails, audio }) {
                   </div>
                   <div className="p-2 w-full">
                     <button
-                      className="flex mx-auto text-white bg-indigo-500 border-0 py-3 px-8 focus:outline-none hover:bg-indigo-600 rounded text-lg"
+                      className="flex mx-auto text-white bg-indigo-700 border-0 py-3 px-8 focus:outline-none hover:bg-indigo-700 rounded text-lg"
                       type="submit"
                     >
                       <i className="fa fa-paper-plane"></i>

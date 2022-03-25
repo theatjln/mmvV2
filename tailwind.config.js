@@ -1,8 +1,18 @@
+const colors = require("tailwindcss/colors");
+
 module.exports = {
   content: ["./src/components/**/*.js", "./pages/**/*.js"],
   theme: {
+    colors: {
+      transparent: "transparent",
+      current: "currentColor", 
+      white: colors.white,
+      black: colors.black,
+      gray: colors.gray, 
+      indigo: colors.zinc,
+    },
     screens: {
-      "fold": "268px",
+      fold: "268px",
       // => @media (min-width: 268px) { ... }
 
       xs: "320px",
@@ -13,7 +23,7 @@ module.exports = {
 
       md: "768px",
       // => @media (min-width: 768px) { ... }
- 
+
       lg: "1024px",
       // => @media (min-width: 1024px) { ... }
 

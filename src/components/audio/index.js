@@ -4,11 +4,13 @@ import { useRouter } from "next/router";
 const Audio = ({ src }) => {
   const router = useRouter();
   const textColor =
-    router.pathname === "/blog/[slug]" ? "text-blueGray-700" : "text-indigo-800";
+    router.pathname === "/blog/[slug]"
+      ? "text-blueGray-700"
+      : "text-indigo-900";
 
   const player = useRef();
   const [isPlaying, setIsPlaying] = useState(false);
-  const iconStyle = `fas ${
+  const iconStyle = `fas hover:scale-125 ${
     isPlaying ? "fa-pause" : "fa-music"
   } absolute ${textColor} cursor-pointer`;
 

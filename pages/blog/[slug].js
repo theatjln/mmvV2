@@ -82,7 +82,7 @@ export default function BlogDetailsPage({
   );
 
   const MYLINK = ({ children }) => (
-    <a className="text-indigo-400 hover:cursor-pointer hover:font-display">
+    <a className="text-indigo-800 hover:cursor-pointer hover:font-display">
       {children}
     </a>
   );
@@ -152,7 +152,7 @@ export default function BlogDetailsPage({
               {/* end location */}
 
               {/* aesthetics hr */}
-              <div className="w-12 h-1 bg-indigo-500 rounded mt-2 mb-4"></div>
+              <div className="w-12 h-1 bg-indigo-700 rounded mt-2 mb-4"></div>
               {/* end aesthetics hr */}
 
               {/* blog title */}

@@ -1,12 +1,11 @@
 import Link from "next/link";
 
-export default function BlogCard(props) {  
- 
+export default function BlogCard(props) {
   const { title, videoEmbedId, summary, slug } = props.fields;
   return (
     <Link href={`/blog/${slug}`} passHref>
-      <div className="xl:w-4/5 md:w-4/5 w-full p-4 hover:cursor-pointer">
-        <div className="bg-gray-100 p-6 rounded-lg flex flex-col md:flex-row">
+      <div className="w-full p-4 hover:cursor-pointer">
+        <div className="shadow-lg bg-gray-100 p-6 rounded-lg flex flex-col md:flex-row">
           <div className="flex xs:w-full md:w-1/2 md:mr-10">
             <iframe
               width="560"
@@ -20,12 +19,12 @@ export default function BlogCard(props) {
             />
           </div>
           <div className="flex flex-col xs:w-full md:w-1/2">
-            <h2 className="text-lg text-indigo-500 font-semibold title-font mb-4">
+            <h2 className="text-lg text-indigo-800 font-semibold title-font mb-4">
               {title}
             </h2>
             <p className="leading-relaxed text-sm md:text-base">
               {summary} &nbsp;
-              <span className="text-indigo-600 font-display">{`...Read more`}</span>
+              <span className="text-indigo-800 font-display">{`...Read more`}</span>
             </p>
           </div>
         </div>

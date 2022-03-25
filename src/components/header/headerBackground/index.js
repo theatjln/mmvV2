@@ -22,7 +22,7 @@ export default function HeaderBackground({ bgVidSrc }) {
     <>
       {/* video, visits counter, and polygon */}
       <div
-        className={`video-and-polygon header-background w-full h-full absolute container-fluid bg-indigo-300 overflow-hidden`}
+        className={`video-and-polygon header-background w-full h-full absolute container-fluid bg-indigo-200 overflow-hidden`}
       >
         <VisitsCounter />
         {/* for premium vimeo */}
@@ -39,7 +39,7 @@ export default function HeaderBackground({ bgVidSrc }) {
           {/* end for premium vimeo */}
 
           {/* video overlay */}
-          <div className="overlay w-full h-full bg-black opacity-60 lg:h-150% xl:h-130%"></div>
+          <div className="overlay w-full h-full bg-indigo-900 opacity-80 lg:h-150% xl:h-130%"></div>
           {/* video end overlay */}
         </div>
         <PolygonComponent
