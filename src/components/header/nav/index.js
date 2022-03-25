@@ -11,7 +11,7 @@ import Brand from "../brand";
 
 export default function Nav({ audioSrc }) {
   const router = useRouter();
-  const classActive = `font-display text-lg font-bold`;
+  const classActive = `font-display text-xl font-black`;
   const [navbarOpen, setNavbarOpen] = useState(false);
 
   let pageNavs = [
@@ -36,7 +36,7 @@ export default function Nav({ audioSrc }) {
   pageNavs = pageNavs.map((item) => (
     <Link href={item.link} key={uniqid()}>
       <a
-        className={`md:mr-8 hover:text-gray-900 ${
+        className={`md:mr-8 hover:text-xl ${
           (router.pathname === item.link ||
             (router.pathname === `/blog/[slug]` && item.name === `VBlog`)) &&
           classActive

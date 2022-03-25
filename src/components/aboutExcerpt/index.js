@@ -65,16 +65,16 @@ export default function AboutExcerpt(props) {
                 <div className="w-12 h-1 bg-indigo-500 rounded mt-2 mb-4"></div>
                 <p className="font-display">
                   Interests:
-                  <p className="text-sm font-bold leading-relaxed">
+                  <h2 className="mt-4 text-gray-900 text-lg">
                     {interests.map((interest) => interest + ", ")}
-                  </p>
+                  </h2>
                 </p>
               </div>
             </div>
             <div className="sm:w-2/3 sm:pl-8 sm:py-8 sm:border-l border-gray-200 sm:border-t-0 border-t mt-4 pt-4 sm:mt-0 text-center sm:text-left">
               <p className="leading-relaxed mb-4">{aboutpageExcerpt}</p>
               <Link href="/about">
-                <a className="text-indigo-500 inline-flex items-center hover:font-display hover:text-base leading-relaxed text-xs">
+                <a className="text-indigo-500 inline-flex items-center hover:font-display hover:text-lg leading-relaxed text-base">
                   Learn More
                   <svg
                     fill="none"

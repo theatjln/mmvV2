@@ -129,8 +129,7 @@ export default function About({
             {/* left side of card */}
             <div className="flex flex-col items-center text-center sm:w-1/3 px-5 mb-5 md:mb-0">
               {/* location */} {name}
-              <h2 className="font-medium title-font mt-4 text-gray-900 text-lg">
-                {/*   {location} */}{" "}
+              <h2 className="mt-4 text-gray-900 text-lg">
                 {interests.map((interest) => interest + ", ")}
               </h2>
               {/* end location */}
@@ -141,10 +140,10 @@ export default function About({
               <p className="text-base">
                 {/*   {title} */}{" "}
                 <Link href="/contact" passHref>
-                  <button className="inline-flex text-white bg-indigo-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded text-lg items-center mb-5">
+                  <button className="inline-flex text-white bg-indigo-500 border-0 focus:outline-none hover:bg-indigo-600 rounded text-lg items-center mb-5 px-4 py-2">
                     Contact
                   </button>
-                </Link> 
+                </Link>
                 <SocialIcons {...bloggerDetails} />
               </p>
               {/* end blog title */}
