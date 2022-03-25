@@ -48,7 +48,7 @@ export default function Nav({ audioSrc }) {
   ));
 
   return (
-    <div className="full-nav-wrapper container-fluid w-full mx-auto flex flex-col lg:flex-row p-5 lg:py-0 items-center fixed bg-indigo-800 text-base tracking-wider leading-relaxed z-20 text-white">
+    <div className="full-nav-wrapper container-fluid w-full mx-auto flex flex-col lg:flex-row p-5 lg:py-0 items-center fixed bg-indigo-800 text-base tracking-wider leading-relaxed z-20 text-white w-screen">
       <div className="brand-and-burger flex justify-between w-full lg:w-max">
         <Brand />
         <div className="hamburger-and-audio flex lg:hidden mr-3">
@@ -58,7 +58,11 @@ export default function Nav({ audioSrc }) {
             type="button"
             onClick={() => setNavbarOpen(!navbarOpen)}
           >
-            <i className="fill-indigo-700 fas fa-bars"></i>
+            <i
+              className={`fill-indigo-700 ${
+                navbarOpen ? `fa fa-close` : `fas fa-bars`
+              }`}
+            ></i>
           </button>
           {/* end hamburger icon */}
           <Audio src={audioSrc} />

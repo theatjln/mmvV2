@@ -13,7 +13,7 @@ export default function Layout({
   audioSrc,
 }) {
   return (
-    <div className="layout container-fluid text-base xl:text-lg">
+    <div className="layout container-fluid text-base xl:text-lg w-screen">
       <Head>
         {/* custom favicon */}
         <link
@@ -38,7 +38,7 @@ export default function Layout({
       </Head>
       <Nav audioSrc={audioSrc} />
       <Header audioSrc={audioSrc} bgVidSrc={bgVidSrc} />
-      <main className="">{children}</main>
+      <main className="w-screen">{children}</main>
       <Footer {...bloggerDetails} />
     </div>
   );
