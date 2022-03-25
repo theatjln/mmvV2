@@ -6,8 +6,8 @@ export default function BlogCard(props) {
   return (
     <Link href={`/blog/${slug}`} passHref>
       <div className="xl:w-4/5 md:w-4/5 w-full p-4 hover:cursor-pointer">
-        <div className="bg-gray-100 p-6 rounded-lg flex xs:flex-col md:flex-row">
-          <div className="flex xs:w-full md:w-1/2 mr-10">
+        <div className="bg-gray-100 p-6 rounded-lg flex flex-col md:flex-row">
+          <div className="flex xs:w-full md:w-1/2 md:mr-10">
             <iframe
               width="560"
               height="315"

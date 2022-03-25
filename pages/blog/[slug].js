@@ -42,9 +42,9 @@ export const getStaticPaths = async () => {
 export async function getStaticProps({ params }) {
   const client = createClient(getClient());
 
-  const blog = await client.getEntries({ 
+  const blog = await client.getEntries({
     content_type: "title",
-    "fields.slug": params.slug, 
+    "fields.slug": params.slug,
   });
 
   return {
@@ -100,104 +100,85 @@ export default function BlogDetailsPage({
   const audioSrc = `https:${audio.fields.src.fields.file.url}`;
 
   /* conditional spinner */
-    if (
-      !homepageData ||
-      !blog ||
-      !bloggerDetails ||
-      !audio ||
-      !blogDetailsBody
-    )
-      return (
-        <div className="w-screen h-screen flex justify-center items-center">
-          <Spinner isLoading={true} />
-        </div>
-      );
-    else
-    /* end conditional spinner */
-      return (
-        <Layout
-          bgVidSrc={homepageData.backgroundVideo}
-          bloggerDetails={bloggerDetails}
-          audioSrc={audioSrc}
-        >
-          <Head>
-            <title>{title} - Markus Markus Viajero</title>
-            <meta
-              name="description"
-              content={`Blog Details Page: ${title} Blog for fun viajeros`}
+  if (!homepageData || !blog || !bloggerDetails || !audio || !blogDetailsBody)
+    return (
+      <div className="w-screen h-screen flex justify-center items-center">
+        <Spinner isLoading={true} />
+      </div>
+    );
+  /* end conditional spinner */ else
+    return (
+      <Layout
+        bgVidSrc={homepageData.backgroundVideo}
+        bloggerDetails={bloggerDetails}
+        audioSrc={audioSrc}
+      >
+        <Head>
+          <title>{title} - Markus Markus Viajero</title>
+          <meta
+            name="description"
+            content={`Blog Details Page: ${title} Blog for fun viajeros`}
+          />
+          <link rel="icon" href="/favicon.ico" />
+        </Head>
+
+        {/* blog details content wrapper */}
+        <section className="lg:w-4/6 mx-auto md:mt-0 flex flex-col text-gray-600 body-font relative items-center h-full p-10">
+          {/* youtube vid wrapper */}
+          <div className="youtube-vid-wrapper rounded-lg lg:h-372px md:h-410px sm:h-337px h-250px overflow-hidden w-full my-10 mt-16">
+            {/* youtube vid */}
+            <iframe
+              width="560"
+              height="315"
+              src={`https://www.youtube.com/embed/${videoEmbedId}?autoplay=0&loop=1&playlist=${videoEmbedId}&controls=1&showinfo=0&autohide=1&modestbranding=0&mute=1`}
+              frameBorder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowFullScreen
+              title="Embedded youtube"
+              className="object-cover object-center h-full w-full"
             />
-            <link rel="icon" href="/favicon.ico" />
-          </Head>
-          <section className="text-gray-600 body-font relative">
-            <div className="container px-5 py-24 mx-auto flex flex-col ">
-              <div className="lg:w-4/6 mx-auto mt-28 md:mt-0 flex flex-col items-center">
-                <div className="rounded-lg lg:h-372px md:h-410px sm:h-337px h-250px overflow-hidden w-full">
-                  <iframe
-                    width="560"
-                    height="315"
-                    src={`https://www.youtube.com/embed/${videoEmbedId}?autoplay=0&loop=1&playlist=${videoEmbedId}&controls=1&showinfo=0&autohide=1&modestbranding=0&mute=1`}
-                    frameBorder="0"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                    allowFullScreen
-                    title="Embedded youtube"
-                    className="object-cover object-center h-full w-full"
-                  />
-                </div>
-                <div className="flex flex-col sm:flex-row lg:mt-2 mt-8 bg-white md:pt-0 pt-8 rounded-lg">
-                  <div className="sm:w-1/3 text-center sm:pr-8 sm:py-8">
-                    {/* circle profile dummy pic svg */}
-                    {/* <div className="w-20 h-20 rounded-full inline-flex items-center justify-center bg-gray-200 text-gray-400">
-                   <svg
-                    fill="none"
-                    stroke="currentColor"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth="2"
-                    className="w-10 h-10"
-                    viewBox="0 0 24 24"
-                  >
-                    <path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2" />
-                    <circle cx="12" cy="7" r="4"></circle>
-                  </svg>
-                </div> */}
-                    {/* end circle profile dummy pic svg */}
-                    <div className="flex flex-col items-center text-center justify-center">
-                      <h2 className="font-medium title-font mt-4 text-gray-900 text-lg">
-                        {location}
-                      </h2>
-                      <div className="w-12 h-1 bg-indigo-500 rounded mt-2 mb-4"></div>
-                      <p className="text-base">{title}</p>
-                    </div>
-                  </div>
-                  <div className="sm:w-2/3 sm:pl-8 sm:py-8 sm:border-l border-gray-200 sm:border-t-0 border-t mt-4 pt-4 sm:mt-0 text-center sm:text-left">
-                    <p className="leading-relaxed text-lg mb-4">
-                      {blogDetailsBody}
-                    </p>
-                    {/* <a className="text-indigo-500 inline-flex items-center">
-                  Learn More
-                  <svg
-                    fill="none"
-                    stroke="currentColor"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth="2"
-                    className="w-4 h-4 ml-2"
-                    viewBox="0 0 24 24"
-                  >
-                    <path d="M5 12h14M12 5l7 7-7 7" />
-                  </svg>
-                </a> */}
-                  </div>
-                </div>
-                <div className="rounded-lg w-28rem h-60 overflow-hidden mt-10 md:self-end">
-                  <SwiperCarousel
-                    items={images}
-                    imgClassName={`w-full h-full object-cover object-center`}
-                  />
-                </div>
-              </div>
+            {/* end youtube vid */}
+          </div>
+          {/* end youtube vid wrapper */}
+
+          {/* blog text & content wrapper */}
+          <div className="flex flex-col sm:flex-row bg-white  rounded-lg p-8 mb-10">
+            {/* left side of card */}
+            <div className="flex flex-col items-center text-center sm:w-1/3 px-5 mb-5 md:mb-0">
+              {/* location */}
+              <h2 className="font-medium title-font mt-4 text-gray-900 text-lg">
+                {location}
+              </h2>
+              {/* end location */}
+
+              {/* aesthetics hr */}
+              <div className="w-12 h-1 bg-indigo-500 rounded mt-2 mb-4"></div>
+              {/* end aesthetics hr */}
+
+              {/* blog title */}
+              <p className="text-base">{title}</p>
+              {/* emd blog title */}
             </div>
-          </section>
-        </Layout>
-      );
+            {/* end left side of card */}
+
+            {/* right side of card */}
+            <div className="blog-content-wrapper sm:w-2/3 sm:pl-8   border-gray-200 text-center flex justify-center items-center px-5">
+              <p className="leading-relaxed text-lg mb-4">{blogDetailsBody}</p>
+            </div>
+            {/* end right side of the card */}
+          </div>
+          {/* end blog text & content wrapper */}
+
+          {/* carousel wrapper */}
+          <div className="rounded-lg w-full h-56 sm:h-64 md:h-full overflow-hidden mb-10 flex items-center justify-center">
+            <SwiperCarousel
+              items={images}
+              imgClassName={`w-full h-full object-cover object-center rounded-lg`}
+            />
+          </div>
+          {/* end carousel wrapper */}
+        </section>
+        {/* blog details content wrapper */}
+      </Layout>
+    );
 }
