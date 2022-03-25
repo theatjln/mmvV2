@@ -74,7 +74,7 @@ export default function AboutExcerpt(props) {
             <div className="sm:w-2/3 sm:pl-8 sm:py-8 sm:border-l border-gray-200 sm:border-t-0 border-t mt-4 pt-4 sm:mt-0 text-center sm:text-left">
               <p className="leading-relaxed mb-4">{aboutpageExcerpt}</p>
               <Link href="/about">
-                <a className="text-indigo-500 inline-flex items-center">
+                <a className="text-indigo-500 inline-flex items-center hover:font-display hover:text-base leading-relaxed text-xs">
                   Learn More
                   <svg
                     fill="none"
