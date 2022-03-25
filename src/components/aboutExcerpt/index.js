@@ -14,7 +14,7 @@ export default function AboutExcerpt(props) {
   /* code - render contentful rich text  */
   const H4 = ({ children }) => (
     <>
-      <h4 className="font-bold text-xl md:text-3xl text-indigo-700">{children}</h4>
+      <h4 className="text-xl md:text-3xl text-indigo-700">{children}</h4>
       <br />
     </>
   );

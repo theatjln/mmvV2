@@ -3,7 +3,7 @@ import { useRouter } from "next/router";
 
 const Audio = ({ src }) => {
   const router = useRouter();
-  const textColor ="text-indigo-200";
+  const textColor ="text-white";
 
   const player = useRef();
   const [isPlaying, setIsPlaying] = useState(false);

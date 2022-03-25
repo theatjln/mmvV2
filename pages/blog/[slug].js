@@ -69,7 +69,7 @@ export default function BlogDetailsPage({
   /* code - render contentful rich text  */
   const H4 = ({ children }) => (
     <>
-      <h4 className="font-bold text-3xl">{children}</h4>
+      <h4 className="text-3xl">{children}</h4>
       <br />
     </>
   );
