@@ -13,7 +13,7 @@ export default function Layout({
   audioSrc,
 }) {
   return (
-    <div className="layout container-fluid">
+    <div className="layout container-fluid text-base xl:text-lg">
       <Head>
         {/* custom favicon */}
         <link

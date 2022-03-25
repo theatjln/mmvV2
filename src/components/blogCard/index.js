@@ -16,7 +16,7 @@ export default function BlogCard(props) {
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
               allowFullScreen
               title="Embedded youtube"
-              className="h-56 sm:h-72 md:h-40 lg:h-60 rounded w-full object-cover object-center mb-6"
+              className="h-52 xl:h-64 2xl:h-410px rounded w-full object-cover object-center mb-6"
             />
           </div>
           <div className="flex flex-col xs:w-full md:w-1/2">

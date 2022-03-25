@@ -100,6 +100,13 @@ export default function About({
         </Head>
         {/* blog details content wrapper */}
         <section className="lg:w-4/6 mx-auto md:mt-0 flex flex-col text-gray-600 body-font relative items-center h-full p-10">
+          <div className="text-start w-full absolute left-4 top-0 md:top-40">
+            <h1 className="sm:text-3xl text-2xl font-medium title-font mb-2 text-indigo-200">
+              About
+            </h1>
+            <div className="h-1 w-20 bg-indigo-500 rounded"></div>
+          </div>
+
           {/* youtube vid wrapper */}
           <div className="youtube-vid-wrapper rounded-lg overflow-hidden w-full my-10 mt-16 flex justify-center">
             <Image

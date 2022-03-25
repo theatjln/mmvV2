@@ -88,6 +88,12 @@ export default function Contact({ homepageData, bloggerDetails, audio }) {
         audioSrc={audioSrc}
       >
         <section className="text-indigo-200 body-font relative md:top-0 top-24">
+          <div className="text-start w-full absolute left-4 top-0 md:top-40">
+            <h1 className="sm:text-3xl text-2xl font-medium title-font mb-2 text-indigo-200">
+              Contact
+            </h1>
+            <div className="h-1 w-20 bg-indigo-500 rounded"></div>
+          </div>
           <div className="container px-8 py-24 mx-auto">
             <div className="flex flex-col text-center w-full mb-12">
               <h1 className="sm:text-3xl text-2xl font-medium title-font mb-4 text-gray-900 text-indigo-200">
@@ -196,8 +202,7 @@ export default function Contact({ homepageData, bloggerDetails, audio }) {
                     <button
                       className="flex mx-auto text-white bg-indigo-500 border-0 py-3 px-8 focus:outline-none hover:bg-indigo-600 rounded text-lg"
                       type="submit"
-                    > 
-
+                    >
                       <i className="fa fa-paper-plane"></i>
                     </button>
                   </div>
