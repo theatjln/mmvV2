@@ -1,3 +1,7 @@
+// modules
+import Link from "next/link";
+
+// components
 import SwiperCarousel from "../../carousel/swiper";
 // for photo carousel
 const dummyImages = [
@@ -19,33 +23,29 @@ const dummyVideos = [
 ];
 
 const BannerCarouselImg = ({ div1className, div2className }) => (
-  <div className={`p-4 ${div1className} h-full w-full`}>
-    {/*  <div
-      className={`lg:h-48 md:h-36 w-full rounded-lg overflow-hidden relative ${div2className} flex`}
-    > */}
-    <SwiperCarousel
-      items={dummyImages}
-      imgClassName={`w-full h-full object-cover object-center max-w-none flex justify-self-center rounded-lg max-w-none-imp max-h-none-imp`}
-    />
-    {/*    </div> */}
-  </div>
+  <Link href="/blog" passHref>
+    <div className={`hover:cursor-pointer p-4 ${div1className} h-full w-full`}>
+      <SwiperCarousel
+        items={dummyImages}
+        imgClassName={`w-full h-full object-cover object-center max-w-none flex justify-self-center rounded-lg max-w-none-imp max-h-none-imp`}
+      />
+    </div>
+  </Link>
 );
 
 const BannerCarouselVid = ({ div1className, div2className, ads }) => (
-  <div className={`p-4 ${div1className} h-full w-full`}>
-    {/*    <div
-      className={`md:h-36 w-full rounded-lg overflow-hidden relative ${div2className} flex`}
-    > */}
-    <SwiperCarousel
-      items={dummyVideos}
-      vidClassName={`w-full h-full max-w-none flex justify-self-center rounded-lg ${
-        !ads
-          ? `md:w-120% xl:h-106% 2xl:h-126% 3xl:h-200%`
-          : ` md:h-126% lg:h-110% xl:h-130% 2xl:h-160% 3xl:h-200%`
-      }`}
-    />
-    {/* </div> */}
-  </div>
+  <Link href="/blog" passHref>
+    <div className={`hover:cursor-pointer p-4 ${div1className} h-full w-full`}>
+      <SwiperCarousel
+        items={dummyVideos}
+        vidClassName={`w-full h-full max-w-none flex justify-self-center rounded-lg ${
+          !ads
+            ? `md:w-120% xl:h-106% 2xl:h-126% 3xl:h-200%`
+            : ` md:h-126% lg:h-110% xl:h-130% 2xl:h-160% 3xl:h-200%`
+        }`}
+      />
+    </div>
+  </Link>
 );
 
 const BannerCaption = ({ heading, subheading }) => (
@@ -74,25 +74,22 @@ export default function Banner({ heading, subheading }) {
       {/* banner carousels */}
       <div className="banner-carousels flex flex-wrap w-full justify-center items-center">
         <BannerCarouselImg
-          div1className="pointer-events-none md:w-30%" /* div2className="md:top-6" */
+          div1className=" md:w-30%" /* div2className="md:top-6" */
         />
 
         <BannerCarouselVid
-          div1className="pointer-events-none md:w-2/5 md:-mt-16 mt-0"
+          div1className=" md:w-2/5 md:-mt-16 mt-0"
           /*  div2className="md:-top-12 lg:h-52 md:h-36 lg:w-101%" */
           ads={0}
         />
 
         <BannerCarouselVid
-          div1className="pointer-events-none md:w-30%"
+          div1className=" md:w-30%"
           /*  div2className="md:top-6 lg:h-48"  */
           ads={1}
         />
-
-  
       </div>
       {/* end banner carousels */}
- 
     </section>
   );
 }

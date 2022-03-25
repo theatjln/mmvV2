@@ -109,32 +109,29 @@ export default function About({
               width={320}
               className="object-cover object-center rounded-50% h-full w-full"
             />
-            {/* youtube vid */}
-            {/*  <iframe
-              width="560"
-              height="315"
-              src={`https://www.youtube.com/embed/${videoEmbedId}?autoplay=0&loop=1&playlist=${videoEmbedId}&controls=1&showinfo=0&autohide=1&modestbranding=0&mute=1`}
-              frameBorder="0"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-              allowFullScreen
-              title="Embedded youtube"
-              className="object-cover object-center h-full w-full"
-            /> */}
-            {/* end youtube vid */}
           </div>
           {/* end youtube vid wrapper */}
 
           {/* blog text & content wrapper */}
           <div className="flex flex-col sm:flex-row bg-white  rounded-lg p-8 mb-10">
             {/* left side of card */}
-            <div className="flex flex-col items-center text-center sm:w-1/3 px-5 mb-5 md:mb-0">
-              {/* location */} {name}
-              <h2 className="mt-4 text-gray-900 text-lg">
-                {interests.map((interest) => interest + ", ")}
+            <div className="flex flex-col items-center text-center sm:w-1/3 px-5 mb-10 md:mb-0">
+              {/* location */}
+              <h2 className="font-medium title-font mt-4 text-gray-900 leading-relaxed">
+                {name}
               </h2>
+              {/* aesthetics hr */}
+              <div className="w-12 h-1 bg-indigo-500 rounded my-5"></div>
+              {/* end aesthetics hr */}
+              <p className="font-display">
+                Interest:
+                <h2 className="mt-4 text-gray-900 text-lg">
+                  {interests.map((interest) => interest + ", ")}
+                </h2>
+              </p>
               {/* end location */}
               {/* aesthetics hr */}
-              <div className="w-12 h-1 bg-indigo-500 rounded mt-2 mb-4"></div>
+              <div className="w-12 h-1 bg-indigo-500 rounded my-5"></div>
               {/* end aesthetics hr */}
               {/* blog title */}
               <p className="text-base">
