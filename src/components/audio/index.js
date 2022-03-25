@@ -25,7 +25,7 @@ const Audio = ({ src }) => {
   }, [src]);
 
   return (
-    <div className="flex px-6">
+    <div className="flex px-4 sm:px-6">
       <button className="flex items-center justify-center">
         {isPlaying && <i className={iconStyle} onClick={pauseSong}></i>}
         {!isPlaying && <i className={iconStyle} onClick={playSong}></i>}

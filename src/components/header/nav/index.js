@@ -11,7 +11,7 @@ import Brand from "../brand";
 
 export default function Nav({ audioSrc }) {
   const router = useRouter();
-  const classActive = `font-display text-xl font-black`;
+  const classActive = `font-display italic`;
   const [navbarOpen, setNavbarOpen] = useState(false);
 
   let pageNavs = [
@@ -36,7 +36,7 @@ export default function Nav({ audioSrc }) {
   pageNavs = pageNavs.map((item) => (
     <Link href={item.link} key={uniqid()}>
       <a
-        className={`md:mr-8 hover:scale-125 ${
+        className={`md:mr-8 hover:scale-125 hover:font-display hover:italic ${
           (router.pathname === item.link ||
             (router.pathname === `/blog/[slug]` && item.name === `VBlog`)) &&
           classActive
@@ -48,7 +48,7 @@ export default function Nav({ audioSrc }) {
   ));
 
   return (
-    <div className="full-nav-wrapper container-fluid w-full mx-auto flex flex-col lg:flex-row p-5 lg:py-0 items-center fixed bg-indigo-800 text-base tracking-wider leading-relaxed z-20 text-white w-screen">
+    <div className="full-nav-wrapper container-fluid mx-auto flex flex-col lg:flex-row p-5 lg:py-1 items-center fixed bg-indigo-800 text-sm xl:text-base tracking-wider leading-relaxed z-20 text-white w-screen lg:px-20">
       <div className="brand-and-burger flex justify-between w-full lg:w-max">
         <Brand />
         <div className="hamburger-and-audio flex lg:hidden mr-3">

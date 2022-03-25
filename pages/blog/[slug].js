@@ -162,7 +162,7 @@ export default function BlogDetailsPage({
             {/* end left side of card */}
 
             {/* right side of card */}
-            <div className="blog-content-wrapper sm:w-2/3 sm:pl-8   border-gray-200 text-center flex justify-center items-center px-5">
+            <div className="blog-content-wrapper sm:w-2/3 sm:pl-8   border-gray-200 text-center flex justify-center items-center lg:px-5 px-0">
               <p className="leading-relaxed text-lg mb-4">{blogDetailsBody}</p>
             </div>
             {/* end right side of the card */}

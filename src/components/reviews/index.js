@@ -3,8 +3,8 @@ import React from "react";
 export default function Reviews() {
   return (
     <section className="text-gray-600 body-font">
-      <div className="container px-5 py-24 mx-auto">
-        <h1 className="text-3xl font-medium title-font text-gray-900 mb-12 text-center">
+      <div className="container px-5 py-24 lg:px-20 mx-auto">
+        <h1 className="text-3xl font-medium title-font mb-12 text-center">
           Testimonials
         </h1>
         <div className="flex flex-wrap -m-4">

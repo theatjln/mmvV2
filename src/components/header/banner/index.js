@@ -49,15 +49,15 @@ const BannerCarouselVid = ({ div1className, div2className, ads }) => (
 );
 
 const BannerCaption = ({ heading, subheading }) => (
-  <div className="banner-caption flex flex-col w-full justify-center items-center relative p-8 md:text-center md:mb-14 xl:mt-14">
+  <div className="banner-caption flex flex-col w-full justify-center items-center relative p-8 text-center md:mb-14 xl:mt-14">
     {/* heading */}
-    <h1 className="text-5xl font-extrabold title-font  leading-relaxed mt-20 lg:mt-10 xl:mt-0 mb-8 md:mb-0 text-white">
+    <h1 className="text-5xl font-extrabold title-font font-display leading-relaxed mt-20 lg:mt-10 xl:mt-0 mb-8 md:mb-0 text-white">
       {heading ? heading : `A Different Travel Experience`}
     </h1>
     {/* end heading */}
 
     {/* subheading */}
-    <p className="mx-auto tracking-widest text-xs leading-relaxed text-white">
+    <p className="mx-auto tracking-widest text-xs leading-relaxed text-indigo-100 shadow">
       {subheading
         ? subheading
         : `“We take photos as a return ticket to a moment otherwise gone” – Katie Thurmes`}
@@ -72,19 +72,19 @@ export default function Banner({ heading, subheading }) {
       <BannerCaption heading={heading} subheading={subheading} />
 
       {/* banner carousels */}
-      <div className="banner-carousels flex flex-wrap w-full justify-center items-center">
+      <div className="banner-carousels flex flex-wrap w-5/6 lg:w-full justify-center items-center">
         <BannerCarouselImg
-          div1className=" md:w-30%" /* div2className="md:top-6" */
+          div1className=" md:w-30% shadow-lg" /* div2className="md:top-6" */
         />
 
         <BannerCarouselVid
-          div1className=" md:w-2/5 md:-mt-24 mt-0"
+          div1className=" md:w-2/5 md:-mt-24 mt-0 shadow-lg"
           /*  div2className="md:-top-12 lg:h-52 md:h-36 lg:w-101%" */
           ads={0}
         />
 
         <BannerCarouselVid
-          div1className=" md:w-30%"
+          div1className=" md:w-30% shadow-lg"
           /*  div2className="md:top-6 lg:h-48"  */
           ads={1}
         />

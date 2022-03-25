@@ -4,21 +4,21 @@ module.exports = {
   content: ["./src/components/**/*.js", "./pages/**/*.js"],
   theme: {
     letterSpacing: {
-      tightest: '-.075em',
-      tighter: '-.05em',
-      tight: '-.025em',
-      normal: '0',
-      wide: '.025em',
-      wider: '.05em', 
-      widest: '.35em',
+      tightest: "-.075em",
+      tighter: "-.05em",
+      tight: "-.025em",
+      normal: "0",
+      wide: ".025em",
+      wider: ".05em",
+      widest: ".35em",
     },
     colors: {
       transparent: "transparent",
-      current: "currentColor", 
+      current: "currentColor",
       white: colors.white,
       black: colors.black,
-      gray: colors.gray, 
-      indigo: colors.zinc,
+      gray: colors.gray,
+      indigo: colors.cyan,
     },
     screens: {
       fold: "268px",
@@ -43,9 +43,14 @@ module.exports = {
       // => @media (min-width: 1536px) { ... }
     },
     fontFamily: {
-      sans: ["Graphik", "sans-serif"],
+      sans: ["Raleway", "sans-serif"],
       serif: ["Merriweather", "serif"],
-      display: ["Dancing Script", "cursive"],
+      // display: ["Dancing Script", "cursive"],
+      // display: ["Amiri", "serif"],
+      // display:['Lobster', "cursive"]
+      display: ["Lobster Two", "cursive"],
+      // display: ["Lora", "serif"],
+      // display: ["Playfair Display", "serif"],
     },
     extend: {
       screens: {
