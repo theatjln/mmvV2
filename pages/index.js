@@ -54,7 +54,7 @@ export default function Home({
 }) {
   const audioSrc = `https:${audio.fields.src.fields.file.url}`;
   const bgVideo = `https:${homepageData.videoUploadBackground.fields.file.url}`;
-  const router = useRouter();
+  const router = useRouter(); 
 
   /*   homepageData.photoGalleryUploads.forEach((data) =>
     console.log(`photo gallery upload: ${`https:${data.fields.file.url}`}`),
