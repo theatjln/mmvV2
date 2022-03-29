@@ -1,5 +1,9 @@
+//modules
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
 import { BLOCKS, INLINES } from "@contentful/rich-text-types";
+import Link from "next/link";
+
+// components
 
 export default function RichtextRenderer({ children }) {
   /* code - render contentful rich text  */
@@ -15,19 +19,22 @@ export default function RichtextRenderer({ children }) {
       <p className="text-sm md:text-base">{children}</p>
       <br />
     </>
-  );
-
-  const MYLINK = ({ children }) => (
-    <a className="text-indigo-800 hover:cursor-pointer hover:text-indigo-500 font-extrabold">
-      {children}
-    </a>
-  );
+  ); 
 
   const options = {
     renderNode: {
       [BLOCKS.HEADING_4]: (node, children) => <H4>{children}</H4>,
       [BLOCKS.PARAGRAPH]: (node, children) => <P>{children}</P>,
-      [INLINES.HYPERLINK]: (node, children) => <MYLINK>{children}</MYLINK>,
+      [INLINES.HYPERLINK]: (node, children) => {
+        return (
+          <a
+            href={node.data.uri}
+            className="text-indigo-800 hover:cursor-pointer hover:text-indigo-500 font-extrabold"
+          >
+            {children}
+          </a>
+        );
+      },
     },
   };
 
