@@ -9,7 +9,7 @@ import { getClient, getData } from "../../src/helpers/client";
 import Layout from "../../src/components/layout";
 import SwiperCarousel from "../../src/components/carousel/swiper";
 import Spinner from "../../src/components/spinner";
-import RichtextRenderer from "../../src/components/richTextRenderer";
+import RichtextRenderer from "../../src/components/richtextRenderer";
 import Hr from "../../src/components/shapes/hr";
 import Wrapper from "../../src/components/wrapper";
 

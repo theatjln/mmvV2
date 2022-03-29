@@ -1,4 +1,4 @@
-// modules 
+// modules
 import Link from "next/link";
 import Image from "next/image";
 import Head from "next/head";
@@ -13,7 +13,7 @@ import SocialIcons from "../src/components/socialIcons";
 import Spinner from "../src/components/spinner";
 import PageTitle from "../src/components/pageTitle";
 import Hr from "../src/components/shapes/hr";
-import RichtextRenderer from "../src/components/richTextRenderer";
+import RichtextRenderer from "../src/components/richtextRenderer";
 
 export async function getStaticProps() {
   const client = createClient(getClient());
@@ -35,16 +35,10 @@ export default function About({
 }) {
   const { name, interests, profilePicture } = bloggerDetails;
   const { essay } = aboutpageData;
-  const bgVideo = `https:${homepageData.videoUploadBackground.fields.file.url}`; 
-  const audioSrc = `https:${audio.fields.src.fields.file.url}`; 
+  const bgVideo = `https:${homepageData.videoUploadBackground.fields.file.url}`;
+  const audioSrc = `https:${audio.fields.src.fields.file.url}`;
 
-  if (
-    !homepageData ||
-    !aboutpageData ||
-    !bloggerDetails ||
-    !audio ||
-    !essay
-  )
+  if (!homepageData || !aboutpageData || !bloggerDetails || !audio || !essay)
     return (
       <div className="w-screen h-screen flex justify-center items-center">
         <Spinner isLoading={true} />

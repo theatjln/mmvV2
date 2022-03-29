@@ -3,7 +3,7 @@ import Link from "next/link";
 import Image from "next/image";
 
 // components
-import RichtextRenderer from "../richTextRenderer";
+import RichtextRenderer from "../richtextRenderer";
 
 // helpers
 
