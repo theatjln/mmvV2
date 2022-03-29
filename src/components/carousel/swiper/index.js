@@ -14,51 +14,69 @@ import "swiper/css/autoplay";
 
 // import required Swiper modules
 import { EffectFade, Autoplay } from "swiper";
+import Overlay from "../../overlay";
 // end import required Swiper modules
 
-export default function SwiperCarousel({ items, imgClassName, vidClassName }) {
+export default function SwiperCarousel({
+  items,
+  isImg,
+  isAds,
+  label,
+  isSlug = false,
+}) {
   const router = useRouter();
 
   const swiperSlidesImg = items.map((item) => {
-    const imgSrc =
+    /* const imgSrc =
       router.pathname === `/blog/[slug]`
         ? `https:${item.fields.file.url}`
         : item.imgSrc;
-
+ */
+    console.log(`img item:`, item.imgSrc);
     return (
-      <SwiperSlide
-        className="flex justify-center items-center rounded-lg"
-        key={uniqid()}
-      >
+      <SwiperSlide className="absolute w-full h-full" key={uniqid()}>
         <Image
-          src={imgSrc}
-          className={imgClassName}
-          height={400}
-          width={720}
+          src={item.imgSrc}
+          className={`w-full h-full object-cover object-center flex justify-self-center rounded-xl`}
+          layout="fill"
           alt="media-carousel"
         />
+        <Overlay
+          style={`absolute text-white text-xs leading-relaxed tracking-widest ml-3 mt-3`}
+        >
+          {label}
+        </Overlay>
       </SwiperSlide>
     );
   });
 
   const swiperSlidesVid = items.map((item) => (
-    <SwiperSlide
-      className="flex justify-center items-center rounded-lg"
-      key={uniqid()}
-    >
-      <div className="relative h-full w-full flex justify-center items-center rounded-lg">
-        <video autoPlay loop muted className={vidClassName}>
-          <source src={item.vidSrc} type="video/mp4" />
-          <p>{`Your browser doesn't support HTML5 video.`}</p>
-        </video>
-      </div>
+    <SwiperSlide className="w-full h-full" key={uniqid()}>
+      <video
+        autoPlay
+        loop
+        muted
+        className={`absolute max-w-none flex justify-self-center ${
+          !isAds
+            ? ` md:w-120% xl:h-106% 2xl:h-126% 3xl:h-200%`
+            : ` md:h-126% lg:h-110% xl:h-130% 2xl:h-160% 3xl:h-200%`
+        }`}
+      >
+        <source src={item.vidSrc} type="video/mp4" />
+        <p>{`Your browser doesn't support HTML5 video.`}</p>
+      </video>
+      <Overlay
+        style={`absolute text-white text-xs leading-relaxed tracking-widest ml-3 mt-3`}
+      >
+        {label}
+      </Overlay>
     </SwiperSlide>
   ));
 
   return (
-    <div className="flex">
+    <>
       <Swiper
-        className="justify-center items-center rounded-lg absolute"
+        className="absolute w-full h-full rounded-xl"
         effect={"fade"}
         modules={[EffectFade, Autoplay]}
         autoplay={{
@@ -66,16 +84,15 @@ export default function SwiperCarousel({ items, imgClassName, vidClassName }) {
           disableOnInteraction: false,
         }}
       >
-        {imgClassName && swiperSlidesImg}
-        {vidClassName && swiperSlidesVid}
+        {isImg && swiperSlidesImg}
+        {!isImg && swiperSlidesVid}
       </Swiper>
- 
 
       <style>{`
           *:focus, .swiper-wrapper, .swiper-slide {
             outline: 0 !important;
             outline: none !important;
-          }
+          } 
           .max-w-none-imp {
             max-width: none !important;
             min-width: none !important;
@@ -85,6 +102,6 @@ export default function SwiperCarousel({ items, imgClassName, vidClassName }) {
             min-height: none !important;
           }
     `}</style>
-    </div>
+    </>
   );
 }

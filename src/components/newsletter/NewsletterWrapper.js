@@ -3,7 +3,7 @@ import NewsletterSubscribe from "./NewsletterSubscribe";
 
 const NewsletterWrapper = () => {
   return (
-    <section className="relative w-full h-auto text-center mb-12" id="subscribe">
+    <section className="wrapper relative w-full h-auto text-center mb-12" id="subscribe">
       <p className="text-3xl font-normal leading-normal mt-0 mb-2 text-blueGray-800">
         Want product news and updates?
       </p>

@@ -3,10 +3,10 @@ import { useRouter } from "next/router";
 
 // components
 import PolygonComponent from "../../polygonComponent";
+import Video from "../../video";
 import VisitsCounter from "../../visits";
 
-// just comment
-const introVidSrc =
+const fallbackVidSrc =
   "https://player.vimeo.com/external/384761655.sd.mp4?s=383ab4dbc773cd0d5ece3af208d8f963368f67e4&profile_id=165&oauth2_token_id=57447761";
 
 const getHeight = (path) => {
@@ -15,54 +15,16 @@ const getHeight = (path) => {
   else return "md:h-2/3";
 };
 
-export default function HeaderBackground({ bgVidSrc }) {
-  const router = useRouter();
-  const videoSource = bgVidSrc || introVidSrc;
-  return (
-    <>
-      {/* video, visits counter, and polygon */}
-      <div
-        className={`video-and-polygon header-background w-full h-full absolute container-fluid bg-indigo-200 overflow-hidden`}
-      >
-        <VisitsCounter />
-        {/* for premium vimeo */}
-        <div className="video-wrapper relative h-150% md:h-full lg:h-2/3 xl:h-130% w-full">
-          <video
-            autoPlay
-            loop
-            muted
-            className="absolute fold:w-524% xs:w-422% md:w-321% lg:w-206% xl:w-160% max-w-none"
-          >
-            <source src={videoSource} type="video/mp4" />
-            <p>{`Your browser doesn't support HTML5 video.`}</p>
-          </video>
-          {/* end for premium vimeo */}
+export default function HeaderBackground({ bgVidSrc, uploadedBgVideo }) {
+  const style = `video-and-polygon header-background w-full h-81% absolute container-fluid bg-indigo-200 overflow-hidden`; 
 
-          {/* video overlay */}
-          <div className="overlay w-full h-full bg-indigo-900 opacity-60 lg:h-150% xl:h-130%"></div>
-          {/* video end overlay */}
-        </div>
-        <PolygonComponent
-          color="shape-fill-white"
-          position="bottom"
-          addedStyle=""
-        />
-      </div>
-      {/* end video and polygon */}
+  const videoSource = bgVidSrc || fallbackVidSrc;
 
-      <style>{`
-        .iframe-wrapper {
-          padding:56.25% 0 0 0;
-          position:relative;
-        }
-        .iframe {
-          position:absolute;
-          top:0;
-          left:0;
-          width:100%;
-          height:100%;
-        }
-      `}</style>
-    </>
+  return ( 
+    <div className={style}>
+      <VisitsCounter />
+      <Video videoSource={videoSource} uploadedBgVideo={uploadedBgVideo} />
+      <PolygonComponent color="shape-fill-white" position="bottom" />
+    </div>
   );
 }

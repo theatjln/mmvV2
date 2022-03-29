@@ -3,11 +3,11 @@ import { useRouter } from "next/router";
 
 const Audio = ({ src }) => {
   const router = useRouter();
-  const textColor ="text-white";
+  const textColor ="text-indigo-600";
 
   const player = useRef();
   const [isPlaying, setIsPlaying] = useState(false);
-  const iconStyle = `fas hover:scale-125 ${
+  const iconStyle = `fas hover:scale-125 shadow-lg ${
     isPlaying ? "fa-pause" : "fa-music"
   } absolute ${textColor} cursor-pointer`;
 

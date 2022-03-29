@@ -3,7 +3,7 @@ import Head from "next/head";
 
 //components
 import Footer from "../footer";
-import Header from "../header"; 
+import Header from "../header";
 import Nav from "../header/nav";
 
 export default function Layout({
@@ -11,9 +11,17 @@ export default function Layout({
   bgVidSrc,
   bloggerDetails,
   audioSrc,
+  uploadedBgVideo,
+  photoGalleryUploads,
+  featuredVblogGalleryUploads,
+  videoGalleryUploads,
+  heading,
+  subheading,
 }) {
+  const style = `layout container-fluid text-base xl:text-lg w-screen`;
+
   return (
-    <div className="layout container-fluid text-base xl:text-lg w-screen">
+    <div className={style}>
       <Head>
         {/* custom favicon */}
         <link
@@ -37,7 +45,16 @@ export default function Layout({
         {/* end custom favicon */}
       </Head>
       <Nav audioSrc={audioSrc} />
-      <Header audioSrc={audioSrc} bgVidSrc={bgVidSrc} />
+      <Header
+        audioSrc={audioSrc}
+        bgVidSrc={bgVidSrc}
+        uploadedBgVideo={uploadedBgVideo}
+        photoGalleryUploads={photoGalleryUploads}
+        featuredVblogGalleryUploads={featuredVblogGalleryUploads}
+        videoGalleryUploads={videoGalleryUploads}
+        heading={heading}
+        subheading={subheading}
+      />
       <main className="w-screen">{children}</main>
       <Footer {...bloggerDetails} />
     </div>

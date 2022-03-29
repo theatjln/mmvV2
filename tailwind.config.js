@@ -13,7 +13,6 @@ module.exports = {
       widest: ".35em",
     },
     colors: {
-      transparent: "transparent",
       current: "currentColor",
       white: colors.white,
       black: colors.black,
@@ -74,6 +73,8 @@ module.exports = {
       },
       height: {
         "17rem": "17rem",
+        "37r": "37rem",
+        "81%": "81%",
         "106%": "106%",
         "110%": "110%",
         "126%": "126%",
@@ -81,6 +82,7 @@ module.exports = {
         "150%": "150%",
         "160%": "160%",
         "200%": "200%",
+        "300%": "300%",
         "21rem": "21rem",
         "372px": "372px",
         "410px": "410px",

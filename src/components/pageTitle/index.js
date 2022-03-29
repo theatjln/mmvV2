@@ -2,7 +2,7 @@ import React from 'react'
 
 export default function PageTitle({children}) {
   return (
-    <div className="text-start w-full absolute top-0 md:top-20">
+    <div className="hidden md:absolute text-start w-full top-0 md:top-20">
       <h1 className="sm:text-3xl text-2xl font-medium title-font mb-2 text-white">
         {children}
       </h1>

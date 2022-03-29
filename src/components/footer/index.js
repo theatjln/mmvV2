@@ -3,7 +3,7 @@ import SocialIcons from "../socialIcons";
 export default function Footer(props) {
   const { name, instagramUsername } = props;
   return (
-    <footer className="text-gray-600 w-full body-font px-5 py-8 mx-auto flex items-center flex-col md:flex-row lg:px-20">
+    <footer className="text-gray-600 w-full body-font px-5 py-8 mx-auto flex items-center flex-col md:flex-row lg:px-20 italic">
 
       <a className="flex title-font font-medium items-center md:justify-start justify-center text-gray-900">
         <span className="ml-3 text-xl font-display">{name}</span>

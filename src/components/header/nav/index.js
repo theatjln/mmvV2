@@ -48,7 +48,11 @@ export default function Nav({ audioSrc }) {
   ));
 
   return (
-    <div className="full-nav-wrapper container-fluid mx-auto flex flex-col lg:flex-row p-5 lg:py-1 items-center fixed bg-indigo-800 text-sm xl:text-base tracking-wider leading-relaxed z-20 text-white w-screen lg:px-20">
+    <div
+      className={`full-nav-wrapper container-fluid mx-auto flex flex-col lg:flex-row p-5 lg:py-4 items-center ${
+        navbarOpen ? `bg-white text-black` : `bg-transparent text-white`
+      } absolute text-sm xl:text-base tracking-wider leading-relaxed z-20 w-screen lg:px-20`}
+    >
       <div className="brand-and-burger flex justify-between w-full lg:w-max">
         <Brand />
         <div className="hamburger-and-audio flex lg:hidden mr-3">

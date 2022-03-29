@@ -28,6 +28,7 @@ export async function getStaticProps() {
 }
 
 export default function Contact({ homepageData, bloggerDetails, audio }) {
+  const bgVideo = `https:${homepageData.videoUploadBackground.fields.file.url}`;
   const [responseAlert, setResponseAlert] = useState({
     message: "",
     isError: false,
@@ -87,6 +88,7 @@ export default function Contact({ homepageData, bloggerDetails, audio }) {
         bgVidSrc={homepageData.backgroundVideo}
         bloggerDetails={bloggerDetails}
         audioSrc={audioSrc}
+        uploadedBgVideo={bgVideo}
       >
         <section className="lg:w-4/6 mx-auto md:mt-0 flex flex-col text-gray-600 body-font relative items-center h-full py-10">
           <PageTitle>Contact</PageTitle>

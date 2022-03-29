@@ -6,7 +6,7 @@ import { createClient } from "contentful";
 import { getClient, getData } from "../../src/helpers/client";
 
 // components
-import Layout from "../../src/components/layout";
+import Layout from "../../src/components/layout"; 
 import BlogList from "../../src/components/blogList";
 import Spinner from "../../src/components/spinner";
 import PageTitle from "../../src/components/pageTitle";
@@ -30,6 +30,7 @@ export default function BlogPage({
   audio,
 }) {
   const audioSrc = `https:${audio.fields.src.fields.file.url}`;
+  const bgVideo = `https:${homepageData.videoUploadBackground.fields.file.url}`;
 
   /* conditional spinner */
   if (!homepageData || !blogs || !bloggerDetails || !audio)
@@ -44,6 +45,7 @@ export default function BlogPage({
         bgVidSrc={homepageData.backgroundVideo}
         bloggerDetails={bloggerDetails}
         audioSrc={audioSrc}
+        uploadedBgVideo={bgVideo}
       >
         <Head>
           <title>Vblog - Markus Markus Viajero</title>
