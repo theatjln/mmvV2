@@ -53,8 +53,7 @@ export default function Contact({ homepageData, bloggerDetails, audio }) {
     };
 
     try {
-      const response = await axios(config);
-      // console.log(response);
+      const response = await axios(config); 
       if (response.status === 200) {
         reset();
         setResponseAlert({

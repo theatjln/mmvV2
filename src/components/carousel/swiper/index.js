@@ -26,13 +26,7 @@ export default function SwiperCarousel({
 }) {
   const router = useRouter();
 
-  const swiperSlidesImg = items.map((item) => {
-    /* const imgSrc =
-      router.pathname === `/blog/[slug]`
-        ? `https:${item.fields.file.url}`
-        : item.imgSrc;
- */
-    console.log(`img item:`, item.imgSrc);
+  const swiperSlidesImg = items.map((item) => { 
     return (
       <SwiperSlide className="absolute w-full h-full" key={uniqid()}>
         <Image

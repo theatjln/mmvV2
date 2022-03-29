@@ -55,26 +55,11 @@ export default function Home({
   const audioSrc = `https:${audio.fields.src.fields.file.url}`;
   const bgVideo = `https:${homepageData.videoUploadBackground.fields.file.url}`;
   const router = useRouter(); 
-
-  /*   homepageData.photoGalleryUploads.forEach((data) =>
-    console.log(`photo gallery upload: ${`https:${data.fields.file.url}`}`),
-  ); */
+ 
 
   const photoGalleryUploads = homepageData.photoGalleryUploads.map((data) => {
     return { imgSrc: `https:${data.fields.file.url}` };
-  });
-
-  // console.log(`photoGalleryUploads:`, photoGalleryUploads);
-
-  /* console.log(
-    `homepage featured vblog ${JSON.stringify(
-      homepageData.featuredBlogGalleryUploads,
-    )}`,
-  ); */
-
-  /*     homepageData.featuredBlogGalleryUploads.forEach((data) =>
-    console.log(`featured vblog gallery upload: ${`https:${data.fields.file.url}`}`),
-  ); */
+  }); 
 
   const featuredVblogGalleryUploads =
     homepageData.featuredBlogGalleryUploads.map((data) => {

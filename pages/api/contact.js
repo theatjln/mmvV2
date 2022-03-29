@@ -25,8 +25,7 @@ async function contactApi(req, res) {
       <p> <strong>From: </strong> ${fullName} (${email}) </p> 
       <p> <strong>Message: </strong> ${message} </p>
       </div>`,
-    });
-    // console.log("Message sent", emailRes.messageId);
+    }); 
   } catch (error) {
     console.log(error);
   }
