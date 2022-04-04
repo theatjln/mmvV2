@@ -96,5 +96,5 @@ module.exports = {
     },
   },
   variants: {},
-  plugins: [require("tailwindcss"), require("precss"), require("autoprefixer")],
+  plugins: [require('tailwindcss-textshadow'), require("tailwindcss"), require("precss"), require("autoprefixer")],
 };

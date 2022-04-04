@@ -15,6 +15,7 @@ import SocialIcons from "../src/components/socialIcons";
 import Alert from "../src/components/alert";
 import Spinner from "../src/components/spinner";
 import PageTitle from "../src/components/pageTitle";
+import PageContent from "../src/components/pageContent";
 
 export async function getStaticProps() {
   const client = createClient(getClient());
@@ -53,7 +54,7 @@ export default function Contact({ homepageData, bloggerDetails, audio }) {
     };
 
     try {
-      const response = await axios(config); 
+      const response = await axios(config);
       if (response.status === 200) {
         reset();
         setResponseAlert({
@@ -89,9 +90,10 @@ export default function Contact({ homepageData, bloggerDetails, audio }) {
         audioSrc={audioSrc}
         uploadedBgVideo={bgVideo}
       >
-        <section className="lg:w-4/6 mx-auto md:mt-0 flex flex-col text-gray-600 body-font relative items-center h-full py-10">
+        {/* Page Content */}
+        <PageContent>
           <PageTitle>Contact</PageTitle>
-          <div className="container px-8 py-24 mx-auto">
+          <div className="container py-24 mx-auto">
             <div className="flex flex-col text-center w-full mb-12">
               <h1 className="sm:text-3xl text-2xl font-medium title-font mb-4 text-white">
                 Contact Us
@@ -117,7 +119,7 @@ export default function Contact({ homepageData, bloggerDetails, audio }) {
                     <div className="relative">
                       <label
                         htmlFor="fullName"
-                        className="leading-7 text-sm text-white"
+                        className="leading-7 text-sm text-white text-shadow-xl"
                       >
                         Name
                       </label>
@@ -139,7 +141,7 @@ export default function Contact({ homepageData, bloggerDetails, audio }) {
                     <div className="relative">
                       <label
                         htmlFor="email"
-                        className="leading-7 text-sm text-white"
+                        className="leading-7 text-sm text-white text-shadow-xl"
                       >
                         Email
                       </label>
@@ -173,7 +175,7 @@ export default function Contact({ homepageData, bloggerDetails, audio }) {
                     <div className="relative">
                       <label
                         htmlFor="message"
-                        className="leading-7 text-sm text-white"
+                        className="leading-7 text-sm text-white text-shadow-xl"
                       >
                         Message
                       </label>
@@ -213,7 +215,8 @@ export default function Contact({ homepageData, bloggerDetails, audio }) {
               </div>
             </div>
           </div>
-        </section>
+        </PageContent>
+        {/* end Page Content */}
       </Layout>
     );
 }

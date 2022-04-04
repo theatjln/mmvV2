@@ -12,6 +12,8 @@ import Spinner from "../../src/components/spinner";
 import RichtextRenderer from "../../src/components/richtextRenderer";
 import Hr from "../../src/components/shapes/hr";
 import Wrapper from "../../src/components/wrapper";
+import PageContent from "../../src/components/pageContent";
+import Comments from "../../src/components/comments";
 
 const dummyImages = [
   {
@@ -62,6 +64,7 @@ export default function BlogDetailsPage({
   bloggerDetails,
   blog,
   audio,
+  comments,
 }) {
   const { title, videoEmbedId, location, body, images } = blog.fields;
   const audioSrc = `https:${audio.fields.src.fields.file.url}`;
@@ -94,10 +97,11 @@ export default function BlogDetailsPage({
           <link rel="icon" href="/favicon.ico" />
         </Head>
 
+        {/* Page Content */}
         {/* blog details content wrapper */}
-        <section className="lg:w-4/6 mx-auto md:mt-0 flex flex-col text-gray-600 body-font relative items-center h-full p-5 md:p-10">
+        <PageContent>
           {/* youtube vid wrapper */}
-          <div className="youtube-vid-wrapper rounded-lg lg:h-372px md:h-410px sm:h-337px h-250px overflow-hidden w-full my-10 mt-16">
+          <div className="youtube-vid-wrapper rounded-lg lg:h-372px md:h-410px sm:h-337px h-250px overflow-hidden w-full mb-10 mt-20 shadow-xl">
             {/* youtube vid */}
             <iframe
               width="560"
@@ -112,11 +116,10 @@ export default function BlogDetailsPage({
             {/* end youtube vid */}
           </div>
           {/* end youtube vid wrapper */}
-
           {/* blog text & content wrapper */}
           <div className="flex flex-col sm:flex-row w-full bg-white rounded-lg md:p-8 mb-10">
             {/* left side of card */}
-            <div className="flex flex-col text-start md:text-center px-5 mb-5 md:mb-0 md:w-1/3">
+            <div className="flex flex-col text-start text-center mb-10 md:mb-0 md:w-1/3">
               {/* location */}
               <h2 className="font-medium title-font mt-4 text-gray-900 text-lg">
                 {location}
@@ -134,17 +137,19 @@ export default function BlogDetailsPage({
             {/* end left side of card */}
 
             {/* right side of card */}
-            <div className="blog-content-wrapper border-gray-200 flex justify-center items-center md:px-5 px-4 md:w-2/3">
+            <div className="blog-content-wrapper border-gray-200 flex justify-center items-center md:w-2/3 px-3">
               {/*   <p className="leading-relaxed text-lg mb-4">{blogDetailsBody}</p> */}
               <RichtextRenderer>{body}</RichtextRenderer>
             </div>
             {/* end right side of the card */}
           </div>
           {/* end blog text & content wrapper */}
-
           {/* carousel wrapper */}
           {/* <Wrapper style="rounded-lg w-full h-56 sm:h-64 md:h-full overflow-hidden mb-10 flex items-center justify-center"> */}
-          <Wrapper style="flex w-full h-56 sm:h-64 md:h-96">
+          <Wrapper
+            style="swiper-wrapper flex w-full h-56 sm:h-64 md:h-96
+          "
+          >
             <SwiperCarousel
               items={blogImages}
               isImg={true}
@@ -152,8 +157,15 @@ export default function BlogDetailsPage({
               isSlug={true}
             />
           </Wrapper>
-        </section>
+
+          {/* write comment */}
+          <Wrapper style="mb-10 flex w-full bg-white rounded-lg md:p-5">
+            <Comments currentUserId="1" />
+          </Wrapper>
+          {/* end write comment */}
+        </PageContent>
         {/* blog details content wrapper */}
+        {/* End Page Content */}
       </Layout>
     );
 }

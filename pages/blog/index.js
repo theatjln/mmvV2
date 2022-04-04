@@ -1,4 +1,4 @@
-// modules
+// modules 
 import Head from "next/head";
 import { createClient } from "contentful";
 
@@ -10,6 +10,7 @@ import Layout from "../../src/components/layout";
 import BlogList from "../../src/components/blogList";
 import Spinner from "../../src/components/spinner";
 import PageTitle from "../../src/components/pageTitle";
+import PageContent from "../../src/components/pageContent";
 
 export async function getStaticProps() {
   const client = createClient(getClient());
@@ -52,14 +53,17 @@ export default function BlogPage({
           <meta name="description" content="Blog Page: Blog for fun viajeros" />
           <link rel="icon" href="/favicon.ico" />
         </Head>
-        <section className="lg:w-4/6 mx-auto md:mt-0 flex flex-col text-gray-600 body-font relative items-center h-full px-0 md:p-10">
+
+        {/* Page Content */}
+        <PageContent>
           <PageTitle>VBlog</PageTitle>
-          <div className="container px-5 py-24 max-w-none">
+          <div className="container py-24 md:py-14 max-w-none">
             <div className="flex flex-col items-center w-full">
               <BlogList blogs={blogs} />
             </div>
           </div>
-        </section>
+        </PageContent> 
+        {/* end Page Content */}
       </Layout>
     );
 }

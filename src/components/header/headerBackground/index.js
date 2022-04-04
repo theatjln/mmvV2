@@ -22,7 +22,7 @@ export default function HeaderBackground({ bgVidSrc, uploadedBgVideo }) {
 
   return ( 
     <div className={style}>
-      <VisitsCounter />
+      
       <Video videoSource={videoSource} uploadedBgVideo={uploadedBgVideo} />
       <PolygonComponent color="shape-fill-white" position="bottom" />
     </div>

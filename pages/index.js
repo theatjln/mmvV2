@@ -2,6 +2,7 @@
 import Head from "next/head";
 import { createClient } from "contentful";
 import { useRouter } from "next/router";
+import { useState } from "react";
 
 // helpers
 import { getClient, getData } from "../src/helpers/client";
@@ -14,6 +15,8 @@ import Banner from "../src/components/banner";
 import Reviews from "../src/components/reviews";
 import Spinner from "../src/components/spinner";
 import Wrapper from "../src/components/wrapper";
+import Button from "../src/components/button";
+import Overlay from "../src/components/overlay";
 
 const dummyImages = [
   {
@@ -54,12 +57,11 @@ export default function Home({
 }) {
   const audioSrc = `https:${audio.fields.src.fields.file.url}`;
   const bgVideo = `https:${homepageData.videoUploadBackground.fields.file.url}`;
-  const router = useRouter(); 
- 
+  const router = useRouter();
 
   const photoGalleryUploads = homepageData.photoGalleryUploads.map((data) => {
     return { imgSrc: `https:${data.fields.file.url}` };
-  }); 
+  });
 
   const featuredVblogGalleryUploads =
     homepageData.featuredBlogGalleryUploads.map((data) => {
@@ -69,6 +71,14 @@ export default function Home({
   const videoGalleryUploads = homepageData.videoGalleryUploads.map((data) => {
     return { vidSrc: `https:${data.fields.file.url}` };
   });
+
+  /* modal state */
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const handleModalOpen = () => {
+    setIsModalOpen(!isModalOpen);
+  }
+  /* end modal state */
 
   /* conditional spinner */
   if (!homepageData || !bloggerDetails || !aboutpageData || !audio)
@@ -88,6 +98,8 @@ export default function Home({
         videoGalleryUploads={videoGalleryUploads || dummyVideos}
         heading={homepageData.heading}
         subheading={homepageData.subheading}
+        isModalOpen={isModalOpen}
+        handleModalOpen={handleModalOpen}
       >
         <Head>
           <title>Home - Markus Markus Viajero</title>
@@ -101,7 +113,15 @@ export default function Home({
         />
         <AboutExcerpt {...bloggerDetails} {...aboutpageData} />
         <Cta />
-        {/*    <Reviews /> */}
+        <Reviews />
+
+        <Wrapper
+          style={`button-wrapper w-screen -mt-20 mb-20 flex justify-end container px-5 py-24 lg:px-20 mx-auto`}
+        >
+          <Button style="" onClick={handleModalOpen}>
+            Write Testimonial
+          </Button>
+        </Wrapper>
       </Layout>
     );
 }

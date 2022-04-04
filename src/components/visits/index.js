@@ -16,7 +16,7 @@ const VisitsCounter = () => {
     "$1,",
   ); 
 
-  const wrapperStyle = `visits-wrapper flex flex-col text-center text-black text-xs absolute bg-white p-2 rounded-lg ml-2 z-10 ${router.pathname !== `/contact` ? `bottom-0` : `bottom-72`} lg:top-14 right-1 md:right-5 h-fit`;
+  const wrapperStyle = `visits-wrapper flex flex-col text-center text-black text-xs bg-white px-8 rounded-lg ml-2 z-10 lg:top-14 right-1 md:right-5 h-fit font-bold my-4 md:my-0`;
 
   useEffect(() => {
     countapi.visits("global").then((result) => {
@@ -26,7 +26,7 @@ const VisitsCounter = () => {
 
   return (
     <div className={wrapperStyle}>
-      <p className="font-normal text-md">{formattedVisitsCount}</p>
+      <p className="text-md">{formattedVisitsCount}</p>
       <p>visits</p>
     </div>
   );
