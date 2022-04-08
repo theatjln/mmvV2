@@ -16,6 +16,7 @@
     "contentful": "^9.1.18",
     "contentful-management": "^8.2.2",
     "countapi-js": "^1.0.2",
+    "disqus-react": "^1.1.2",
     "next": "12.1.0",
     "nodemailer": "^6.7.3",
     "react": "17.0.2",

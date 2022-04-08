@@ -13,6 +13,7 @@ import RichtextRenderer from "../../src/components/richtextRenderer";
 import Hr from "../../src/components/shapes/hr";
 import Wrapper from "../../src/components/wrapper";
 import PageContent from "../../src/components/pageContent";
+import Comments from "../../src/components/disqusComments";
 
 const dummyImages = [
   {
@@ -70,6 +71,11 @@ export default function BlogDetailsPage({
   const blogImages = images.map((data) => {
     return { imgSrc: `https:${data.fields.file.url}` };
   });
+  const post = {
+    id: blog.sys.id,
+    slug: blog.fields.slug,
+    title: blog.fields.title,
+  };
 
   /* conditional spinner */
   if (!homepageData || !blog || !bloggerDetails || !audio || !body)
@@ -146,9 +152,10 @@ export default function BlogDetailsPage({
             />
           </Wrapper>
 
-          <Wrapper style="mb-10 flex w-full bg-white rounded-lg md:p-5">
-            <div className="">Comments Section here</div>
-          </Wrapper>
+          {/* <Wrapper style="mb-10 flex w-full bg-white rounded-lg md:p-5"> */}
+          {/* <div className="">Comments Section here</div> */}
+          <Comments post={post} />
+          {/* </Wrapper> */}
         </PageContent>
       </Layout>
     );
