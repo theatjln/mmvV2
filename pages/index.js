@@ -58,9 +58,7 @@ export default function Home({
 }) {
   const audioSrc = `https:${audio.fields.src.fields.file.url}`;
   const bgVideo = `https:${homepageData.videoUploadBackground.fields.file.url}`;
-  const displayedTestimonials = testimonials.filter(
-    (testimonial) => testimonial.fields.willDisplay,
-  );
+
   const router = useRouter();
 
   const photoGalleryUploads = homepageData.photoGalleryUploads.map((data) => {
@@ -117,7 +115,7 @@ export default function Home({
         />
         <AboutExcerpt {...bloggerDetails} {...aboutpageData} />
         <Cta />
-        <Testimonials testimonials={displayedTestimonials} />
+        <Testimonials testimonials={testimonials} />
 
         <Wrapper style="lg:w-4/6 mx-auto md:mt-0 flex flex-col text-gray-600 body-font relative items-end h-full px-5 md:px-10 text-base">
           <Button style="mt-5 md:mt-0" onClick={handleModalOpen}>

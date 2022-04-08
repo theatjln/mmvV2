@@ -25,7 +25,7 @@ export default function WritetestimonialForm({ handleModalOpen }) {
       .then(() =>
         setFormStatus({
           message:
-            "Success! Your testimonial will be posted once approved. Thank you!",
+            "Success! Your testimonial will be published once approved. Thank you!",
           status: "success",
         }),
       )

@@ -4,8 +4,6 @@ export default async function handler(req, res) {
   let env = await Connect();
 
   if (req.method === "POST") {
-    console.log(`POST: ${JSON.stringify(req.body)}`);
-
     const { message, name, email, work } = req.body;
     const messageField = { message: { "en-US": message } };
     const usernameField = { username: { "en-US": name } };
@@ -27,7 +25,6 @@ export default async function handler(req, res) {
           ...createdAtField,
         },
       })
-      .then((entry) => entry.publish())
       .catch(console.error);
 
     res.status(201).json({
