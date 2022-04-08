@@ -1,0 +1,17 @@
+TODO 1: setup tailwindcss in this project identical to markus2022
+  TODO 1.1 Make refragment your code, make it non-complicated
+
+TODO 2: create backend API for each models in contentful
+  TODO 2.1: homepage Rest API 
+    TODO 2.1.1: homepage-layout Rest API  
+    TODO 2.1.2: homepage-banner Rest API 
+    TODO 2.1.3: homepage-aboutExcerpt Rest API 
+    TODO 2.1.4: homepage-testimonials Rest API  (p1)
+  TODO 2.2: blog-post REST API
+    TODO 2.2.1: --blog-post (list) REST API
+    TODO 2.2.2: --blog-post-slug REST API
+    TODO 2.2.3: --blog-post comments REST API
+
+TODO 3: Refactor code, espcially UI components architecture
+
+

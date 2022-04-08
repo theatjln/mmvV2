@@ -16,7 +16,7 @@ export default function RichtextRenderer({ children }) {
 
   const P = ({ children }) => (
     <>
-      <p className="text-sm md:text-base">{children}</p>
+      <p className="">{children}</p>
       <br />
     </>
   ); 

@@ -24,7 +24,8 @@ export default function Comments({ currentUserId }) {
 
   const addComment = (text, parentId = null) => {
     console.log(`addComment: ${text}, ${parentId}`);
-    createCommentApi(text, parentId).then((comment) => {
+    createCommentApi
+    (text, parentId).then((comment) => {
       setBackendComments([comment, ...backendComments]);
       setActiveComment(null);
     });
@@ -55,7 +56,7 @@ export default function Comments({ currentUserId }) {
       setBackendComments(updatedBackendComments);
       setActiveComment(null);
     });
-  };
+  }; 
 
   useEffect(() => {
     getCommentsApi().then((comments) => {

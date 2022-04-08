@@ -66,4 +66,4 @@ export default function BlogPage({
         {/* end Page Content */}
       </Layout>
     );
-}
+} 

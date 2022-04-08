@@ -19,7 +19,7 @@ export default function CommentList({
         (a, b) =>
           new Date(a.createdAt).getTime() - new Date(b.createdAt).getTime(),
       );
-
+ 
   return (
     <>
       <div className="comments w-full mt-5 ml-5">
@@ -40,22 +40,7 @@ export default function CommentList({
             );
           })}
         </div>
-      </div>
-
-     {/*  <style>{`
-          .comments {
-            margin-top: 20px;
-          }
-
-          .comments-title {
-            font-size: 30px;
-            margin-bottom: 20px;
-          }
-
-          .comments-container {
-            margin-top: 40px;
-          }
-      `}</style> */}
+      </div> 
     </>
   );
 }

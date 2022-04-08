@@ -1,11 +1,10 @@
-import { useState } from "react";
-
+import { useState } from "react"; 
 export default function CommentForm({
   handleSubmit,
   submitLabel,
   hasCancelButton = false,
   initialText = "",
-  handleCancel,
+  handleCancel, 
 }) {
   const [text, setText] = useState(initialText);
   const isTextareaDisabled = text.length === 0;
@@ -13,20 +12,21 @@ export default function CommentForm({
     event.preventDefault();
     handleSubmit(text);
     setText("");
-  };
+  }; 
   return (
     <div className="max-w-lg rounded-lg shadow-md shadow-blue-600/50">
       <form action="" className="w-full p-4" onSubmit={onSubmit}>
         <div className="mb-2">
-          {/*      <label htmlFor="comment" className="text-lg text-gray-600">
-            Add a comment
-          </label> */}
           <textarea
             className="comment-form-textarea w-full h-20 p-2 border rounded focus:outline-none focus:ring-gray-300 focus:ring-1"
             name="comment"
             placeholder=""
             value={text}
             onChange={(event) => setText(event.target.value)}
+            /* for comments nextjs api */
+            id="comment"
+            ref={commentInputRef}
+            /* end for comments nextjs api */
           ></textarea>
         </div>
         <div>
@@ -49,7 +49,7 @@ export default function CommentForm({
         </div>
       </form>
 
-     {/*  <style>{`
+      {/*  <style>{`
         .comment-form-button {
           font-size: 16px;
           padding: 8px 16px;

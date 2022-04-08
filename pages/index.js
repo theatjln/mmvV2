@@ -11,12 +11,11 @@ import { getClient, getData } from "../src/helpers/client";
 import Layout from "../src/components/layout";
 import Cta from "../src/components/cta";
 import AboutExcerpt from "../src/components/aboutExcerpt";
-import Banner from "../src/components/banner";
-import Reviews from "../src/components/reviews";
+import Testimonials from "../src/components/testimonials";
 import Spinner from "../src/components/spinner";
 import Wrapper from "../src/components/wrapper";
 import Button from "../src/components/button";
-import Overlay from "../src/components/overlay";
+import PageContent from "../src/components/pageContent";
 
 const dummyImages = [
   {
@@ -45,6 +44,7 @@ export async function getStaticProps() {
       bloggerDetails: await getData(client, "bloggerDetails"),
       aboutpageData: await getData(client, "aboutpage"),
       audio: await getData(client, "audio"),
+      testimonials: await getData(client, "testimonial"),
     },
   };
 }
@@ -54,9 +54,13 @@ export default function Home({
   bloggerDetails,
   aboutpageData,
   audio,
+  testimonials,
 }) {
   const audioSrc = `https:${audio.fields.src.fields.file.url}`;
   const bgVideo = `https:${homepageData.videoUploadBackground.fields.file.url}`;
+  const displayedTestimonials = testimonials.filter(
+    (testimonial) => testimonial.fields.willDisplay,
+  );
   const router = useRouter();
 
   const photoGalleryUploads = homepageData.photoGalleryUploads.map((data) => {
@@ -77,7 +81,7 @@ export default function Home({
 
   const handleModalOpen = () => {
     setIsModalOpen(!isModalOpen);
-  }
+  };
   /* end modal state */
 
   /* conditional spinner */
@@ -113,12 +117,10 @@ export default function Home({
         />
         <AboutExcerpt {...bloggerDetails} {...aboutpageData} />
         <Cta />
-        <Reviews />
+        <Testimonials testimonials={displayedTestimonials} />
 
-        <Wrapper
-          style={`button-wrapper w-screen -mt-20 mb-20 flex justify-end container px-5 py-24 lg:px-20 mx-auto`}
-        >
-          <Button style="" onClick={handleModalOpen}>
+        <Wrapper style="lg:w-4/6 mx-auto md:mt-0 flex flex-col text-gray-600 body-font relative items-end h-full px-5 md:px-10 text-base">
+          <Button style="mt-5 md:mt-0" onClick={handleModalOpen}>
             Write Testimonial
           </Button>
         </Wrapper>
