@@ -5,7 +5,7 @@ import SwiperCarousel from "../../carousel/swiper";
 import Wrapper from "../../wrapper";
 
 // for photo carousel
-const dummyImages = [ 
+const dummyImages = [
   {
     imgSrc: `https://images.pexels.com/photos/15286/pexels-photo.jpg?auto=compress&cs=tinysrgb&dpr=1&w=500`,
   },
@@ -16,10 +16,10 @@ const dummyImages = [
 
 export default function BannerCarouselImages() {
   return (
-    <Wrapper style={`p-6 rounded-xl bg-white shadow-lg h-full absolute`}>
+    <Wrapper style={`p-6 rounded-lg bg-white shadow-lg h-full absolute`}>
       <SwiperCarousel
         items={dummyImages}
-        imgClassName={`w-full h-full object-cover object-center max-w-none flex justify-self-center rounded-xl max-w-none-imp max-h-none-imp`}
+        imgClassName={`w-full h-full object-cover object-center max-w-none flex justify-self-center rounded-lg max-w-none-imp max-h-none-imp`}
       />
     </Wrapper>
   );

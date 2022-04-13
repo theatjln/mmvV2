@@ -25,7 +25,7 @@ export default function Cta() {
           <h1 className="sm:text-4xl text-3xl font-medium title-font mb-4">
             Want product news and updates?
           </h1>
-          <p className="lg:w-2/3 mx-auto leading-relaxed text-base">
+          <p className="lg:w-2/3 mx-auto leading-relaxed text-base text-indigo-600">
             {`Sign up to our newsletter to stay up to date.`}
           </p>
         </div>

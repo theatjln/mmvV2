@@ -57,8 +57,8 @@ export default function BlogPage({
         {/* Page Content */}
         <PageContent>
           <PageTitle>VBlog</PageTitle>
-          <div className="container py-24 md:py-14 max-w-none">
-            <div className="flex flex-col items-center w-full">
+          <div className="container pb-24 md:pb-14 max-w-none">
+            <div className="flex flex-col w-full">
               <BlogList blogs={blogs} />
             </div>
           </div>

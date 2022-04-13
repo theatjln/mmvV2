@@ -93,9 +93,9 @@ export default function Contact({ homepageData, bloggerDetails, audio }) {
         {/* Page Content */}
         <PageContent>
           <PageTitle>Contact</PageTitle>
-          <div className="container py-24 mx-auto">
+          <div className="container pt-10 md:pt-0 pb-24 mx-auto">
             <div className="flex flex-col text-center w-full mb-12">
-              <h1 className="sm:text-3xl text-2xl font-medium title-font mb-4 text-white">
+              <h1 className="sm:text-3xl text-2xl font-medium title-font mb-4 text-white text-shadow-md">
                 Contact Us
               </h1>
               {/* FORM RESPONSE MESSAGE */}
@@ -103,7 +103,7 @@ export default function Contact({ homepageData, bloggerDetails, audio }) {
               {responseAlert.message.length > 0 && (
                 <Alert responseAlert={responseAlert} />
               )}
-              <p className="lg:w-2/3 mx-auto leading-relaxed text-base text-white">
+              <p className="lg:w-2/3 mx-auto leading-relaxed text-base text-indigo-300 text-shadow-md">
                 Please fill out this form and we will contact you within 24
                 hours.
               </p>
@@ -117,12 +117,12 @@ export default function Contact({ homepageData, bloggerDetails, audio }) {
                 >
                   <div className="p-2 w-full md:w-1/2">
                     <div className="relative">
-                      <label
+                      {/*   <label
                         htmlFor="fullName"
                         className="leading-7 text-sm text-white text-shadow-xl"
                       >
                         Name
-                      </label>
+                      </label> */}
                       <input
                         {...register("fullName", {
                           required: {
@@ -133,18 +133,19 @@ export default function Contact({ homepageData, bloggerDetails, audio }) {
                         type="text"
                         id="name"
                         name="fullName"
-                        className="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
+                        placeholder="Name"
+                        className="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out placeholder-indigo-700 placeholder-opacity-60 font-medium"
                       />
                     </div>
                   </div>
                   <div className="p-2 w-full md:w-1/2">
                     <div className="relative">
-                      <label
+                      {/*  <label
                         htmlFor="email"
                         className="leading-7 text-sm text-white text-shadow-xl"
                       >
                         Email
-                      </label>
+                      </label> */}
                       <input
                         {...register("email", {
                           required: {
@@ -167,18 +168,19 @@ export default function Contact({ homepageData, bloggerDetails, audio }) {
                         type="email"
                         id="email"
                         name="email"
-                        className="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
+                        placeholder="Email"
+                        className="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out placeholder-indigo-700 placeholder-opacity-60 font-medium"
                       />
                     </div>
                   </div>
                   <div className="p-2 w-full">
                     <div className="relative">
-                      <label
+                      {/*   <label
                         htmlFor="message"
                         className="leading-7 text-sm text-white text-shadow-xl"
                       >
                         Message
-                      </label>
+                      </label> */}
                       <textarea
                         {...register("message", {
                           required: {
@@ -193,7 +195,8 @@ export default function Contact({ homepageData, bloggerDetails, audio }) {
                         })}
                         id="message"
                         name="message"
-                        className="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 h-32 text-base outline-none text-gray-700 py-1 px-3 resize-none leading-6 transition-colors duration-200 ease-in-out"
+                        placeholder="Message"
+                        className="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 h-32 text-base outline-none text-gray-700 py-1 px-3 resize-none leading-6 transition-colors duration-200 ease-in-out placeholder-indigo-700 placeholder-opacity-60 font-medium"
                       ></textarea>
                     </div>
                   </div>

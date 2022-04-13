@@ -58,6 +58,7 @@ export default function Home({
 }) {
   const audioSrc = `https:${audio.fields.src.fields.file.url}`;
   const bgVideo = `https:${homepageData.videoUploadBackground.fields.file.url}`;
+  const bgFallbackImg = `https:${homepageData.fallbackImageBackground.fields.file.url}`;
 
   const router = useRouter();
 
@@ -95,6 +96,7 @@ export default function Home({
         bloggerDetails={bloggerDetails}
         audioSrc={audioSrc}
         uploadedBgVideo={bgVideo}
+        fallbackBgImg={bgFallbackImg}
         photoGalleryUploads={photoGalleryUploads || dummyImages}
         featuredVblogGalleryUploads={featuredVblogGalleryUploads || dummyVideos}
         videoGalleryUploads={videoGalleryUploads || dummyVideos}

@@ -15,6 +15,7 @@ import "swiper/css/autoplay";
 // import required Swiper modules
 import { EffectFade, Autoplay } from "swiper";
 import Overlay from "../../overlay";
+import Wrapper from "../../wrapper";
 // end import required Swiper modules
 
 export default function SwiperCarousel({
@@ -26,19 +27,19 @@ export default function SwiperCarousel({
 }) {
   const router = useRouter();
 
-  const swiperSlidesImg = items.map((item) => { 
+  const swiperSlidesImg = items.map((item) => {
     return (
       <SwiperSlide className="absolute w-full h-full" key={uniqid()}>
         <Image
           src={item.imgSrc}
-          className={`w-full h-full object-cover object-center flex justify-self-center rounded-xl`}
+          className={`w-full h-full object-cover object-center flex justify-self-center rounded-lg`}
           layout="fill"
           alt="media-carousel"
         />
         <Overlay
           style={`absolute text-white text-xs leading-relaxed tracking-widest ml-3 mt-3`}
-        >
-          {label}
+        > 
+           
         </Overlay>
       </SwiperSlide>
     );
@@ -70,7 +71,7 @@ export default function SwiperCarousel({
   return (
     <>
       <Swiper
-        className="absolute w-full h-full rounded-xl"
+        className="absolute w-full h-full rounded-lg"
         effect={"fade"}
         modules={[EffectFade, Autoplay]}
         autoplay={{

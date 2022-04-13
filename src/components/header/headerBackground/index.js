@@ -3,11 +3,7 @@ import { useRouter } from "next/router";
 
 // components
 import PolygonComponent from "../../polygonComponent";
-import Video from "../../video";
-import VisitsCounter from "../../visits";
-
-const fallbackVidSrc =
-  "https://player.vimeo.com/external/384761655.sd.mp4?s=383ab4dbc773cd0d5ece3af208d8f963368f67e4&profile_id=165&oauth2_token_id=57447761";
+import Video from "../../video"; 
 
 const getHeight = (path) => {
   if (path === "/") return "md:h-4/5";
@@ -15,15 +11,12 @@ const getHeight = (path) => {
   else return "md:h-2/3";
 };
 
-export default function HeaderBackground({ bgVidSrc, uploadedBgVideo }) {
-  const style = `video-and-polygon header-background w-full h-81% absolute container-fluid bg-indigo-200 overflow-hidden`; 
+export default function HeaderBackground({ uploadedBgVideo, fallbackBgImg }) {
+  const style = `video-and-polygon header-background w-full h-81% absolute container-fluid overflow-hidden`;
 
-  const videoSource = bgVidSrc || fallbackVidSrc;
-
-  return ( 
+  return (
     <div className={style}>
-      
-      <Video videoSource={videoSource} uploadedBgVideo={uploadedBgVideo} />
+      <Video uploadedBgVideo={uploadedBgVideo} fallbackBgImg={fallbackBgImg} />
       <PolygonComponent color="shape-fill-white" position="bottom" />
     </div>
   );

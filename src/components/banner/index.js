@@ -7,7 +7,7 @@ import BannerCarouselImages from "./bannerCarouselImages";
 import BannerCaption from "./bannerCaption";
 import Wrapper from "../wrapper";
 import SwiperCarousel from "../carousel/swiper";
-import Overlay from "../overlay";
+import Button from "../button/index";
 
 const dummyImages = [
   {
@@ -35,20 +35,25 @@ export default function Banner({
   videoGalleryUploads,
 }) {
   const style = `banner relative w-screen w-screen h-200% md:h-screen flex flex-col items-center justify-between px-5 md:px-20 md:pt-16`;
- 
+
   return (
     <section className={style}>
       {/* banner caption */}
       <Wrapper
-        style={`banner-caption justify-evenly md:items-center relative flex flex-col w-full md:h-3/5 text-center items-between pt-24 md:py-8 h-37r md:px-0 fold:px-0 xs:px-5 mb-16 md:mb-0`}
+        style={`banner-caption justify-evenly md:items-center relative flex flex-col w-full md:h-3/5 text-center items-between pt-24 md:py-8 h-37r md:px-0 fold:px-0 xs:px-5 mb-6 md:mb-0`}
       >
         <BannerCaption heading={heading} subheading={subheading} />
       </Wrapper>
       {/* end banner caption */}
+      <Link href="/#aboutExcerpt" passHref>
+        <button className="flex text-white mx-auto mb-8 animate-bounce">
+          <i className="fa fa-2x fa-angle-double-down hover:scale-125 "></i>
+        </button>
+      </Link>
 
-      <Link href={`/blog`} passHref>
-        <Wrapper
-          style={`banner-carousels flex flex-col md:flex-row w-full h-auto md:h-2/5 justify-center items-end relative hover:cursor-pointer`}
+      <Link href="/blog" passHref>
+        <a
+          className={`banner-carousels flex flex-col md:flex-row w-full h-auto md:h-2/5 justify-center items-end relative hover:cursor-pointer`}
         >
           {/* banner carousels */}
           {/* carousel images */}
@@ -56,9 +61,9 @@ export default function Banner({
             style={`md:absolute w-full md:w-30% h-52 my-2 md:my-0 md:h-5/6 md:left-0 md:pr-6`}
           >
             <Wrapper
-              style={`w-full h-full p-6 bg-white rounded-xl shadow-2xl overflow-hidden`}
+              style={`w-full h-full p-6 bg-white rounded-lg shadow-2xl overflow-hidden`}
             >
-              <SwiperCarousel 
+              <SwiperCarousel
                 items={photoGalleryUploads}
                 isImg={true}
                 label={`Adventure Photos`}
@@ -69,7 +74,7 @@ export default function Banner({
 
           {/* blog carousel vids */}
           <Wrapper
-            style={`w-full md:w-2/5 h-52 md:h-110% my-2 md:my-0 self-start p-6 bg-white md:py-0 md:px-1 rounded-xl shadow-2xl`}
+            style={`w-full md:w-2/5 h-52 md:h-110% my-2 md:my-0 self-start p-6 bg-white md:py-0 md:px-1 rounded-lg shadow-2xl`}
           >
             <Wrapper style={`w-full h-full md:p-6 overflow-hidden`}>
               <SwiperCarousel
@@ -88,7 +93,7 @@ export default function Banner({
           >
             {/*  <BannerCarouselVid isAds={false} /> */}
             <Wrapper
-              style={`w-full h-full p-6 bg-white rounded-xl shadow-2xl overflow-hidden`}
+              style={`w-full h-full p-6 bg-white rounded-lg shadow-2xl overflow-hidden`}
             >
               <SwiperCarousel
                 isImg={false}
@@ -99,7 +104,7 @@ export default function Banner({
             </Wrapper>
           </Wrapper>
           {/* end ads carousel */}
-        </Wrapper>
+        </a>
       </Link>
       {/* end banner carousels */}
     </section>

@@ -5,7 +5,7 @@ import SwiperCarousel from "../../carousel/swiper";
 import Wrapper from "../../wrapper";
 
 const dummyVideos = [
-  { 
+  {
     vidSrc: `https://player.vimeo.com/external/384761655.sd.mp4?s=383ab4dbc773cd0d5ece3af208d8f963368f67e4&profile_id=165&oauth2_token_id=57447761`,
   },
   {
@@ -15,7 +15,7 @@ const dummyVideos = [
 
 export default function BannerCarouselVid({ div1className, ads }) {
   return (
-    <Wrapper style={`p-6 rounded-xl bg-white shadow-lg h-full absolute`}>
+    <Wrapper style={`p-6 rounded-lg bg-white shadow-lg h-full absolute`}>
       <SwiperCarousel
         items={dummyVideos}
         vidClassName={`rounded-lg w-full h-full max-w-none flex justify-self-center ${

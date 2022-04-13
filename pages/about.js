@@ -64,18 +64,20 @@ export default function About({
         {/* Page Content */}
         {/* blog details content wrapper */}
         <PageContent>
+          <PageTitle>About</PageTitle>
           {/* youtube vid wrapper */}
-          <div className="youtube-vid-wrapper rounded-lg overflow-hidden h-40 w-40 lg:w-60 my-10 mt-16 flex justify-center">
-            <Image
-              alt="profile"
-              src={`https:${profilePicture.fields.file.url}`}
-              height={320}
-              width={320}
-              className="object-cover object-center rounded-full shadow-xl"
-            />
+          <div className="profile-pic-wrapper rounded-lg h-40 md:h-52 w-40 md:w-52 flex mt-5 md:mt-0 mb-10">
+            <div className="h-full w-full relative">
+              <Image
+                alt="profile"
+                src={`https:${profilePicture.fields.file.url}`}
+                layout="fill"
+                className="object-cover object-center rounded-full shadow-xl h-40 w-40"
+              />
+            </div>
           </div>
           {/* end youtube vid wrapper */}
-          <PageTitle>About</PageTitle>
+
           {/* blog text & content wrapper */}
           <div className="about-text-wrapper flex flex-col bg-white rounded-lg mb-10">
             {/* left side of card */}
@@ -87,7 +89,7 @@ export default function About({
 
               <p className="font-display">
                 Interest:
-                <h2 className="mt-4 text-gray-900 text-lg">
+                <h2 className="mt-4 text-gray-900 text-sm">
                   {interests.map((interest) => interest + ", ")}
                 </h2>
               </p>
@@ -108,7 +110,7 @@ export default function About({
             {/* end left side of card */}
 
             {/* right side of card */}
-            <div className="blog-content-wrapper mt-12 sm:pl-8 border-gray-200 flex justify-center items-center">
+            <div className="blog-content-wrapper mt-5 sm:pl-8 border-gray-200 flex justify-center items-center">
               {/* <p className="leading-relaxed text-lg mb-4">
                  {aboutpageEssay}
               </p> */}

@@ -6,8 +6,8 @@ import HeaderBackground from "../header/headerBackground";
 import Banner from "../banner";
 
 export default function Header({
-  bgVidSrc,
   uploadedBgVideo,
+  fallbackBgImg,
   photoGalleryUploads,
   featuredVblogGalleryUploads,
   videoGalleryUploads,
@@ -18,10 +18,13 @@ export default function Header({
   const style = `header w-screen md:h-screen text-gray-600 body-font ${
     router.pathname === `/` ? `relative h-300%` : `absolute h-full`
   }`;
-
+ 
   return (
     <header className={style}>
-      <HeaderBackground bgVidSrc={bgVidSrc} uploadedBgVideo={uploadedBgVideo} />
+      <HeaderBackground
+        uploadedBgVideo={uploadedBgVideo}
+        fallbackBgImg={fallbackBgImg}
+      />
       {router.pathname === `/` && (
         <Banner
           heading={heading}

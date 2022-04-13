@@ -14,11 +14,11 @@ import Modal from "../modal";
 import WritetestimonialForm from "../../components/testimonials/writetestimonialForm/";
 
 export default function Layout({
-  children,
-  bgVidSrc,
+  children, 
   bloggerDetails,
   audioSrc,
   uploadedBgVideo,
+  fallbackBgImg,
   photoGalleryUploads,
   featuredVblogGalleryUploads,
   videoGalleryUploads,
@@ -36,9 +36,7 @@ export default function Layout({
         <Wrapper style="page-overlay-wrapper fixed flex items-center justify-center w-full h-full z-50">
           <Modal>
             {router.pathname === "/" && (
-              <WritetestimonialForm
-                handleModalOpen={handleModalOpen} 
-              />
+              <WritetestimonialForm handleModalOpen={handleModalOpen} />
             )}
           </Modal>
           <Overlay
@@ -74,8 +72,8 @@ export default function Layout({
         <Nav audioSrc={audioSrc} />
         <Header
           audioSrc={audioSrc}
-          bgVidSrc={bgVidSrc}
           uploadedBgVideo={uploadedBgVideo}
+          fallbackBgImg={fallbackBgImg}
           photoGalleryUploads={photoGalleryUploads}
           featuredVblogGalleryUploads={featuredVblogGalleryUploads}
           videoGalleryUploads={videoGalleryUploads}
