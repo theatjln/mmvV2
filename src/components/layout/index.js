@@ -81,7 +81,7 @@ export default function Layout({
           subheading={subheading}
         />
         <main className="w-screen">{children}</main>
-        <Footer {...bloggerDetails} />
+        <Footer {...bloggerDetails} /> 
       </div>
     </>
   );

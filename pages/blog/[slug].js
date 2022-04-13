@@ -76,6 +76,7 @@ export default function BlogDetailsPage({
     slug: blog.fields.slug,
     title: blog.fields.title,
   };
+    const bgFallbackImg = `https:${homepageData.fallbackImageBackground.fields.file.url}`;
 
   /* conditional spinner */
   if (!homepageData || !blog || !bloggerDetails || !audio || !body)
@@ -91,6 +92,7 @@ export default function BlogDetailsPage({
         bloggerDetails={bloggerDetails}
         audioSrc={audioSrc}
         uploadedBgVideo={bgVideo}
+        fallbackBgImg={bgFallbackImg}
       >
         <Head>
           <title>{title} - Markus Markus Viajero</title>

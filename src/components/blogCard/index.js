@@ -1,7 +1,7 @@
-import Link from "next/link"; 
+import Link from "next/link";
 
-export default function BlogCard(props) {
-  const { title, videoEmbedId, summary, slug } = props.fields;
+export default function BlogCard({ blog }) {
+  const { title, videoEmbedId, summary, slug } = blog;
   return (
     <Link href={`/blog/${slug}`} passHref>
       <a className="blog-card-wrapper py-4 hover:cursor-pointer">

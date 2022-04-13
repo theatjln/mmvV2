@@ -52,9 +52,9 @@ export default function AboutExcerpt(props) {
             <div className="w-12 h-1 bg-indigo-700 rounded mt-2 mb-4"></div>
             <p className="font-display text-sm">
               Interests:
-              <h2 className="mt-4 px-5 text-gray-900">
+              <p className="mt-4 px-5 text-gray-900">
                 {interests.map((interest) => interest + ", ")}
-              </h2>
+              </p>
             </p>
           </div>
         </div>

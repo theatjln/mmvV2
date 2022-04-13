@@ -14,7 +14,7 @@ export default function WritetestimonialForm({ handleModalOpen }) {
   const [formStatus, setFormStatus] = useState(null);
 
   async function onSubmit(data) {
-    console.log(data);
+    // console.log(data);
     await fetch("/api/testimonial", {
       method: "POST",
       body: JSON.stringify(data),

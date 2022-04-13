@@ -74,6 +74,7 @@ export default function Contact({ homepageData, bloggerDetails, audio }) {
   }
 
   const audioSrc = `https:${audio.fields.src.fields.file.url}`;
+  const bgFallbackImg = `https:${homepageData.fallbackImageBackground.fields.file.url}`; 
 
   /* conditional spinner */
   if (!homepageData || !bloggerDetails || !audio)
@@ -89,6 +90,7 @@ export default function Contact({ homepageData, bloggerDetails, audio }) {
         bloggerDetails={bloggerDetails}
         audioSrc={audioSrc}
         uploadedBgVideo={bgVideo}
+        fallbackBgImg={bgFallbackImg}
       >
         {/* Page Content */}
         <PageContent>

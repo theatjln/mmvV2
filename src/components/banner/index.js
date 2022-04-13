@@ -82,7 +82,7 @@ export default function Banner({
                 items={featuredVblogGalleryUploads}
                 isAds={false}
                 label={`Featured VBlogs`}
-              />
+              /> 
             </Wrapper>
           </Wrapper>
           {/* end blog carousel vids */}

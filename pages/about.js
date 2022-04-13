@@ -38,6 +38,7 @@ export default function About({
   const { essay } = aboutpageData;
   const bgVideo = `https:${homepageData.videoUploadBackground.fields.file.url}`;
   const audioSrc = `https:${audio.fields.src.fields.file.url}`;
+    const bgFallbackImg = `https:${homepageData.fallbackImageBackground.fields.file.url}`;
 
   if (!homepageData || !aboutpageData || !bloggerDetails || !audio || !essay)
     return (
@@ -52,6 +53,7 @@ export default function About({
         bloggerDetails={bloggerDetails}
         audioSrc={audioSrc}
         uploadedBgVideo={bgVideo}
+        fallbackBgImg={bgFallbackImg}
       >
         <Head>
           <title>About - Markus Markus Viajero</title>

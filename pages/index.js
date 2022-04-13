@@ -37,7 +37,7 @@ const dummyVideos = [
 
 export async function getStaticProps() {
   const client = createClient(getClient());
-
+ 
   return {
     props: {
       homepageData: await getData(client, "homepage"),
@@ -100,7 +100,7 @@ export default function Home({
         photoGalleryUploads={photoGalleryUploads || dummyImages}
         featuredVblogGalleryUploads={featuredVblogGalleryUploads || dummyVideos}
         videoGalleryUploads={videoGalleryUploads || dummyVideos}
-        heading={homepageData.heading}
+        heading={homepageData.heading} 
         subheading={homepageData.subheading}
         isModalOpen={isModalOpen}
         handleModalOpen={handleModalOpen}
