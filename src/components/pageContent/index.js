@@ -5,3 +5,4 @@ export default function PageContent({ children }) {
     {children}
   </section>
 }
+ 

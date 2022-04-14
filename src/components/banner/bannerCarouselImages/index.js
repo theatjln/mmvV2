@@ -16,7 +16,7 @@ const dummyImages = [
 
 export default function BannerCarouselImages() {
   return (
-    <Wrapper style={`p-6 rounded-lg bg-white shadow-lg h-full absolute`}>
+    <Wrapper style={`p-6 rounded-lg bg-white shadow-xl h-full absolute`}>
       <SwiperCarousel
         items={dummyImages}
         imgClassName={`w-full h-full object-cover object-center max-w-none flex justify-self-center rounded-lg max-w-none-imp max-h-none-imp`}

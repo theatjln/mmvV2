@@ -35,7 +35,7 @@ export default function AboutExcerpt(props) {
       <div className="flex flex-col sm:flex-row mt-24">
         <div className="sm:w-1/3 flex flex-col items-center md:text-center sm:pr-8 sm:py-8">
           <p className="text-indigo-700 text-sm text-left mb-5">Author</p>
-          <div className="w-40 h-40 rounded-full inline-flex items-center justify-center bg-gray-200 text-gray-400">
+          <div className="w-40 h-40 rounded-full inline-flex items-center justify-center bg-gray-200 text-gray-400 shadow-xl">
             {/* profilePicture.fields.file.url */}
             <Image
               alt="profile"

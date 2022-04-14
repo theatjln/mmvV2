@@ -14,7 +14,7 @@ import Modal from "../modal";
 import WritetestimonialForm from "../../components/testimonials/writetestimonialForm/";
 
 export default function Layout({
-  children, 
+  children,
   bloggerDetails,
   audioSrc,
   uploadedBgVideo,
@@ -26,6 +26,7 @@ export default function Layout({
   subheading,
   isModalOpen,
   handleModalOpen,
+  photoGalleryImages,
 }) {
   const style = `layout container-fluid text-base xl:text-lg w-screen`;
   const router = useRouter();
@@ -79,9 +80,10 @@ export default function Layout({
           videoGalleryUploads={videoGalleryUploads}
           heading={heading}
           subheading={subheading}
+          photoGalleryImages={photoGalleryImages}
         />
         <main className="w-screen">{children}</main>
-        <Footer {...bloggerDetails} /> 
+        <Footer {...bloggerDetails} />
       </div>
     </>
   );

@@ -6,6 +6,20 @@
 @import "~tailwindcss/components";
 @import "~tailwindcss/utilities";
 
+/* css resetting */
+// *,
+// *::before,
+// *::after {
+//   margin: 0;
+//   padding: 0;
+//   box-sizing: inherit;
+// }
+
+// body {
+//   box-sizing: border-box;
+// }
+/* end css resetting */
+
 @layer base {
   h1,
   h2,
@@ -52,7 +66,7 @@
   }
 
   blockquote {
-    @apply italic; 
+    @apply italic;
     @apply ml-5;
     @apply text-indigo-800;
   }

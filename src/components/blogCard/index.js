@@ -5,7 +5,7 @@ export default function BlogCard({ blog }) {
   return (
     <Link href={`/blog/${slug}`} passHref>
       <a className="blog-card-wrapper py-4 hover:cursor-pointer">
-        <div className="blog-card shadow-lg bg-gray-100 p-6 rounded-lg flex flex-col md:flex-row">
+        <div className="blog-card shadow-xl bg-gray-100 p-6 rounded-lg flex flex-col md:flex-row">
           <div className="flex xs:w-full md:w-1/2 md:mr-10">
             <iframe
               width="560"

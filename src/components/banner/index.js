@@ -8,6 +8,8 @@ import BannerCaption from "./bannerCaption";
 import Wrapper from "../wrapper";
 import SwiperCarousel from "../carousel/swiper";
 import Button from "../button/index";
+import BannerCarousels from "./bannerCarousels";
+import NewBannerCarousels from "../newBannerCarousels";
 
 const dummyImages = [
   {
@@ -33,8 +35,9 @@ export default function Banner({
   photoGalleryUploads,
   featuredVblogGalleryUploads,
   videoGalleryUploads,
+  photoGalleryImages
 }) {
-  const style = `banner relative w-screen w-screen h-200% md:h-screen flex flex-col items-center justify-between px-5 md:px-20 md:pt-16`;
+  const style = `banner relative w-screen h-200% lg:h-screen flex flex-col items-center justify-between px-5 md:px-20 md:pt-16`;
 
   return (
     <section className={style}>
@@ -45,68 +48,26 @@ export default function Banner({
         <BannerCaption heading={heading} subheading={subheading} />
       </Wrapper>
       {/* end banner caption */}
+
+      {/* scroll down button */}
       <Link href="/#aboutExcerpt" passHref>
         <button className="flex text-white mx-auto mb-8 animate-bounce">
           <i className="fa fa-2x fa-angle-double-down hover:scale-125 "></i>
         </button>
       </Link>
+      {/* end scroll down button */}
 
-      <Link href="/blog" passHref>
-        <a
-          className={`banner-carousels flex flex-col md:flex-row w-full h-auto md:h-2/5 justify-center items-end relative hover:cursor-pointer`}
-        >
-          {/* banner carousels */}
-          {/* carousel images */}
-          <Wrapper
-            style={`md:absolute w-full md:w-30% h-52 my-2 md:my-0 md:h-5/6 md:left-0 md:pr-6`}
-          >
-            <Wrapper
-              style={`w-full h-full p-6 bg-white rounded-lg shadow-2xl overflow-hidden`}
-            >
-              <SwiperCarousel
-                items={photoGalleryUploads}
-                isImg={true}
-                label={`Adventure Photos`}
-              />
-            </Wrapper>
-          </Wrapper>
-          {/* end carousel images */}
-
-          {/* blog carousel vids */}
-          <Wrapper
-            style={`w-full md:w-2/5 h-52 md:h-110% my-2 md:my-0 self-start p-6 bg-white md:py-0 md:px-1 rounded-lg shadow-2xl`}
-          >
-            <Wrapper style={`w-full h-full md:p-6 overflow-hidden`}>
-              <SwiperCarousel
-                isImg={false}
-                items={featuredVblogGalleryUploads}
-                isAds={false}
-                label={`Featured VBlogs`}
-              /> 
-            </Wrapper>
-          </Wrapper>
-          {/* end blog carousel vids */}
-
-          {/* ads carousel */}
-          <Wrapper
-            style={`md:absolute w-full md:w-30% h-52 md:h-5/6 my-2 md:my-0   md:right-0 md:pl-6`}
-          >
-            {/*  <BannerCarouselVid isAds={false} /> */}
-            <Wrapper
-              style={`w-full h-full p-6 bg-white rounded-lg shadow-2xl overflow-hidden`}
-            >
-              <SwiperCarousel
-                isImg={false}
-                items={videoGalleryUploads}
-                isAds={false}
-                label={`Videos`}
-              />
-            </Wrapper>
-          </Wrapper>
-          {/* end ads carousel */}
-        </a>
-      </Link>
+      {/* banner carousels */}
+      {/* <BannerCarousels
+        photoGalleryUploads={photoGalleryUploads} 
+        featuredVblogGalleryUploads={featuredVblogGalleryUploads}
+        videoGalleryUploads={videoGalleryUploads}
+      /> */}
       {/* end banner carousels */}
+ 
+      {/* new banner carousels */}
+      <NewBannerCarousels photoGalleryImages={photoGalleryImages} />
+      {/* end new banner carousels */}
     </section>
   );
 }

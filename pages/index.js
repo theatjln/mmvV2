@@ -14,8 +14,7 @@ import AboutExcerpt from "../src/components/aboutExcerpt";
 import Testimonials from "../src/components/testimonials";
 import Spinner from "../src/components/spinner";
 import Wrapper from "../src/components/wrapper";
-import Button from "../src/components/button";
-import PageContent from "../src/components/pageContent";
+import Button from "../src/components/button"; 
 
 const dummyImages = [
   {
@@ -45,6 +44,7 @@ export async function getStaticProps() {
       aboutpageData: await getData(client, "aboutpage"),
       audio: await getData(client, "audio"),
       testimonials: await getData(client, "testimonial"),
+      photoGalleryImages: await getData(client, "photoGalleryReference"),
     },
   };
 }
@@ -55,10 +55,11 @@ export default function Home({
   aboutpageData,
   audio,
   testimonials,
+  photoGalleryImages
 }) {
   const audioSrc = `https:${audio.fields.src.fields.file.url}`;
   const bgVideo = `https:${homepageData.videoUploadBackground.fields.file.url}`;
-  const bgFallbackImg = `https:${homepageData.fallbackImageBackground.fields.file.url}`;
+  const bgFallbackImg = `https:${homepageData.fallbackImageBackground.fields.file.url}`; 
 
   const router = useRouter();
 
@@ -100,10 +101,11 @@ export default function Home({
         photoGalleryUploads={photoGalleryUploads || dummyImages}
         featuredVblogGalleryUploads={featuredVblogGalleryUploads || dummyVideos}
         videoGalleryUploads={videoGalleryUploads || dummyVideos}
-        heading={homepageData.heading} 
+        heading={homepageData.heading}
         subheading={homepageData.subheading}
         isModalOpen={isModalOpen}
         handleModalOpen={handleModalOpen}
+        photoGalleryImages={photoGalleryImages}
       >
         <Head>
           <title>Home - Markus Markus Viajero</title>

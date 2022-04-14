@@ -13,12 +13,13 @@ export default function Header({
   videoGalleryUploads,
   heading,
   subheading,
+  photoGalleryImages,
 }) {
   const router = useRouter();
-  const style = `header w-screen md:h-screen text-gray-600 body-font ${
+  const style = `header w-screen lg:h-screeFn text-gray-600 body-font ${
     router.pathname === `/` ? `relative h-300%` : `absolute h-full`
   }`;
- 
+
   return (
     <header className={style}>
       <HeaderBackground
@@ -32,6 +33,7 @@ export default function Header({
           photoGalleryUploads={photoGalleryUploads}
           featuredVblogGalleryUploads={featuredVblogGalleryUploads}
           videoGalleryUploads={videoGalleryUploads}
+          photoGalleryImages={photoGalleryImages}
         />
       )}
     </header>

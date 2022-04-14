@@ -83,6 +83,7 @@ module.exports = {
         "150%": "150%",
         "160%": "160%",
         "200%": "200%",
+        "200%": "200%",
         "300%": "300%",
         "21rem": "21rem",
         "372px": "372px",
@@ -97,5 +98,10 @@ module.exports = {
     },
   },
   variants: {},
-  plugins: [require('tailwindcss-textshadow'), require("tailwindcss"), require("precss"), require("autoprefixer")],
+  plugins: [
+    require("tailwindcss-textshadow"),
+    require("tailwindcss"),
+    require("precss"),
+    require("autoprefixer"),
+  ],
 };

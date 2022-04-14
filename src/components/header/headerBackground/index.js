@@ -12,7 +12,7 @@ const getHeight = (path) => {
 };
 
 export default function HeaderBackground({ uploadedBgVideo, fallbackBgImg }) {
-  const style = `video-and-polygon header-background w-full h-81% absolute container-fluid overflow-hidden`;
+  const style = `video-and-polygon header-background w-full h-81% absolute container-fluid overflow-hidden -mt-1`;
 
   return (
     <div className={style}>

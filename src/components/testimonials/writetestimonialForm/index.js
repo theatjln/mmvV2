@@ -39,7 +39,7 @@ export default function WritetestimonialForm({ handleModalOpen }) {
 
     setTimeout(() => {
       handleModalOpen();
-    }, 3000);
+    }, 5000);
   }
 
   return (

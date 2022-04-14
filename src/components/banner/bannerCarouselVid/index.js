@@ -15,7 +15,7 @@ const dummyVideos = [
 
 export default function BannerCarouselVid({ div1className, ads }) {
   return (
-    <Wrapper style={`p-6 rounded-lg bg-white shadow-lg h-full absolute`}>
+    <Wrapper style={`p-6 rounded-lg bg-white shadow-xl h-full absolute`}>
       <SwiperCarousel
         items={dummyVideos}
         vidClassName={`rounded-lg w-full h-full max-w-none flex justify-self-center ${
